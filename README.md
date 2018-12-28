@@ -38,8 +38,8 @@ Version 1.0.
 * `TODO` Create Core Data layer to cache last results, so the user has some data even if offline.
 
 #### Art:
-* `TODO` Create App Icon.
-* `TODO` Create Splash Screen.
+* `DONE` ~Create App Icon.~
+* `DONE` ~Create Splash Screen.~
 
 ### Extra Features:
 
@@ -61,3 +61,5 @@ Since this project is a personal project created for education pruposes, no exte
 
 ## License
 The contents of this repository are covered under the [MIT License](LICENSE).
+
+The font used in this app is [Lato](http://www.latofonts.com/lato-free-fonts/) which is published using the open-source Open Font License.
