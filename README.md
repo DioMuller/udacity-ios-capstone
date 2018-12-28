@@ -37,6 +37,10 @@ Version 1.0.
 * `TODO` Create JSON (for user info) and XML (for game info) interpreter.
 * `TODO` Create Core Data layer to cache last results, so the user has some data even if offline.
 
+#### Art:
+* `TODO` Create App Icon.
+* `TODO` Create Splash Screen.
+
 ### Extra Features:
 
 * `TODO` Limit options depending on.
