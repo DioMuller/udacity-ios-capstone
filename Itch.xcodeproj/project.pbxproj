@@ -27,6 +27,9 @@
 		9837E50621D674BF00C96D89 /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9837E4F221D674BF00C96D89 /* Lato-Hairline.ttf */; };
 		9837E50721D674BF00C96D89 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9837E4F321D674BF00C96D89 /* Lato-Semibold.ttf */; };
 		9837E50821D674BF00C96D89 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9837E4F421D674BF00C96D89 /* README.txt */; };
+		98FA8E2521D7A83500F4AA43 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA8E2321D7A83500F4AA43 /* RoundedButton.swift */; };
+		98FA8E2621D7A83500F4AA43 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA8E2421D7A83500F4AA43 /* LoadingView.swift */; };
+		98FA8E2821D7A86500F4AA43 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98FA8E2721D7A86500F4AA43 /* LoadingView.xib */; };
 		98FF564721D659B300FAA221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FF564621D659B300FAA221 /* AppDelegate.swift */; };
 		98FF564921D659B300FAA221 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FF564821D659B300FAA221 /* LoginViewController.swift */; };
 		98FF564C21D659B300FAA221 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98FF564A21D659B300FAA221 /* Main.storyboard */; };
@@ -56,6 +59,9 @@
 		9837E4F221D674BF00C96D89 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
 		9837E4F321D674BF00C96D89 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		9837E4F421D674BF00C96D89 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		98FA8E2321D7A83500F4AA43 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		98FA8E2421D7A83500F4AA43 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		98FA8E2721D7A86500F4AA43 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		98FF564321D659B200FAA221 /* Itch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FF564621D659B300FAA221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98FF564821D659B300FAA221 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 		98FF565C21D65A6600FAA221 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				98FA8E2421D7A83500F4AA43 /* LoadingView.swift */,
+				98FA8E2321D7A83500F4AA43 /* RoundedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				98FF565221D659B500FAA221 /* LaunchScreen.storyboard */,
+				98FA8E2721D7A86500F4AA43 /* LoadingView.xib */,
 				98FF564A21D659B300FAA221 /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -274,6 +283,7 @@
 				9837E50821D674BF00C96D89 /* README.txt in Resources */,
 				9837E50121D674BF00C96D89 /* Lato-MediumItalic.ttf in Resources */,
 				9837E4F521D674BF00C96D89 /* Lato-Medium.ttf in Resources */,
+				98FA8E2821D7A86500F4AA43 /* LoadingView.xib in Resources */,
 				9837E50621D674BF00C96D89 /* Lato-Hairline.ttf in Resources */,
 				9837E50321D674BF00C96D89 /* Lato-Bold.ttf in Resources */,
 				9837E4FC21D674BF00C96D89 /* Lato-BoldItalic.ttf in Resources */,
@@ -301,6 +311,8 @@
 				98FF564921D659B300FAA221 /* LoginViewController.swift in Sources */,
 				98FF564721D659B300FAA221 /* AppDelegate.swift in Sources */,
 				98FF564F21D659B300FAA221 /* Itch.xcdatamodeld in Sources */,
+				98FA8E2621D7A83500F4AA43 /* LoadingView.swift in Sources */,
+				98FA8E2521D7A83500F4AA43 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
