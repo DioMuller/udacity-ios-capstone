@@ -6,6 +6,7 @@ This is the repository for my final project for [Udacity's iOS Developer Nanodeg
 Itch is a client for itch.io on iOS.
 
 ## Environment
+
 Since technology is ever evolving, and Apple updates it's development environment yearly, deprecating features and updating languages fast, I cannot guarantee for how long this code will continue working. This app was created with the following environment in mind:
 
 * OSX Mojave
@@ -15,7 +16,15 @@ Since technology is ever evolving, and Apple updates it's development environmen
 
 While backwards compatibility and automatic conversion may work for future versions, there may be errors and inconsistencies.
 
-## To Do
+### Cocoa Pods
+
+This project uses [CocoaPods](https://cocoapods.org/) for it's dependencies. To initalize the project you should first install CocoaPods and then initialize the dependencies by running
+
+> pod install
+
+After that, open the project using the Itch.xcworkspace created by CocoaPods.
+
+## Task List
 
 Version 1.0.
 

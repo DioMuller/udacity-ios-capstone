@@ -41,9 +41,11 @@
 		98FF564F21D659B300FAA221 /* Itch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98FF564D21D659B300FAA221 /* Itch.xcdatamodeld */; };
 		98FF565121D659B500FAA221 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98FF565021D659B500FAA221 /* Assets.xcassets */; };
 		98FF565421D659B500FAA221 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98FF565221D659B500FAA221 /* LaunchScreen.storyboard */; };
+		F5806F4E13C1BA02256451E3 /* Pods_Itch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D91E70617F7E65B2CC28C7C1 /* Pods_Itch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56899FD2FA4197EF4B742C0F /* Pods-Itch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Itch/Pods-Itch.release.xcconfig"; sourceTree = "<group>"; };
 		98046DE421D8EC260090D1E0 /* HttpResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResult.swift; sourceTree = "<group>"; };
 		98046DE521D8EC260090D1E0 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		98046DE621D8EC270090D1E0 /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		98FF565021D659B500FAA221 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98FF565321D659B500FAA221 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98FF565521D659B500FAA221 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B04B2DDE4C0F817671F302F /* Pods-Itch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Itch/Pods-Itch.debug.xcconfig"; sourceTree = "<group>"; };
+		D91E70617F7E65B2CC28C7C1 /* Pods_Itch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +91,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5806F4E13C1BA02256451E3 /* Pods_Itch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DA27675BA7C015CA9D41C2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B04B2DDE4C0F817671F302F /* Pods-Itch.debug.xcconfig */,
+				56899FD2FA4197EF4B742C0F /* Pods-Itch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		653CDFE9915B791801671FF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D91E70617F7E65B2CC28C7C1 /* Pods_Itch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9837E4DF21D674A400C96D89 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +155,8 @@
 			children = (
 				98FF564521D659B200FAA221 /* Itch */,
 				98FF564421D659B200FAA221 /* Products */,
+				5DA27675BA7C015CA9D41C2E /* Pods */,
+				653CDFE9915B791801671FF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,9 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98FF565821D659B500FAA221 /* Build configuration list for PBXNativeTarget "Itch" */;
 			buildPhases = (
+				E4925E21ADE87696D21AF234 /* [CP] Check Pods Manifest.lock */,
 				98FF563F21D659B200FAA221 /* Sources */,
 				98FF564021D659B200FAA221 /* Frameworks */,
 				98FF564121D659B200FAA221 /* Resources */,
+				13F700D0AD0FF05BDA6779BB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,6 +343,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13F700D0AD0FF05BDA6779BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Itch/Pods-Itch-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Itch/Pods-Itch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4925E21ADE87696D21AF234 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Itch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		98FF563F21D659B200FAA221 /* Sources */ = {
@@ -476,6 +549,7 @@
 		};
 		98FF565921D659B500FAA221 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B04B2DDE4C0F817671F302F /* Pods-Itch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -493,6 +567,7 @@
 		};
 		98FF565A21D659B500FAA221 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56899FD2FA4197EF4B742C0F /* Pods-Itch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
