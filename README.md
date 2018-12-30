@@ -26,41 +26,10 @@ After that, open the project using the Itch.xcworkspace created by CocoaPods.
 
 ## Task List
 
-Version 1.0.
+The Tasks, Issues and Enhancements for this app are listed on Github:
 
-### Basic Features:
-
-#### User:
-* `TODO` Implement OAuth 2.0 login.
-* `TODO` Get User Credential Info.
-* `TODO` Get User Profile Data.
-* `TODO` Get the user's game list.
-
-#### Games:
-* `TODO` List newest games.
-
-#### Technical:
-* `TODO` Create OAuth 2.0 lib.
-* `TODO` Create Network Layer.
-* `TODO` Create Models
-* `TODO` Create JSON (for user info) and XML (for game info) interpreter.
-* `TODO` Create Core Data layer to cache last results, so the user has some data even if offline.
-
-#### Art:
-* `DONE` ~Create App Icon.~
-* `DONE` ~Create Splash Screen.~
-
-### Extra Features:
-
-* `TODO` Limit options depending on.
-* `TODO` List user download keys for a game.
-* `TODO` Get the user's punchases list for a game.
-
-* `TODO` Games Filtering/Searching.
-
-### Bugs and Enhancements
-
-Nothing here yet.
+* [Task List](https://github.com/DioMuller/udacity-ios-itch/projects/1)
+* [Issues](https://github.com/DioMuller/udacity-ios-itch/issues)
 
 ## Limitations
 Unfortunately, I could not test any features that require a physical device, like the camera functionality, since I don't have an Apple developer subscription.
