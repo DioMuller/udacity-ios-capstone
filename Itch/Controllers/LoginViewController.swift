@@ -16,5 +16,8 @@ class LoginViewController: UIViewController {
     }
 
 
+    @IBAction func login(_ sender: Any) {
+        performSegue(withIdentifier: "login", sender: self)
+    }
 }
 
