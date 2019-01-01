@@ -19,11 +19,15 @@ class Constants {
         
         // App Scope.
         static let scope = "profile:me"
-        
-        // Current scheme
-        static let scheme = "itch"
-        
+                
         // Redirect URL.
-        static let redirectUrl = "itch://authorization"
+        static let redirectUrl = URL(string:"itch://authorization")
+        
+        // Access Token Path Name.
+        static let accessToken = "access_token"
+    }
+    
+    class UserData {
+        static let token = "token"
     }
 }

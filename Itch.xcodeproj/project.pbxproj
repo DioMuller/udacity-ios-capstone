@@ -37,6 +37,7 @@
 		98FA8E2821D7A86500F4AA43 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98FA8E2721D7A86500F4AA43 /* LoadingView.xib */; };
 		98FBA9DB21DB95B00071C7EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FBA9DA21DB95B00071C7EC /* Constants.swift */; };
 		98FBA9DD21DB9CC50071C7EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FBA9DC21DB9CC50071C7EC /* BaseViewController.swift */; };
+		98FBA9DF21DBA54E0071C7EC /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FBA9DE21DBA54E0071C7EC /* UserData.swift */; };
 		98FF564721D659B300FAA221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FF564621D659B300FAA221 /* AppDelegate.swift */; };
 		98FF564921D659B300FAA221 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FF564821D659B300FAA221 /* LoginViewController.swift */; };
 		98FF564C21D659B300FAA221 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98FF564A21D659B300FAA221 /* Main.storyboard */; };
@@ -78,6 +79,7 @@
 		98FA8E2721D7A86500F4AA43 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		98FBA9DA21DB95B00071C7EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98FBA9DC21DB9CC50071C7EC /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		98FBA9DE21DBA54E0071C7EC /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		98FF564321D659B200FAA221 /* Itch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FF564621D659B300FAA221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98FF564821D659B300FAA221 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				98FF565C21D65A6600FAA221 /* Views */,
 				98FF564621D659B300FAA221 /* AppDelegate.swift */,
 				98FBA9DA21DB95B00071C7EC /* Constants.swift */,
+				98FBA9DE21DBA54E0071C7EC /* UserData.swift */,
 			);
 			path = Itch;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98FBA9DF21DBA54E0071C7EC /* UserData.swift in Sources */,
 				98FF564921D659B300FAA221 /* LoginViewController.swift in Sources */,
 				98FBA9DB21DB95B00071C7EC /* Constants.swift in Sources */,
 				98046DEA21D8EC270090D1E0 /* CustomError.swift in Sources */,

@@ -15,19 +15,24 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // If user already has a token, he's logged in.
+        if UserData.token != nil {
+            self.performSegue(withIdentifier: "login", sender: self)
+        }
     }
 
 
     @IBAction func login(_ sender: Any) {
-        showLoading("Logging In...")
-        
         let oauthswift = OAuth2Swift(consumerKey: Constants.Authorization.clientId, consumerSecret: Constants.Authorization.clientId, authorizeUrl: Constants.Authorization.authorizationUrl, responseType: "token")
         
         self.oauthswift = oauthswift
         
-        oauthswift.authorize(withCallbackURL: URL(string: Constants.Authorization.redirectUrl), scope: Constants.Authorization.scope, state: "itch", success: { (credential, response, parameters) in
+        oauthswift.authorize(withCallbackURL: Constants.Authorization.redirectUrl, scope: Constants.Authorization.scope, state: "itch", success: { (credential, response, parameters) in
             // Success!
+            UserData.token = parameters[Constants.Authorization.accessToken] as? String
+            UserData.save()
+            
             self.performSegue(withIdentifier: "login", sender: self)
 
         }, failure: { error in

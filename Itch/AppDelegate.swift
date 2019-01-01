@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if (url.scheme == Constants.Authorization.scheme) {
+        if (url.host == Constants.Authorization.redirectUrl!.host && url.scheme == Constants.Authorization.redirectUrl!.scheme) {
             OAuthSwift.handle(url: url)
         }
         return true
