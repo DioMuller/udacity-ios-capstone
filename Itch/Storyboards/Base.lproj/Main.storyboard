@@ -115,7 +115,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
-                            <tableViewSection headerTitle="Me" id="5GF-i3-LMM" userLabel="Me">
+                            <tableViewSection headerTitle=" " id="5GF-i3-LMM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="2wU-WV-0dR" imageView="vL9-9C-0Pa" style="IBUITableViewCellStyleDefault" id="trh-BI-N7E" userLabel="Profile Cell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -161,7 +161,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Games" id="K5r-sx-iXy">
+                            <tableViewSection headerTitle=" " id="K5r-sx-iXy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="KAB-MY-D9k" imageView="i2q-Tc-Rkf" style="IBUITableViewCellStyleDefault" id="cJq-1u-tm5" userLabel="New Cell">
                                         <rect key="frame" x="0.0" y="144" width="375" height="44"/>
@@ -249,7 +249,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Settings" id="DYd-ZZ-Saw">
+                            <tableViewSection headerTitle=" " id="DYd-ZZ-Saw">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="D2k-b8-rsz" imageView="xtW-93-tnx" style="IBUITableViewCellStyleDefault" id="lFk-Pm-vVK" userLabel="Settings Cell">
                                         <rect key="frame" x="0.0" y="348" width="375" height="44"/>
