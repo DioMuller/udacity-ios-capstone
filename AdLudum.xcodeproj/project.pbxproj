@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B07196B9B8C3603A7D76A9A /* Pods_AdLudum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B3673AB0A78FAA4256BD78 /* Pods_AdLudum.framework */; };
 		98F18C1521DD807A004DDAAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F18C1421DD807A004DDAAB /* AppDelegate.swift */; };
 		98F18C1721DD807A004DDAAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F18C1621DD807A004DDAAB /* LoginViewController.swift */; };
 		98F18C1A21DD807A004DDAAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C1821DD807A004DDAAB /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19B3673AB0A78FAA4256BD78 /* Pods_AdLudum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdLudum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F18C1121DD807A004DDAAB /* AdLudum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdLudum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F18C1421DD807A004DDAAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98F18C1621DD807A004DDAAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		98F18C1E21DD807C004DDAAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F18C2121DD807C004DDAAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98F18C2321DD807C004DDAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED32A0A5D23874AB728FD957 /* Pods-AdLudum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.debug.xcconfig"; sourceTree = "<group>"; };
+		F97E5885E6C7E0F66279496C /* Pods-AdLudum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B07196B9B8C3603A7D76A9A /* Pods_AdLudum.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B9B65D7ECC3B1C01B9716DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19B3673AB0A78FAA4256BD78 /* Pods_AdLudum.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		444A6919AB779BA058BA0C07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED32A0A5D23874AB728FD957 /* Pods-AdLudum.debug.xcconfig */,
+				F97E5885E6C7E0F66279496C /* Pods-AdLudum.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		98F18C0821DD807A004DDAAB = {
 			isa = PBXGroup;
 			children = (
 				98F18C1321DD807A004DDAAB /* AdLudum */,
 				98F18C1221DD807A004DDAAB /* Products */,
+				444A6919AB779BA058BA0C07 /* Pods */,
+				2B9B65D7ECC3B1C01B9716DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98F18C2621DD807C004DDAAB /* Build configuration list for PBXNativeTarget "AdLudum" */;
 			buildPhases = (
+				19EAF0664B9C3CDB000348BE /* [CP] Check Pods Manifest.lock */,
 				98F18C0D21DD807A004DDAAB /* Sources */,
 				98F18C0E21DD807A004DDAAB /* Frameworks */,
 				98F18C0F21DD807A004DDAAB /* Resources */,
+				8F1CC25DEB612EAB31AE87FF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +222,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19EAF0664B9C3CDB000348BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AdLudum-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F1CC25DEB612EAB31AE87FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		98F18C0D21DD807A004DDAAB /* Sources */ = {
@@ -348,6 +421,7 @@
 		};
 		98F18C2721DD807C004DDAAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED32A0A5D23874AB728FD957 /* Pods-AdLudum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -365,6 +439,7 @@
 		};
 		98F18C2821DD807C004DDAAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F97E5885E6C7E0F66279496C /* Pods-AdLudum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
