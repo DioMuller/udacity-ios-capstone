@@ -1,9 +1,9 @@
-# Itch.io iOS Client
+# Udacity iOS Nanodegree Capstone project.
 
 This is the repository for my final project for [Udacity's iOS Developer Nanodegree.](https://www.udacity.com)
 
 ## Description
-Itch is a client for itch.io on iOS.
+This is the repository for all my tests and ideas for Udacity's capstone project, and, eventually, the final project itself.
 
 ## Environment
 
@@ -18,7 +18,7 @@ While backwards compatibility and automatic conversion may work for future versi
 
 ### Cocoa Pods
 
-This project uses [CocoaPods](https://cocoapods.org/) for it's dependencies. To initalize the project you should first install CocoaPods and then initialize the dependencies by running
+This project may use [CocoaPods](https://cocoapods.org/) for it's dependencies. To initalize the project you should first install CocoaPods and then initialize the dependencies by running
 
 > pod install
 
