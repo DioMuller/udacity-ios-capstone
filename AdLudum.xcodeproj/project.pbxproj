@@ -14,6 +14,7 @@
 		98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F18C1B21DD807A004DDAAB /* AdLudum.xcdatamodeld */; };
 		98F18C1F21DD807C004DDAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C1E21DD807C004DDAAB /* Assets.xcassets */; };
 		98F18C2221DD807C004DDAAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C2021DD807C004DDAAB /* LaunchScreen.storyboard */; };
+		98FC098121DEC2BC00635100 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC098021DEC2BC00635100 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		98F18C1E21DD807C004DDAAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F18C2121DD807C004DDAAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98F18C2321DD807C004DDAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98FC098021DEC2BC00635100 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED32A0A5D23874AB728FD957 /* Pods-AdLudum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.debug.xcconfig"; sourceTree = "<group>"; };
 		F97E5885E6C7E0F66279496C /* Pods-AdLudum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 				98F18C2B21DD80B0004DDAAB /* Utilities */,
 				98F18C2A21DD80A2004DDAAB /* Views */,
 				98F18C1421DD807A004DDAAB /* AppDelegate.swift */,
+				98FC098021DEC2BC00635100 /* Constants.swift */,
 			);
 			path = AdLudum;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				98F18C1721DD807A004DDAAB /* LoginViewController.swift in Sources */,
 				98F18C1521DD807A004DDAAB /* AppDelegate.swift in Sources */,
 				98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */,
+				98FC098121DEC2BC00635100 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +429,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AdLudum/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AdLudum/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,7 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = AdLudum/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AdLudum/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
