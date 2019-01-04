@@ -16,6 +16,15 @@
 		98F18C2221DD807C004DDAAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C2021DD807C004DDAAB /* LaunchScreen.storyboard */; };
 		98FC098121DEC2BC00635100 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC098021DEC2BC00635100 /* Constants.swift */; };
 		98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */; };
+		98FE3CC521E017D300CCC535 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC421E017D300CCC535 /* BaseViewController.swift */; };
+		98FE3CC721E0182A00CCC535 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC621E0182A00CCC535 /* CustomError.swift */; };
+		98FE3CC921E0185800CCC535 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC821E0185800CCC535 /* HttpClient.swift */; };
+		98FE3CCB21E018A000CCC535 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CCA21E018A000CCC535 /* HttpMethod.swift */; };
+		98FE3CCD21E018D100CCC535 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CCC21E018D100CCC535 /* HttpRequest.swift */; };
+		98FE3CCF21E0190800CCC535 /* HttpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CCE21E0190800CCC535 /* HttpResult.swift */; };
+		98FE3CD121E0195200CCC535 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98FE3CD021E0195200CCC535 /* LoadingView.xib */; };
+		98FE3CD421E0197500CCC535 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CD221E0197500CCC535 /* LoadingView.swift */; };
+		98FE3CD521E0197500CCC535 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CD321E0197500CCC535 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +39,15 @@
 		98F18C2321DD807C004DDAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FC098021DEC2BC00635100 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Secret.swift"; sourceTree = "<group>"; };
+		98FE3CC421E017D300CCC535 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		98FE3CC621E0182A00CCC535 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		98FE3CC821E0185800CCC535 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		98FE3CCA21E018A000CCC535 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		98FE3CCC21E018D100CCC535 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		98FE3CCE21E0190800CCC535 /* HttpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResult.swift; sourceTree = "<group>"; };
+		98FE3CD021E0195200CCC535 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		98FE3CD221E0197500CCC535 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		98FE3CD321E0197500CCC535 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		ED32A0A5D23874AB728FD957 /* Pods-AdLudum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.debug.xcconfig"; sourceTree = "<group>"; };
 		F97E5885E6C7E0F66279496C /* Pods-AdLudum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +120,7 @@
 		98F18C2921DD8099004DDAAB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				98FE3CC421E017D300CCC535 /* BaseViewController.swift */,
 				98F18C1621DD807A004DDAAB /* LoginViewController.swift */,
 			);
 			path = Controllers;
@@ -110,6 +129,8 @@
 		98F18C2A21DD80A2004DDAAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				98FE3CD221E0197500CCC535 /* LoadingView.swift */,
+				98FE3CD321E0197500CCC535 /* RoundedButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				98F18C2021DD807C004DDAAB /* LaunchScreen.storyboard */,
+				98FE3CD021E0195200CCC535 /* LoadingView.xib */,
 				98F18C1821DD807A004DDAAB /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -142,6 +164,11 @@
 		98F18C2E21DD80CD004DDAAB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				98FE3CC621E0182A00CCC535 /* CustomError.swift */,
+				98FE3CC821E0185800CCC535 /* HttpClient.swift */,
+				98FE3CCA21E018A000CCC535 /* HttpMethod.swift */,
+				98FE3CCC21E018D100CCC535 /* HttpRequest.swift */,
+				98FE3CCE21E0190800CCC535 /* HttpResult.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -222,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F18C2221DD807C004DDAAB /* LaunchScreen.storyboard in Resources */,
+				98FE3CD121E0195200CCC535 /* LoadingView.xib in Resources */,
 				98F18C1F21DD807C004DDAAB /* Assets.xcassets in Resources */,
 				98F18C1A21DD807A004DDAAB /* Main.storyboard in Resources */,
 			);
@@ -281,11 +309,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98FE3CC721E0182A00CCC535 /* CustomError.swift in Sources */,
+				98FE3CCD21E018D100CCC535 /* HttpRequest.swift in Sources */,
 				98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */,
+				98FE3CC921E0185800CCC535 /* HttpClient.swift in Sources */,
 				98F18C1721DD807A004DDAAB /* LoginViewController.swift in Sources */,
+				98FE3CD421E0197500CCC535 /* LoadingView.swift in Sources */,
+				98FE3CCB21E018A000CCC535 /* HttpMethod.swift in Sources */,
 				98F18C1521DD807A004DDAAB /* AppDelegate.swift in Sources */,
 				98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */,
 				98FC098121DEC2BC00635100 /* Constants.swift in Sources */,
+				98FE3CCF21E0190800CCC535 /* HttpResult.swift in Sources */,
+				98FE3CC521E017D300CCC535 /* BaseViewController.swift in Sources */,
+				98FE3CD521E0197500CCC535 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

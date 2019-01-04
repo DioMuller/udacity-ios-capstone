@@ -9,7 +9,7 @@
 import OAuthSwift
 import UIKit
 
-class LoginViewController : UIViewController {
+class LoginViewController : BaseViewController {
 
     var oauthswift : OAuthSwift? = nil
 
@@ -28,9 +28,9 @@ class LoginViewController : UIViewController {
         self.oauthswift = oauthswift
         
         oauthswift.authorize(withCallbackURL: URL(string: Constants.Authorization.callbackUrl)!, success: { (credential, response, parameters) in
-            // Success!
-            print("Success!")
+            self.performSegue(withIdentifier: "login", sender: self)
         }, failure: { error in
+            self.showMessage("Error", "There was an error logging in to twitter.")
             print("Error: \(error.localizedDescription)")
         })
 
