@@ -25,7 +25,7 @@
 			<string>Gamedev</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>gamedev://</string>
+				<string>gamedev</string>
 			</array>
 		</dict>
 	</array>

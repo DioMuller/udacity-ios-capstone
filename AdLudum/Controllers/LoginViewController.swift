@@ -19,15 +19,15 @@ class LoginViewController : UIViewController {
     }
 
     @IBAction func login(_ sender: Any) {
-        let oauthswift = OAuth1Swift(consumerKey: Constants.Authorization.consumerKey,
-                                     consumerSecret: Constants.Authorization.consumerKey,
+        let oauthswift = OAuth1Swift(consumerKey: Constants.Keys.apiKey,
+                                     consumerSecret: Constants.Keys.apiSecretKey,
                                      requestTokenUrl: Constants.Authorization.requestTokenUrl,
                                      authorizeUrl: Constants.Authorization.authorizeUrl,
                                      accessTokenUrl: Constants.Authorization.accessTokenUrl)
         
         self.oauthswift = oauthswift
         
-        oauthswift.authorize(withCallbackURL: URL(string: Constants.Authorization.redirectUrl)!, success: { (credential, response, parameters) in
+        oauthswift.authorize(withCallbackURL: URL(string: Constants.Authorization.callbackUrl)!, success: { (credential, response, parameters) in
             // Success!
             print("Success!")
         }, failure: { error in

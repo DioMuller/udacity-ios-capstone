@@ -15,6 +15,7 @@
 		98F18C1F21DD807C004DDAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C1E21DD807C004DDAAB /* Assets.xcassets */; };
 		98F18C2221DD807C004DDAAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C2021DD807C004DDAAB /* LaunchScreen.storyboard */; };
 		98FC098121DEC2BC00635100 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC098021DEC2BC00635100 /* Constants.swift */; };
+		98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		98F18C2121DD807C004DDAAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98F18C2321DD807C004DDAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FC098021DEC2BC00635100 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Secret.swift"; sourceTree = "<group>"; };
 		ED32A0A5D23874AB728FD957 /* Pods-AdLudum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.debug.xcconfig"; sourceTree = "<group>"; };
 		F97E5885E6C7E0F66279496C /* Pods-AdLudum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				98F18C2A21DD80A2004DDAAB /* Views */,
 				98F18C1421DD807A004DDAAB /* AppDelegate.swift */,
 				98FC098021DEC2BC00635100 /* Constants.swift */,
+				98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */,
 			);
 			path = AdLudum;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */,
 				98F18C1721DD807A004DDAAB /* LoginViewController.swift in Sources */,
 				98F18C1521DD807A004DDAAB /* AppDelegate.swift in Sources */,
 				98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */,

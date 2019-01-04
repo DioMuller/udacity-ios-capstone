@@ -17,14 +17,15 @@ class Constants {
         static let accessTokenUrl = "https://api.twitter.com/oauth/access_token"
         
         
-        // Client ID.
-        static let consumerKey = "MN53UvWui6KzyqcRFTHNJ0BVo"
         
         // Current scheme
-        static let scheme = "twitter"
+        static let scheme = "gamedev://"
+        
+        // Auth Address
+        static let authorization = "authorization"
         
         // Redirect URL.
-        static let redirectUrl = "gamedev://authorization"
+        static let callbackUrl = "\(scheme)\(authorization)"
     }
 
 }

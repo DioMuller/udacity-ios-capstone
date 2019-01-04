@@ -6,17 +6,24 @@
 //  Copyright © 2019 Diogo Muller. All rights reserved.
 //
 
-import UIKit
 import CoreData
+import OAuthSwift
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if (url.host == Constants.Authorization.authorization) {
+            OAuthSwift.handle(url: url)
+        }
         return true
     }
 
