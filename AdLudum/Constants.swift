@@ -28,4 +28,14 @@ class Constants {
         static let callbackUrl = "\(scheme)\(authorization)"
     }
 
+    class UserData {
+        // User Token.
+        static let token = "oauth_token"
+        // User Token Secret.
+        static let tokenSecret = "oauth_token_secret"
+        // User Id.
+        static let userId = "user_id"
+        // User Screen Name.
+        static let userName = "screen_name"
+    }
 }

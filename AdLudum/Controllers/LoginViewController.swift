@@ -28,6 +28,13 @@ class LoginViewController : BaseViewController {
         self.oauthswift = oauthswift
         
         oauthswift.authorize(withCallbackURL: URL(string: Constants.Authorization.callbackUrl)!, success: { (credential, response, parameters) in
+            UserData.token = parameters[Constants.UserData.token] as? String
+            UserData.tokenSecret = parameters[Constants.UserData.tokenSecret] as? String
+            UserData.userId = parameters[Constants.UserData.userId] as? String
+            UserData.userName = parameters[Constants.UserData.userName] as? String
+            
+            UserData.save()
+            
             self.performSegue(withIdentifier: "login", sender: self)
         }, failure: { error in
             self.showMessage("Error", "There was an error logging in to twitter.")
