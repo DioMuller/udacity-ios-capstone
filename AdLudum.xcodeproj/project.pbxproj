@@ -15,6 +15,9 @@
 		98F18C1F21DD807C004DDAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C1E21DD807C004DDAAB /* Assets.xcassets */; };
 		98F18C2221DD807C004DDAAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C2021DD807C004DDAAB /* LaunchScreen.storyboard */; };
 		98FA6B7A21E0CEAB00182091 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7921E0CEAB00182091 /* UserData.swift */; };
+		98FA6B7D21E0E1C500182091 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7C21E0E1C500182091 /* HomeViewController.swift */; };
+		98FA6B7F21E0E1D300182091 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7E21E0E1D300182091 /* DiscoverViewController.swift */; };
+		98FA6B8121E0EF1100182091 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B8021E0EF1100182091 /* RoundedImage.swift */; };
 		98FC098121DEC2BC00635100 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC098021DEC2BC00635100 /* Constants.swift */; };
 		98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */; };
 		98FE3CC521E017D300CCC535 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC421E017D300CCC535 /* BaseViewController.swift */; };
@@ -39,6 +42,9 @@
 		98F18C2121DD807C004DDAAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98F18C2321DD807C004DDAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FA6B7921E0CEAB00182091 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		98FA6B7C21E0E1C500182091 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		98FA6B7E21E0E1D300182091 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		98FA6B8021E0EF1100182091 /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
 		98FC098021DEC2BC00635100 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Secret.swift"; sourceTree = "<group>"; };
 		98FE3CC421E017D300CCC535 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +131,8 @@
 			children = (
 				98FA6B7B21E0D62900182091 /* Base */,
 				98F18C1621DD807A004DDAAB /* LoginViewController.swift */,
+				98FA6B7C21E0E1C500182091 /* HomeViewController.swift */,
+				98FA6B7E21E0E1D300182091 /* DiscoverViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 			children = (
 				98FE3CD221E0197500CCC535 /* LoadingView.swift */,
 				98FE3CD321E0197500CCC535 /* RoundedButton.swift */,
+				98FA6B8021E0EF1100182091 /* RoundedImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +334,9 @@
 				98FA6B7A21E0CEAB00182091 /* UserData.swift in Sources */,
 				98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */,
 				98FE3CC921E0185800CCC535 /* HttpClient.swift in Sources */,
+				98FA6B8121E0EF1100182091 /* RoundedImage.swift in Sources */,
+				98FA6B7F21E0E1D300182091 /* DiscoverViewController.swift in Sources */,
+				98FA6B7D21E0E1C500182091 /* HomeViewController.swift in Sources */,
 				98F18C1721DD807A004DDAAB /* LoginViewController.swift in Sources */,
 				98FE3CD421E0197500CCC535 /* LoadingView.swift in Sources */,
 				98FE3CCB21E018A000CCC535 /* HttpMethod.swift in Sources */,

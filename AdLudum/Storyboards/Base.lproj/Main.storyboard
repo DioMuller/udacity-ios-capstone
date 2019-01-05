@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,24 +15,24 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="AdLudum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mAY-6E-ans">
-                                <rect key="frame" x="0.0" y="229" width="375" height="229.5"/>
+                                <rect key="frame" x="0.0" y="263.33333333333331" width="414" height="229.66666666666669"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qtT-kP-vHt">
-                                        <rect key="frame" x="163.5" y="0.0" width="48" height="48"/>
+                                        <rect key="frame" x="183" y="0.0" width="48" height="48"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad Ludum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGJ-qt-N6w">
-                                        <rect key="frame" x="90.5" y="68" width="194.5" height="40.5"/>
+                                        <rect key="frame" x="109.66666666666667" y="68" width="194.66666666666663" height="40.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKp-K4-C0z" customClass="RoundedButton" customModule="AdLudum" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="128.5" width="295" height="30"/>
-                                        <color key="backgroundColor" red="0.15686274509803921" green="0.23529411764705882" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="40" y="128.66666666666669" width="334" height="30"/>
+                                        <color key="backgroundColor" red="0.098824046552181244" green="0.16708400845527649" blue="0.34998857975006104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Login with Twitter">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -46,17 +46,17 @@
                                         </connections>
                                     </button>
                                     <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anV-OJ-220">
-                                        <rect key="frame" x="50" y="178.5" width="275" height="1"/>
+                                        <rect key="frame" x="50" y="178.66666666666669" width="314" height="1"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="OJa-42-BVP"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Alc-g3-Qfc">
-                                        <rect key="frame" x="79.5" y="199.5" width="216" height="30"/>
+                                        <rect key="frame" x="99" y="199.66666666666669" width="216" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzU-v0-X4Z">
-                                                <rect key="frame" x="0.0" y="6.5" width="155" height="17"/>
+                                                <rect key="frame" x="0.0" y="6.3333333333333144" width="155" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -94,46 +94,135 @@
             </objects>
             <point key="canvasLocation" x="-47.200000000000003" y="107.49625187406298"/>
         </scene>
-        <!--Item 2-->
+        <!--Discover-->
         <scene sceneID="UYd-Lw-9VM">
             <objects>
-                <viewController id="iCl-DY-Rci" sceneMemberID="viewController">
+                <viewController title="Discover" id="iCl-DY-Rci" customClass="DiscoverViewController" customModule="AdLudum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gzz-qI-IEZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.23529411759999999" green="0.35294117650000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="qEk-dk-OoZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="qMV-SU-DyV"/>
+                    <tabBarItem key="tabBarItem" title="Discover" image="IconDiscover" selectedImage="IconDiscover" id="qMV-SU-DyV"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGx-dS-zuM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1999" y="441"/>
         </scene>
-        <!--Item 1-->
+        <!--Home-->
         <scene sceneID="CD8-Bb-MEj">
             <objects>
-                <viewController id="bxd-iU-AzK" sceneMemberID="viewController">
+                <viewController title="Home" id="bxd-iU-AzK" customClass="HomeViewController" customModule="AdLudum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MOh-hd-5ai">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3rs-eq-JKh">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.35294117650000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="8KN-j8-tzK">
+                                    <size key="itemSize" width="160" height="160"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oWs-Yg-lVt">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dtT-em-qSi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LayerGradient" translatesAutoresizingMaskIntoConstraints="NO" id="268-tp-xnh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KES-gz-FDn">
+                                                    <rect key="frame" x="5" y="125" width="150" height="35"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconUser" translatesAutoresizingMaskIntoConstraints="NO" id="NDP-wp-hqC" customClass="RoundedImage" customModule="AdLudum" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="35" id="d7P-Jr-kUS"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="25"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                    <color key="value" cocoaTouchSystemColor="lightTextColor"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBp-iT-yYg">
+                                                            <rect key="frame" x="45" y="0.0" width="105" height="35"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="LGr-ce-Ccz"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="KES-gz-FDn" secondAttribute="bottom" id="2lm-Dt-lKs"/>
+                                            <constraint firstItem="dtT-em-qSi" firstAttribute="leading" secondItem="oWs-Yg-lVt" secondAttribute="leading" id="9VT-Q0-Y0t"/>
+                                            <constraint firstItem="KES-gz-FDn" firstAttribute="leading" secondItem="oWs-Yg-lVt" secondAttribute="leading" constant="5" id="Lo4-Sg-vYt"/>
+                                            <constraint firstAttribute="bottom" secondItem="dtT-em-qSi" secondAttribute="bottom" id="M6K-KY-idK"/>
+                                            <constraint firstAttribute="trailing" secondItem="dtT-em-qSi" secondAttribute="trailing" id="bmR-Di-0bt"/>
+                                            <constraint firstItem="dtT-em-qSi" firstAttribute="top" secondItem="oWs-Yg-lVt" secondAttribute="top" id="j6P-V0-975"/>
+                                            <constraint firstAttribute="trailing" secondItem="KES-gz-FDn" secondAttribute="trailing" constant="5" id="lSz-dS-ahG"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23529411759999999" green="0.35294117650000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZMz-au-YRw" firstAttribute="trailing" secondItem="3rs-eq-JKh" secondAttribute="trailing" id="Cgq-sE-GvD"/>
+                            <constraint firstItem="3rs-eq-JKh" firstAttribute="top" secondItem="ZMz-au-YRw" secondAttribute="top" id="Ivk-dP-SfP"/>
+                            <constraint firstItem="ZMz-au-YRw" firstAttribute="bottom" secondItem="3rs-eq-JKh" secondAttribute="bottom" id="beS-rs-3nO"/>
+                            <constraint firstItem="3rs-eq-JKh" firstAttribute="leading" secondItem="ZMz-au-YRw" secondAttribute="leading" id="btp-2o-W8r"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZMz-au-YRw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="dhH-ky-SW9"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="IconHome" selectedImage="IconHome" id="dhH-ky-SW9"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXI-5D-nIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1999" y="-224"/>
+            <point key="canvasLocation" x="1998" y="-407"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Navigation-->
         <scene sceneID="hCQ-55-ylS">
             <objects>
-                <tabBarController id="n1y-n8-RwE" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wTR-tX-VOu">
+                <tabBarController title="Navigation" id="n1y-n8-RwE" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="wTR-tX-VOu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.098824046552181244" green="0.16708400845527649" blue="0.34998857975006104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="bxd-iU-AzK" kind="relationship" relationship="viewControllers" id="PqY-Sx-Nhh"/>
@@ -147,5 +236,9 @@
     </scenes>
     <resources>
         <image name="AppLogo" width="48" height="48"/>
+        <image name="IconDiscover" width="24" height="24"/>
+        <image name="IconHome" width="24" height="24"/>
+        <image name="IconUser" width="48" height="48"/>
+        <image name="LayerGradient" width="200" height="200"/>
     </resources>
 </document>
