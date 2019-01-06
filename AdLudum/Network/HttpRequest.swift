@@ -18,7 +18,7 @@ struct HttpRequest {
     var headers : [String:String]? = nil
     var body : Data? = nil
     
-    var url : URL {
+    var url : String {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
@@ -32,6 +32,6 @@ struct HttpRequest {
             }
         }
         
-        return components.url!
+        return components.url?.absoluteString ?? ""
     }
 }

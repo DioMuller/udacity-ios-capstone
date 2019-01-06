@@ -7,56 +7,44 @@
 //
 
 import Foundation
+import OAuthSwift
 
-class HttpClient : NSObject {
+class HttpClient {
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Singleton Properties
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private static let _instance = HttpClient()
+    static var instance : HttpClient { return _instance }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Initializers
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private init() {
+        let oauthswift = OAuth1Swift(consumerKey: Constants.Keys.apiKey,
+                                     consumerSecret: Constants.Keys.apiSecretKey,
+                                     requestTokenUrl: Constants.Authorization.requestTokenUrl,
+                                     authorizeUrl: Constants.Authorization.authorizeUrl,
+                                     accessTokenUrl: Constants.Authorization.accessTokenUrl)
+        
+        self.oauthswift = oauthswift
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Attributes
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    var oauthswift : OAuth1Swift? = nil
+
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Base Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    static func execute<T>(request : HttpRequest, onResult : @escaping HttpResult<T> ) where T : Decodable {
-        let url = request.url
-        var urlRequest = URLRequest(url: url)
-        
-        urlRequest.httpMethod = request.method.rawValue
-        
-        if request.headers != nil {
-            for (key, value) in request.headers! {
-                urlRequest.addValue(value, forHTTPHeaderField: key)
-            }
-        }
-        
-        if request.body != nil {
-            urlRequest.httpBody = request.body
-        }
-        
-        let task = createTask(urlRequest, onResult: onResult)
-        
-        task.resume()
+    func authorize(success: @escaping SuccessHandler, failure: FailureHandler?) {
+        oauthswift!.authorize(withCallbackURL: URL(string: Constants.Authorization.callbackUrl)!, success: success, failure: failure)
     }
     
-    static private func createTask<T>(_ request : URLRequest, onResult : @escaping HttpResult<T> ) -> URLSessionDataTask where T : Decodable {
-        let session = URLSession.shared
-        let task = session.dataTask(with: request) { data, response, error in
-            
-            guard error == nil else {
-                onResult(nil, error)
-                return
-            }
-            
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
-                onResult(nil, CustomError("Your request returned an invalid, unknown status code!"))
-                return
-            }
-            
-            guard statusCode >= 200 && statusCode <= 299 else {
-                onResult(nil, CustomError("Your request returned an error status code: \(statusCode)"))
-                return
-            }
-            
-            
-            guard let data = data else {
-                onResult(nil, CustomError("Request Data was Empty."))
-                return
-            }
+    func execute<T>(request : HttpRequest, onResult : @escaping HttpResult<T> ) where T : Decodable {
+        oauthswift?.client.request(request.url, method: request.method, success: { (response) in
+            let data = response.data
             
             do {
                 let returnValue = try JSONDecoder().decode(T.self, from: data)
@@ -65,8 +53,9 @@ class HttpClient : NSObject {
                 onResult(nil, CustomError("There was an error decoding the return value : \(error)."))
                 return
             }
-        }
-        
-        return task
-    }
+
+        }, failure: { (error) in
+            onResult(nil, CustomError(error.localizedDescription))
+        })
+    }    
 }

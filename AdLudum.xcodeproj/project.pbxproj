@@ -14,6 +14,10 @@
 		98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F18C1B21DD807A004DDAAB /* AdLudum.xcdatamodeld */; };
 		98F18C1F21DD807C004DDAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C1E21DD807C004DDAAB /* Assets.xcassets */; };
 		98F18C2221DD807C004DDAAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C2021DD807C004DDAAB /* LaunchScreen.storyboard */; };
+		98F900BF21E226FE00AAA3EF /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900BE21E226FE00AAA3EF /* TwitterClient.swift */; };
+		98F900C121E237C100AAA3EF /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C021E237C100AAA3EF /* Tweet.swift */; };
+		98F900C321E2382900AAA3EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C221E2382900AAA3EF /* User.swift */; };
+		98F900C521E2391F00AAA3EF /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C421E2391F00AAA3EF /* SearchResponse.swift */; };
 		98FA6B7A21E0CEAB00182091 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7921E0CEAB00182091 /* UserData.swift */; };
 		98FA6B7D21E0E1C500182091 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7C21E0E1C500182091 /* HomeViewController.swift */; };
 		98FA6B7F21E0E1D300182091 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7E21E0E1D300182091 /* DiscoverViewController.swift */; };
@@ -41,6 +45,10 @@
 		98F18C1E21DD807C004DDAAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F18C2121DD807C004DDAAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98F18C2321DD807C004DDAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98F900BE21E226FE00AAA3EF /* TwitterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		98F900C021E237C100AAA3EF /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		98F900C221E2382900AAA3EF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		98F900C421E2391F00AAA3EF /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		98FA6B7921E0CEAB00182091 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		98FA6B7C21E0E1C500182091 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		98FA6B7E21E0E1D300182091 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +184,8 @@
 		98F18C2E21DD80CD004DDAAB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				98F900BC21E2259900AAA3EF /* Clients */,
+				98F900BD21E225A600AAA3EF /* ResponseModels */,
 				98FE3CC621E0182A00CCC535 /* CustomError.swift */,
 				98FE3CC821E0185800CCC535 /* HttpClient.swift */,
 				98FE3CCA21E018A000CCC535 /* HttpMethod.swift */,
@@ -188,6 +198,8 @@
 		98F18C2F21DD80D7004DDAAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				98F900C021E237C100AAA3EF /* Tweet.swift */,
+				98F900C221E2382900AAA3EF /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -198,6 +210,22 @@
 				98F18C1B21DD807A004DDAAB /* AdLudum.xcdatamodeld */,
 			);
 			path = DataModels;
+			sourceTree = "<group>";
+		};
+		98F900BC21E2259900AAA3EF /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				98F900BE21E226FE00AAA3EF /* TwitterClient.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
+		98F900BD21E225A600AAA3EF /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				98F900C421E2391F00AAA3EF /* SearchResponse.swift */,
+			);
+			path = ResponseModels;
 			sourceTree = "<group>";
 		};
 		98FA6B7B21E0D62900182091 /* Base */ = {
@@ -337,14 +365,18 @@
 				98FA6B8121E0EF1100182091 /* RoundedImage.swift in Sources */,
 				98FA6B7F21E0E1D300182091 /* DiscoverViewController.swift in Sources */,
 				98FA6B7D21E0E1C500182091 /* HomeViewController.swift in Sources */,
+				98F900C321E2382900AAA3EF /* User.swift in Sources */,
 				98F18C1721DD807A004DDAAB /* LoginViewController.swift in Sources */,
 				98FE3CD421E0197500CCC535 /* LoadingView.swift in Sources */,
+				98F900BF21E226FE00AAA3EF /* TwitterClient.swift in Sources */,
 				98FE3CCB21E018A000CCC535 /* HttpMethod.swift in Sources */,
 				98F18C1521DD807A004DDAAB /* AppDelegate.swift in Sources */,
+				98F900C521E2391F00AAA3EF /* SearchResponse.swift in Sources */,
 				98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */,
 				98FC098121DEC2BC00635100 /* Constants.swift in Sources */,
 				98FE3CCF21E0190800CCC535 /* HttpResult.swift in Sources */,
 				98FE3CC521E017D300CCC535 /* BaseViewController.swift in Sources */,
+				98F900C121E237C100AAA3EF /* Tweet.swift in Sources */,
 				98FE3CD521E0197500CCC535 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

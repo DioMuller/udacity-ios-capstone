@@ -7,5 +7,8 @@
 //
 
 import Foundation
+import OAuthSwift
 
 typealias HttpResult<T> = (_ result : T?, _ error : Error? ) -> Void where T : Decodable
+typealias SuccessHandler = (_ credential: OAuthSwiftCredential, _ response: OAuthSwiftResponse?, _ parameters: [String: Any]) -> Void
+typealias FailureHandler = (_ error: OAuthSwiftError) -> Void

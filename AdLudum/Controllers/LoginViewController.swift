@@ -10,8 +10,6 @@ import OAuthSwift
 import UIKit
 
 class LoginViewController : BaseViewController {
-
-    var oauthswift : OAuthSwift? = nil
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -22,16 +20,8 @@ class LoginViewController : BaseViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    @IBAction func login(_ sender: Any) {
-        let oauthswift = OAuth1Swift(consumerKey: Constants.Keys.apiKey,
-                                     consumerSecret: Constants.Keys.apiSecretKey,
-                                     requestTokenUrl: Constants.Authorization.requestTokenUrl,
-                                     authorizeUrl: Constants.Authorization.authorizeUrl,
-                                     accessTokenUrl: Constants.Authorization.accessTokenUrl)
-        
-        self.oauthswift = oauthswift
-        
-        oauthswift.authorize(withCallbackURL: URL(string: Constants.Authorization.callbackUrl)!, success: { (credential, response, parameters) in
+    @IBAction func login(_ sender: Any) {        
+        HttpClient.instance.authorize(success: {(credential, response, parameters) in
             UserData.token = parameters[Constants.UserData.token] as? String
             UserData.tokenSecret = parameters[Constants.UserData.tokenSecret] as? String
             UserData.userId = parameters[Constants.UserData.userId] as? String

@@ -10,13 +10,18 @@ import Foundation
 
 class Constants {
     // Twitter authorization
+    
+    class Api {
+        static let apiScheme = "https"
+        static let apiHost = "api.twitter.com"
+        static let apiPath = "/1.1/"
+    }
+        
     class Authorization {
         // Authorization URL.
         static let requestTokenUrl = "https://api.twitter.com/oauth/request_token"
         static let authorizeUrl = "https://api.twitter.com/oauth/authorize"
         static let accessTokenUrl = "https://api.twitter.com/oauth/access_token"
-        
-        
         
         // Current scheme
         static let scheme = "gamedev://"
@@ -26,6 +31,36 @@ class Constants {
         
         // Redirect URL.
         static let callbackUrl = "\(scheme)\(authorization)"
+        
+        // Oauth Version for Key Generation
+        static let oauthVersion = "1.0"
+        // Oauth signature Method
+        static let signatureMethod = "HMAC-SHA1"
+    }
+    
+    class Methods {
+        static let search = "search/tweets.json"
+    }
+    
+    class Parameters {
+        static let query = "q"
+        static let searchType = "s"
+        static let resultType = "result_type"
+        static let count = "count"
+    }
+    
+    class Values {
+        static let count = 100
+
+        // Result Type
+        static let recent = "recent"
+        static let popular = "popular"
+        
+        // Follows Filter
+        static let follows = "follows"
+        
+        // Search Query
+        static let query = "filter:media AND #screenshotsaturday OR #gamedev"
     }
 
     class UserData {
