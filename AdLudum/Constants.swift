@@ -24,18 +24,13 @@ class Constants {
         static let accessTokenUrl = "https://api.twitter.com/oauth/access_token"
         
         // Current scheme
-        static let scheme = "gamedev://"
+        static let scheme = "adludum://"
         
         // Auth Address
         static let authorization = "authorization"
         
         // Redirect URL.
         static let callbackUrl = "\(scheme)\(authorization)"
-        
-        // Oauth Version for Key Generation
-        static let oauthVersion = "1.0"
-        // Oauth signature Method
-        static let signatureMethod = "HMAC-SHA1"
     }
     
     class Methods {
@@ -61,6 +56,8 @@ class Constants {
         
         // Search Query
         static let query = "filter:media AND #screenshotsaturday OR #gamedev"
+        
+        static let urlAllowedSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~:/?")
     }
 
     class UserData {

@@ -22,10 +22,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>Gamedev</string>
+			<string>Ad Ludum</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>gamedev</string>
+				<string>adludum</string>
 			</array>
 		</dict>
 	</array>

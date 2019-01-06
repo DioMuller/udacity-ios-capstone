@@ -41,7 +41,7 @@ class TwitterClient {
                 Constants.Parameters.query : Constants.Values.query as AnyObject,
                 Constants.Parameters.count : Constants.Values.count as AnyObject,
                 Constants.Parameters.resultType : Constants.Values.recent as AnyObject,
-                Constants.Parameters.searchType : Constants.Values.follows as AnyObject,
+                //Constants.Parameters.searchType : Constants.Values.follows as AnyObject,
             ],
             headers: [:],
             body: nil)

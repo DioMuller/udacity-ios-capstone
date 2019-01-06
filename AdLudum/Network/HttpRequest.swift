@@ -32,6 +32,7 @@ struct HttpRequest {
             }
         }
         
-        return components.url?.absoluteString ?? ""
+        return components.url?.absoluteString.addingPercentEncoding(withAllowedCharacters: Constants.Values.urlAllowedSet) ?? ""//.urlEncoded ?? ""
+        
     }
 }
