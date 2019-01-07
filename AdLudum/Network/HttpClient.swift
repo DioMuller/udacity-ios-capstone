@@ -28,6 +28,7 @@ class HttpClient {
                                      accessTokenUrl: Constants.Authorization.accessTokenUrl)
         
         self.oauthswift = oauthswift
+
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -43,19 +44,25 @@ class HttpClient {
     }
     
     func execute<T>(request : HttpRequest, onResult : @escaping HttpResult<T> ) where T : Decodable {
-        oauthswift?.client.request(request.url, method: request.method, success: { (response) in
-            let data = response.data
-            
-            do {
-                let returnValue = try JSONDecoder().decode(T.self, from: data)
-                onResult(returnValue, nil)
-            } catch {
-                onResult(nil, CustomError("There was an error decoding the return value : \(error)."))
-                return
-            }
-
-        }, failure: { (error) in
-            onResult(nil, CustomError(error.localizedDescription))
-        })
+        
+        switch request.method {
+        case .GET:
+            oauthswift?.client.get(request.url, parameters: request.parameters ?? [:], headers: request.headers, success: { (response) in
+                let data = response.data
+                
+                do {
+                    let returnValue = try JSONDecoder().decode(T.self, from: data)
+                    onResult(returnValue, nil)
+                } catch {
+                    onResult(nil, CustomError("There was an error decoding the return value : \(error)."))
+                    return
+                }
+                
+            }, failure: { (error) in
+                onResult(nil, CustomError(error.localizedDescription))
+            })
+        default:
+            print("Not Implemented.")
+        }
     }    
 }

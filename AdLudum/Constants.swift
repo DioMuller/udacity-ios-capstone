@@ -35,6 +35,7 @@ class Constants {
     
     class Methods {
         static let search = "search/tweets.json"
+        static let timeline = "statuses/mentions_timeline.json"
     }
     
     class Parameters {

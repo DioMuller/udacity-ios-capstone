@@ -35,16 +35,18 @@ class TwitterClient {
             scheme: Constants.Api.apiScheme,
             host: Constants.Api.apiHost,
             path: Constants.Api.apiPath,
-            withExtension: Constants.Methods.search,
+            withExtension: Constants.Methods.timeline,
             method: .GET,
-            parameters: [
-                Constants.Parameters.query : Constants.Values.query as AnyObject,
-                Constants.Parameters.count : Constants.Values.count as AnyObject,
-                Constants.Parameters.resultType : Constants.Values.recent as AnyObject,
-                //Constants.Parameters.searchType : Constants.Values.follows as AnyObject,
-            ],
+            parameters: [:],
             headers: [:],
             body: nil)
+        
+        /*
+        Constants.Parameters.query : Constants.Values.query as AnyObject,
+        Constants.Parameters.count : Constants.Values.count as AnyObject,
+        Constants.Parameters.resultType : Constants.Values.recent as AnyObject,
+        Constants.Parameters.searchType : Constants.Values.follows as AnyObject,
+         */
         
         httpClient.execute(request: request, onResult: onResult)
     }
