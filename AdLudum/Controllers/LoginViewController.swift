@@ -21,7 +21,7 @@ class LoginViewController : BaseViewController {
     }
 
     @IBAction func login(_ sender: Any) {        
-        HttpClient.instance.authorize(success: {(credential, response, parameters) in
+        TwitterClient.instance.authorize(success: {(credential, response, parameters) in
             UserData.token = parameters[Constants.UserData.token] as? String
             UserData.tokenSecret = parameters[Constants.UserData.tokenSecret] as? String
             UserData.userId = parameters[Constants.UserData.userId] as? String

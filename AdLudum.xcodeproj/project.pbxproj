@@ -26,9 +26,6 @@
 		98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */; };
 		98FE3CC521E017D300CCC535 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC421E017D300CCC535 /* BaseViewController.swift */; };
 		98FE3CC721E0182A00CCC535 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC621E0182A00CCC535 /* CustomError.swift */; };
-		98FE3CC921E0185800CCC535 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC821E0185800CCC535 /* HttpClient.swift */; };
-		98FE3CCB21E018A000CCC535 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CCA21E018A000CCC535 /* HttpMethod.swift */; };
-		98FE3CCD21E018D100CCC535 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CCC21E018D100CCC535 /* HttpRequest.swift */; };
 		98FE3CCF21E0190800CCC535 /* HttpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CCE21E0190800CCC535 /* HttpResult.swift */; };
 		98FE3CD121E0195200CCC535 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98FE3CD021E0195200CCC535 /* LoadingView.xib */; };
 		98FE3CD421E0197500CCC535 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CD221E0197500CCC535 /* LoadingView.swift */; };
@@ -57,9 +54,6 @@
 		98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Secret.swift"; sourceTree = "<group>"; };
 		98FE3CC421E017D300CCC535 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		98FE3CC621E0182A00CCC535 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
-		98FE3CC821E0185800CCC535 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
-		98FE3CCA21E018A000CCC535 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
-		98FE3CCC21E018D100CCC535 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
 		98FE3CCE21E0190800CCC535 /* HttpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResult.swift; sourceTree = "<group>"; };
 		98FE3CD021E0195200CCC535 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		98FE3CD221E0197500CCC535 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -187,9 +181,6 @@
 				98F900BC21E2259900AAA3EF /* Clients */,
 				98F900BD21E225A600AAA3EF /* ResponseModels */,
 				98FE3CC621E0182A00CCC535 /* CustomError.swift */,
-				98FE3CC821E0185800CCC535 /* HttpClient.swift */,
-				98FE3CCA21E018A000CCC535 /* HttpMethod.swift */,
-				98FE3CCC21E018D100CCC535 /* HttpRequest.swift */,
 				98FE3CCE21E0190800CCC535 /* HttpResult.swift */,
 			);
 			path = Network;
@@ -358,10 +349,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				98FE3CC721E0182A00CCC535 /* CustomError.swift in Sources */,
-				98FE3CCD21E018D100CCC535 /* HttpRequest.swift in Sources */,
 				98FA6B7A21E0CEAB00182091 /* UserData.swift in Sources */,
 				98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */,
-				98FE3CC921E0185800CCC535 /* HttpClient.swift in Sources */,
 				98FA6B8121E0EF1100182091 /* RoundedImage.swift in Sources */,
 				98FA6B7F21E0E1D300182091 /* DiscoverViewController.swift in Sources */,
 				98FA6B7D21E0E1C500182091 /* HomeViewController.swift in Sources */,
@@ -369,7 +358,6 @@
 				98F18C1721DD807A004DDAAB /* LoginViewController.swift in Sources */,
 				98FE3CD421E0197500CCC535 /* LoadingView.swift in Sources */,
 				98F900BF21E226FE00AAA3EF /* TwitterClient.swift in Sources */,
-				98FE3CCB21E018A000CCC535 /* HttpMethod.swift in Sources */,
 				98F18C1521DD807A004DDAAB /* AppDelegate.swift in Sources */,
 				98F900C521E2391F00AAA3EF /* SearchResponse.swift in Sources */,
 				98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */,

@@ -12,9 +12,7 @@ class Constants {
     // Twitter authorization
     
     class Api {
-        static let apiScheme = "https"
-        static let apiHost = "api.twitter.com"
-        static let apiPath = "/1.1/"
+        static let baseUrl = "https://api.twitter.com/1.1"
     }
         
     class Authorization {
