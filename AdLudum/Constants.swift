@@ -41,10 +41,11 @@ class Constants {
         static let searchType = "s"
         static let resultType = "result_type"
         static let count = "count"
+        static let tweetMode = "tweet_mode"
     }
     
     class Values {
-        static let count = 100
+        static let count = 30
 
         // Result Type
         static let recent = "recent"
@@ -54,7 +55,10 @@ class Constants {
         static let follows = "follows"
         
         // Search Query
-        static let query = "filter:media AND #screenshotsaturday OR #gamedev"
+        static let query = "-RT AND filter:media AND #screenshotsaturday OR #gamedev"
+        
+        // Tweet Mode
+        static let extended = "extended"
         
         static let urlAllowedSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._~:/?")
     }

@@ -48,14 +48,14 @@ class TwitterClient {
                 Constants.Parameters.query : Constants.Values.query,
                 Constants.Parameters.count : Constants.Values.count,
                 Constants.Parameters.resultType : Constants.Values.recent,
-                Constants.Parameters.searchType : Constants.Values.follows
+                Constants.Parameters.searchType : Constants.Values.follows,
+                Constants.Parameters.tweetMode : Constants.Values.extended
             ], success: { (response) in
                 let data = response.data
-                let result : SearchResponse? = self.getResult(data: response.data)
+                let result : SearchResponse? = self.getResult(data: data)
                 onResult(result, nil)
-                print("Success!")
             }, failure: { (error) in
-                print("Error!")
+                onResult(nil, error)
             })
     }
     

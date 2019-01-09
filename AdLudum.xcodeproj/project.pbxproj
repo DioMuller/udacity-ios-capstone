@@ -18,6 +18,9 @@
 		98F900C121E237C100AAA3EF /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C021E237C100AAA3EF /* Tweet.swift */; };
 		98F900C321E2382900AAA3EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C221E2382900AAA3EF /* User.swift */; };
 		98F900C521E2391F00AAA3EF /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C421E2391F00AAA3EF /* SearchResponse.swift */; };
+		98F99BC721E6A7AD00D1254B /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F99BC621E6A7AD00D1254B /* Entities.swift */; };
+		98F99BC921E6A7BF00D1254B /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F99BC821E6A7BF00D1254B /* Media.swift */; };
+		98F99BCB21E6ACF300D1254B /* TweetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F99BCA21E6ACF300D1254B /* TweetCollectionViewCell.swift */; };
 		98FA6B7A21E0CEAB00182091 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7921E0CEAB00182091 /* UserData.swift */; };
 		98FA6B7D21E0E1C500182091 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7C21E0E1C500182091 /* HomeViewController.swift */; };
 		98FA6B7F21E0E1D300182091 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7E21E0E1D300182091 /* DiscoverViewController.swift */; };
@@ -46,6 +49,9 @@
 		98F900C021E237C100AAA3EF /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		98F900C221E2382900AAA3EF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		98F900C421E2391F00AAA3EF /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		98F99BC621E6A7AD00D1254B /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		98F99BC821E6A7BF00D1254B /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		98F99BCA21E6ACF300D1254B /* TweetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCollectionViewCell.swift; sourceTree = "<group>"; };
 		98FA6B7921E0CEAB00182091 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		98FA6B7C21E0E1C500182091 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		98FA6B7E21E0E1D300182091 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 				98FE3CD221E0197500CCC535 /* LoadingView.swift */,
 				98FE3CD321E0197500CCC535 /* RoundedButton.swift */,
 				98FA6B8021E0EF1100182091 /* RoundedImage.swift */,
+				98F99BCA21E6ACF300D1254B /* TweetCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +198,8 @@
 			children = (
 				98F900C021E237C100AAA3EF /* Tweet.swift */,
 				98F900C221E2382900AAA3EF /* User.swift */,
+				98F99BC621E6A7AD00D1254B /* Entities.swift */,
+				98F99BC821E6A7BF00D1254B /* Media.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -361,8 +370,11 @@
 				98F18C1521DD807A004DDAAB /* AppDelegate.swift in Sources */,
 				98F900C521E2391F00AAA3EF /* SearchResponse.swift in Sources */,
 				98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */,
+				98F99BC721E6A7AD00D1254B /* Entities.swift in Sources */,
+				98F99BC921E6A7BF00D1254B /* Media.swift in Sources */,
 				98FC098121DEC2BC00635100 /* Constants.swift in Sources */,
 				98FE3CCF21E0190800CCC535 /* HttpResult.swift in Sources */,
+				98F99BCB21E6ACF300D1254B /* TweetCollectionViewCell.swift in Sources */,
 				98FE3CC521E017D300CCC535 /* BaseViewController.swift in Sources */,
 				98F900C121E237C100AAA3EF /* Tweet.swift in Sources */,
 				98FE3CD521E0197500CCC535 /* RoundedButton.swift in Sources */,

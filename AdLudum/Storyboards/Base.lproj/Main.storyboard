@@ -129,7 +129,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tweetCell" id="oWs-Yg-lVt">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tweetCell" id="oWs-Yg-lVt" userLabel="Tweet Cell" customClass="TweetCollectionViewCell" customModule="AdLudum" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -185,8 +185,17 @@
                                             <constraint firstItem="dtT-em-qSi" firstAttribute="top" secondItem="oWs-Yg-lVt" secondAttribute="top" id="j6P-V0-975"/>
                                             <constraint firstAttribute="trailing" secondItem="KES-gz-FDn" secondAttribute="trailing" constant="5" id="lSz-dS-ahG"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageUserIcon" destination="NDP-wp-hqC" id="QRO-iZ-F19"/>
+                                            <outlet property="imageView" destination="dtT-em-qSi" id="beD-yy-tyJ"/>
+                                            <outlet property="labelUsername" destination="mBp-iT-yYg" id="MPd-pw-MFb"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="bxd-iU-AzK" id="vGh-5D-rNG"/>
+                                    <outlet property="delegate" destination="bxd-iU-AzK" id="f88-Mp-4Q0"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.23529411759999999" green="0.35294117650000001" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -200,6 +209,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="IconHome" selectedImage="IconHome" id="dhH-ky-SW9"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <connections>
+                        <outlet property="collectionView" destination="3rs-eq-JKh" id="mUo-gp-jVb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXI-5D-nIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
