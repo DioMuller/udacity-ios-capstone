@@ -28,7 +28,7 @@ After that, open the project using the Itch.xcworkspace created by CocoaPods.
 
 The Tasks, Issues and Enhancements for this app are listed on Github:
 
-* [Task List](https://github.com/DioMuller/udacity-ios-capstone/projects/1)
+* [Task List](https://github.com/DioMuller/udacity-ios-capstone/projects/2)
 * [Issues](https://github.com/DioMuller/udacity-ios-capstone/issues)
 
 ## Limitations
