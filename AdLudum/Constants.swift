@@ -38,7 +38,6 @@ class Constants {
     
     class Parameters {
         static let query = "q"
-        static let searchType = "s"
         static let resultType = "result_type"
         static let count = "count"
         static let tweetMode = "tweet_mode"
@@ -51,11 +50,8 @@ class Constants {
         static let recent = "recent"
         static let popular = "popular"
         
-        // Follows Filter
-        static let follows = "follows"
-        
         // Search Query
-        static let query = "-RT AND filter:media AND #screenshotsaturday OR #gamedev"
+        static let query = "-RT AND filter:media AND #screenshotsaturday"
         
         // Tweet Mode
         static let extended = "extended"
