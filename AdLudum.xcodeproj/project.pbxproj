@@ -14,7 +14,7 @@
 		98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98F18C1B21DD807A004DDAAB /* AdLudum.xcdatamodeld */; };
 		98F18C1F21DD807C004DDAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C1E21DD807C004DDAAB /* Assets.xcassets */; };
 		98F18C2221DD807C004DDAAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F18C2021DD807C004DDAAB /* LaunchScreen.storyboard */; };
-		98F900BF21E226FE00AAA3EF /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900BE21E226FE00AAA3EF /* TwitterClient.swift */; };
+		98F900BF21E226FE00AAA3EF /* TumblrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900BE21E226FE00AAA3EF /* TumblrClient.swift */; };
 		98F900C121E237C100AAA3EF /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C021E237C100AAA3EF /* Tweet.swift */; };
 		98F900C321E2382900AAA3EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C221E2382900AAA3EF /* User.swift */; };
 		98F900C521E2391F00AAA3EF /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F900C421E2391F00AAA3EF /* SearchResponse.swift */; };
@@ -25,13 +25,13 @@
 		98FA6B7D21E0E1C500182091 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B7C21E0E1C500182091 /* HomeViewController.swift */; };
 		98FA6B8121E0EF1100182091 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA6B8021E0EF1100182091 /* RoundedImage.swift */; };
 		98FC098121DEC2BC00635100 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC098021DEC2BC00635100 /* Constants.swift */; };
-		98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */; };
 		98FE3CC521E017D300CCC535 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC421E017D300CCC535 /* BaseViewController.swift */; };
 		98FE3CC721E0182A00CCC535 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CC621E0182A00CCC535 /* CustomError.swift */; };
 		98FE3CCF21E0190800CCC535 /* HttpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CCE21E0190800CCC535 /* HttpResult.swift */; };
 		98FE3CD121E0195200CCC535 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98FE3CD021E0195200CCC535 /* LoadingView.xib */; };
 		98FE3CD421E0197500CCC535 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CD221E0197500CCC535 /* LoadingView.swift */; };
 		98FE3CD521E0197500CCC535 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE3CD321E0197500CCC535 /* RoundedButton.swift */; };
+		98FE7EBF21EA264A0017D972 /* Constants+Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE7EBE21EA264A0017D972 /* Constants+Secret.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +44,7 @@
 		98F18C1E21DD807C004DDAAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F18C2121DD807C004DDAAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98F18C2321DD807C004DDAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98F900BE21E226FE00AAA3EF /* TwitterClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		98F900BE21E226FE00AAA3EF /* TumblrClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumblrClient.swift; sourceTree = "<group>"; };
 		98F900C021E237C100AAA3EF /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		98F900C221E2382900AAA3EF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		98F900C421E2391F00AAA3EF /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -55,13 +55,13 @@
 		98FA6B7C21E0E1C500182091 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		98FA6B8021E0EF1100182091 /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
 		98FC098021DEC2BC00635100 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Secret.swift"; sourceTree = "<group>"; };
 		98FE3CC421E017D300CCC535 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		98FE3CC621E0182A00CCC535 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		98FE3CCE21E0190800CCC535 /* HttpResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResult.swift; sourceTree = "<group>"; };
 		98FE3CD021E0195200CCC535 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		98FE3CD221E0197500CCC535 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		98FE3CD321E0197500CCC535 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		98FE7EBE21EA264A0017D972 /* Constants+Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Secret.swift"; sourceTree = "<group>"; };
 		ED32A0A5D23874AB728FD957 /* Pods-AdLudum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.debug.xcconfig"; sourceTree = "<group>"; };
 		F97E5885E6C7E0F66279496C /* Pods-AdLudum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdLudum.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdLudum/Pods-AdLudum.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +126,7 @@
 				98F18C2A21DD80A2004DDAAB /* Views */,
 				98F18C1421DD807A004DDAAB /* AppDelegate.swift */,
 				98FC098021DEC2BC00635100 /* Constants.swift */,
-				98FE3CC221E00C5900CCC535 /* Constants+Secret.swift */,
+				98FE7EBE21EA264A0017D972 /* Constants+Secret.swift */,
 				98FA6B7921E0CEAB00182091 /* UserData.swift */,
 			);
 			path = AdLudum;
@@ -212,7 +212,7 @@
 		98F900BC21E2259900AAA3EF /* Clients */ = {
 			isa = PBXGroup;
 			children = (
-				98F900BE21E226FE00AAA3EF /* TwitterClient.swift */,
+				98F900BE21E226FE00AAA3EF /* TumblrClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -356,13 +356,12 @@
 			files = (
 				98FE3CC721E0182A00CCC535 /* CustomError.swift in Sources */,
 				98FA6B7A21E0CEAB00182091 /* UserData.swift in Sources */,
-				98FE3CC321E00C5900CCC535 /* Constants+Secret.swift in Sources */,
 				98FA6B8121E0EF1100182091 /* RoundedImage.swift in Sources */,
 				98FA6B7D21E0E1C500182091 /* HomeViewController.swift in Sources */,
 				98F900C321E2382900AAA3EF /* User.swift in Sources */,
 				98F18C1721DD807A004DDAAB /* LoginViewController.swift in Sources */,
 				98FE3CD421E0197500CCC535 /* LoadingView.swift in Sources */,
-				98F900BF21E226FE00AAA3EF /* TwitterClient.swift in Sources */,
+				98F900BF21E226FE00AAA3EF /* TumblrClient.swift in Sources */,
 				98F18C1521DD807A004DDAAB /* AppDelegate.swift in Sources */,
 				98F900C521E2391F00AAA3EF /* SearchResponse.swift in Sources */,
 				98F18C1D21DD807A004DDAAB /* AdLudum.xcdatamodeld in Sources */,
@@ -370,6 +369,7 @@
 				98F99BC921E6A7BF00D1254B /* Media.swift in Sources */,
 				98FC098121DEC2BC00635100 /* Constants.swift in Sources */,
 				98FE3CCF21E0190800CCC535 /* HttpResult.swift in Sources */,
+				98FE7EBF21EA264A0017D972 /* Constants+Secret.swift in Sources */,
 				98F99BCB21E6ACF300D1254B /* TweetCollectionViewCell.swift in Sources */,
 				98FE3CC521E017D300CCC535 /* BaseViewController.swift in Sources */,
 				98F900C121E237C100AAA3EF /* Tweet.swift in Sources */,

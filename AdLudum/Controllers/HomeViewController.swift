@@ -42,7 +42,7 @@ class HomeViewController : BaseViewController, UICollectionViewDelegate, UIColle
     
     
     override func viewWillAppear(_ animated: Bool) {
-        TwitterClient.instance.getTimeline{ (result, error) in
+        TumblrClient.instance.getTimeline{ (result, error) in
             if let error = error {
                 self.showMessage("Error", error.localizedDescription)
                 return

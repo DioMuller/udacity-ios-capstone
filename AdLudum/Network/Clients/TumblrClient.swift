@@ -9,12 +9,12 @@
 import Foundation
 import OAuthSwift
 
-class TwitterClient {
+class TumblrClient {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Singleton Properties
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    private static let _instance = TwitterClient()
-    static var instance : TwitterClient { return _instance }
+    private static let _instance = TumblrClient()
+    static var instance : TumblrClient { return _instance }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Attributes
@@ -26,7 +26,7 @@ class TwitterClient {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private init() {
         oauthswift = OAuth1Swift(consumerKey: Constants.Keys.apiKey,
-                                     consumerSecret: Constants.Keys.apiSecretKey,
+                                     consumerSecret: Constants.Keys.apiSecret,
                                      requestTokenUrl: Constants.Authorization.requestTokenUrl,
                                      authorizeUrl: Constants.Authorization.authorizeUrl,
                                      accessTokenUrl: Constants.Authorization.accessTokenUrl)
@@ -44,6 +44,7 @@ class TwitterClient {
     // MARK: Call Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     func getTimeline(onResult: @escaping HttpResult<SearchResponse>) {
+        /*
         let _ = oauthswift.client.get(getUrl(Constants.Methods.search), parameters: [
                 Constants.Parameters.query : Constants.Values.query,
                 Constants.Parameters.count : Constants.Values.count,
@@ -56,6 +57,7 @@ class TwitterClient {
             }, failure: { (error) in
                 onResult(nil, error)
             })
+         */
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
