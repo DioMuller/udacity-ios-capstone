@@ -1,0 +1,28 @@
+//
+//  DataController+Singleton.swift
+//  VirtualTourist
+//
+//  Created by Diogo Muller on 19/12/18.
+//  Copyright © 2018 Diogo Muller. All rights reserved.
+//
+
+import Foundation
+
+extension DataController {
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Instances
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private static var instances : [String : DataController] = [:]
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Factory Method
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    static func getInstanceOf(key : String) -> DataController {
+        if !instances.keys.contains(key) {
+            instances[key] = DataController(modelName: key)
+            instances[key]?.load()
+        }
+        
+        return instances[key]!
+    }
+}
