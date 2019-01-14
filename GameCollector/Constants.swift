@@ -15,4 +15,17 @@ class Constants {
         // Auto-Saving time.
         static let autoSaveTime = 20.0
     }
+    
+    class Api {
+        static let scheme = "https"
+        static let host = "api-v3.igdb.com"
+        static let path = ""
+    }
+    
+    class Methods {
+        static let artworks = "artworks"
+        static let games = "games"
+        static let genres = "genres"
+        static let platforms = "platforms"
+    }
 }
