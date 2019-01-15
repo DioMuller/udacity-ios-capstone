@@ -24,8 +24,8 @@ class HttpClient : NSObject {
             }
         }
         
-        if request.body != nil {
-            urlRequest.httpBody = request.body
+        if let body = request.body {
+            urlRequest.httpBody = body.data(using: .utf8, allowLossyConversion: false)
         }
         
         let task = createTask(urlRequest, onResult: onResult)

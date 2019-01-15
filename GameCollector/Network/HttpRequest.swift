@@ -16,7 +16,7 @@ struct HttpRequest {
     var method : HttpMethod
     var parameters : [String:AnyObject]? = nil
     var headers : [String:String]? = nil
-    var body : Data? = nil
+    var body : String? = nil
     
     var url : URL {
         var components = URLComponents()

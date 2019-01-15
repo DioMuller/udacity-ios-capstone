@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9816612321EE89DC00DD49C4 /* IGDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816612221EE89DC00DD49C4 /* IGDBClient.swift */; };
+		9816612621EE9A4200DD49C4 /* IGDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816612521EE9A4200DD49C4 /* IGDBRequest.swift */; };
+		9816612821EE9D3400DD49C4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816612721EE9D3400DD49C4 /* Game.swift */; };
+		9816612A21EE9F5800DD49C4 /* Constants+Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816612921EE9F5800DD49C4 /* Constants+Secret.swift */; };
+		9816612C21EEA07700DD49C4 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816612B21EEA07700DD49C4 /* Platform.swift */; };
 		9884772621EBEDFF00CC9DE3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9884772521EBEDFF00CC9DE3 /* Constants.swift */; };
 		9884772821EBF3C900CC9DE3 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9884772721EBF3C900CC9DE3 /* CollectionViewController.swift */; };
 		9884772A21EBF3EF00CC9DE3 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9884772921EBF3EF00CC9DE3 /* WishlistViewController.swift */; };
@@ -30,6 +35,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9816612221EE89DC00DD49C4 /* IGDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBClient.swift; sourceTree = "<group>"; };
+		9816612521EE9A4200DD49C4 /* IGDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBRequest.swift; sourceTree = "<group>"; };
+		9816612721EE9D3400DD49C4 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		9816612921EE9F5800DD49C4 /* Constants+Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Secret.swift"; sourceTree = "<group>"; };
+		9816612B21EEA07700DD49C4 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		9884772521EBEDFF00CC9DE3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9884772721EBF3C900CC9DE3 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		9884772921EBF3EF00CC9DE3 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9816612421EE9A2800DD49C4 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				9816612521EE9A4200DD49C4 /* IGDBRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		98FD1AAE21EB75A7005F7CEA = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +112,7 @@
 				98FD1ACF21EB7836005F7CEA /* Views */,
 				98FD1ABA21EB75A7005F7CEA /* AppDelegate.swift */,
 				9884772521EBEDFF00CC9DE3 /* Constants.swift */,
+				9816612921EE9F5800DD49C4 /* Constants+Secret.swift */,
 			);
 			path = GameCollector;
 			sourceTree = "<group>";
@@ -138,6 +157,7 @@
 		98FD1AD321EB7860005F7CEA /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9816612421EE9A2800DD49C4 /* Requests */,
 				98FD1AD421EB787A005F7CEA /* Clients */,
 				98FD1ADB21EB92FE005F7CEA /* CustomError.swift */,
 				98FD1ADD21EB931B005F7CEA /* HttpClient.swift */,
@@ -151,6 +171,7 @@
 		98FD1AD421EB787A005F7CEA /* Clients */ = {
 			isa = PBXGroup;
 			children = (
+				9816612221EE89DC00DD49C4 /* IGDBClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -158,6 +179,8 @@
 		98FD1AD521EB7881005F7CEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9816612721EE9D3400DD49C4 /* Game.swift */,
+				9816612B21EEA07700DD49C4 /* Platform.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,18 +284,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9816612C21EEA07700DD49C4 /* Platform.swift in Sources */,
 				98FD1ADC21EB92FE005F7CEA /* CustomError.swift in Sources */,
 				98FD1AED21EB94E2005F7CEA /* DataController.swift in Sources */,
 				98FD1AC321EB75A7005F7CEA /* GameCollector.xcdatamodeld in Sources */,
 				98FD1ADA21EB9177005F7CEA /* BaseViewController.swift in Sources */,
 				98FD1AEC21EB94E2005F7CEA /* DataController+Instances.swift in Sources */,
+				9816612621EE9A4200DD49C4 /* IGDBRequest.swift in Sources */,
 				98FD1AE621EB9466005F7CEA /* LoadingView.swift in Sources */,
 				98FD1AE021EB9390005F7CEA /* HttpMethod.swift in Sources */,
 				98FD1ABD21EB75A7005F7CEA /* GamesViewController.swift in Sources */,
+				9816612321EE89DC00DD49C4 /* IGDBClient.swift in Sources */,
 				98FD1AE421EB93DF005F7CEA /* HttpResult.swift in Sources */,
 				9884772821EBF3C900CC9DE3 /* CollectionViewController.swift in Sources */,
 				98FD1AE221EB93B9005F7CEA /* HttpRequest.swift in Sources */,
 				98FD1ADE21EB931B005F7CEA /* HttpClient.swift in Sources */,
+				9816612821EE9D3400DD49C4 /* Game.swift in Sources */,
+				9816612A21EE9F5800DD49C4 /* Constants+Secret.swift in Sources */,
 				9884772621EBEDFF00CC9DE3 /* Constants.swift in Sources */,
 				9884772A21EBF3EF00CC9DE3 /* WishlistViewController.swift in Sources */,
 				98FD1AEE21EB94E2005F7CEA /* DataController+AutoSave.swift in Sources */,

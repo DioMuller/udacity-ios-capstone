@@ -28,4 +28,13 @@ class Constants {
         static let genres = "genres"
         static let platforms = "platforms"
     }
+    
+    class Headers {
+        static let userKey = "user-key"
+        static let accept = "Accept"
+    }
+    
+    class Values {
+        static let acceptType = "application/json"
+    }
 }
