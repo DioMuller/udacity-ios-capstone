@@ -11,13 +11,13 @@ import Foundation
 struct Game : Codable {
     var id : Int
     var name : String
-    var summary : String
-    var rating : Int
-    var ratingCount : Int
-    var totalRating : Int
-    var totalRatingCount : Int
-    var category : Int
-    var genres : [Int]
+    var summary : String?
+    var rating : Int?
+    var ratingCount : Int?
+    var totalRating : Int?
+    var totalRatingCount : Int?
+    var category : Int?
+    var genres : [Int]?
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Coding Keys

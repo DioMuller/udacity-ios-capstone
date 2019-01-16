@@ -22,6 +22,7 @@ class IGDBClient {
         var body = IGDBRequest()
         body.limit = limit
         body.offset = offset
+        body.fields = Constants.Values.all
         
         let headers = [
             Constants.Headers.userKey : Constants.Keys.apiKey,
@@ -42,10 +43,36 @@ class IGDBClient {
         HttpClient.execute(request: request, onResult: onResult)
     }
     
+    public func getGenres(limit : Int, offset : Int, onResult: @escaping HttpResult<[Genre]>) {
+        var body = IGDBRequest()
+        body.limit = limit
+        body.offset = offset
+        body.fields = Constants.Values.all
+        
+        let headers = [
+            Constants.Headers.userKey : Constants.Keys.apiKey,
+            Constants.Headers.accept : Constants.Values.acceptType
+        ]
+        
+        let request = HttpRequest(
+            scheme: Constants.Api.scheme,
+            host : Constants.Api.host,
+            path : Constants.Api.path,
+            withExtension : Constants.Methods.genres,
+            method : .get,
+            parameters : nil,
+            headers : headers,
+            body : body.getContent()
+        )
+        
+        HttpClient.execute(request: request, onResult: onResult)
+    }
+    
     public func getPlatforms(limit : Int, offset : Int, onResult: @escaping HttpResult<[Platform]>) {
         var body = IGDBRequest()
         body.limit = limit
         body.offset = offset
+        body.fields = Constants.Values.all
         
         let headers = [
             Constants.Headers.userKey : Constants.Keys.apiKey,

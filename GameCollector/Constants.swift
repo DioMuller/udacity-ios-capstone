@@ -19,11 +19,12 @@ class Constants {
     class Api {
         static let scheme = "https"
         static let host = "api-v3.igdb.com"
-        static let path = ""
+        static let path = "/"
     }
     
     class Methods {
         static let artworks = "artworks"
+        static let covers = "covers"
         static let games = "games"
         static let genres = "genres"
         static let platforms = "platforms"
@@ -36,5 +37,6 @@ class Constants {
     
     class Values {
         static let acceptType = "application/json"
+        static let all = "*"
     }
 }
