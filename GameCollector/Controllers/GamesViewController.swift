@@ -10,7 +10,7 @@ import UIKit
 
 class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var games : [Game] = []
+    var games : [GameModel] = []
     
     @IBOutlet weak var tableView: UITableView!
     
