@@ -18,7 +18,7 @@ class IGDBClient {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    public func getGames(limit : Int, offset : Int, onResult: @escaping HttpResult<[Game]>) {
+    public func getGames(limit : Int, offset : Int, onResult: @escaping HttpResult<[GameModel]>) {
         var body = IGDBRequest()
         body.limit = limit
         body.offset = offset
@@ -43,7 +43,7 @@ class IGDBClient {
         HttpClient.execute(request: request, onResult: onResult)
     }
     
-    public func getGenres(limit : Int, offset : Int, onResult: @escaping HttpResult<[Genre]>) {
+    public func getGenres(limit : Int, offset : Int, onResult: @escaping HttpResult<[GenreModel]>) {
         var body = IGDBRequest()
         body.limit = limit
         body.offset = offset
@@ -68,7 +68,7 @@ class IGDBClient {
         HttpClient.execute(request: request, onResult: onResult)
     }
     
-    public func getPlatforms(limit : Int, offset : Int, onResult: @escaping HttpResult<[Platform]>) {
+    public func getPlatforms(limit : Int, offset : Int, onResult: @escaping HttpResult<[PlatformModel]>) {
         var body = IGDBRequest()
         body.limit = limit
         body.offset = offset

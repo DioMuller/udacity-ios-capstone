@@ -1,5 +1,5 @@
 //
-//  Genre.swift
+//  Artwork.swift
 //  GameCollector
 //
 //  Created by Diogo Muller on 16/01/19.
@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct Genre : Codable {
+struct ArtworkModel : Codable {
     var id : Int
-    var name : String
+    var url : String
+    var height : Int
+    var width : Int
 }
