@@ -25,7 +25,10 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
             }
             
             self.games = result ?? []
-            self.tableView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     

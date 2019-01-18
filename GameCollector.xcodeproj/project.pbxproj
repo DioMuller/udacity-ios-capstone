@@ -89,14 +89,6 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
-		98FC8F2C21F14C6700E99F23 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				98FC8F2A21F1442300E99F23 /* PersistedData.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		98FD1AAE21EB75A7005F7CEA = {
 			isa = PBXGroup;
 			children = (
@@ -142,10 +134,10 @@
 		98FD1AD021EB7844005F7CEA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				98FC8F2C21F14C6700E99F23 /* Data */,
 				98FD1AEA21EB94E2005F7CEA /* DataController.swift */,
 				98FD1AEB21EB94E2005F7CEA /* DataController+AutoSave.swift */,
 				98FD1AE921EB94E1005F7CEA /* DataController+Instances.swift */,
+				98FC8F2A21F1442300E99F23 /* PersistedData.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";

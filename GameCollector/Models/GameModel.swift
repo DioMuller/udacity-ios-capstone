@@ -12,9 +12,9 @@ struct GameModel : Codable {
     var id : Int
     var name : String
     var summary : String?
-    var rating : Int?
+    var rating : Float?
     var ratingCount : Int?
-    var totalRating : Int?
+    var totalRating : Float?
     var totalRatingCount : Int?
     var category : Int?
     var genres : [Int]?
