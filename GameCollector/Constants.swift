@@ -14,6 +14,12 @@ class Constants {
         static let autoSaveEnabled = false
         // Auto-Saving time.
         static let autoSaveTime = 20.0
+        // Games to be shown per page.
+        static let gamesPerPage = 30
+        // Maximum number of items allowed by page by the API.
+        static let apiMaxLimit = 50
+        // Maximum offset allowed by the API.
+        static let apiMaxOffset = 150
     }
     
     class Api {

@@ -11,7 +11,7 @@ import Foundation
 struct PlatformModel : Codable {
     var id : Int
     var name : String
-    var category : Int
+    var category : Int?
     var generation : Int?
     var platformLogo : Int?
     
