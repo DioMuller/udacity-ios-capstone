@@ -115,21 +115,18 @@ class PersistedData {
     // MARK: Service Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private static func importGenres(limit : Int, offset : Int) {
-        // TODO: Filter by last update date.
         IGDBClient.instance.getGenres(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
-                var games : NSSet? = nil
-                if let existing = genreList.removeValue(forKey: Int32(item.id)) {
-                    games = existing.games
-                    controller.backgroundContext.delete(existing)
+                if let existing = genreList[Int32(item.id)] {
+                    existing.name = item.name
+                } else {
+                    let newItem = Genre(context: controller.backgroundContext)
+                    newItem.id = Int32(item.id)
+                    newItem.name = item.name
+                    newItem.games = []
+                    
+                    genreList[newItem.id] = newItem
                 }
-                
-                let newItem = Genre(context: controller.backgroundContext)
-                newItem.id = Int32(item.id)
-                newItem.name = item.name
-                newItem.games = games
-                
-                genreList[newItem.id] = newItem
             })
             
             guard imported else {
@@ -148,7 +145,6 @@ class PersistedData {
     }
     
     private static func importPlatforms(limit : Int, offset : Int) {
-        // TODO: Filter by last update date.
         IGDBClient.instance.getPlatforms(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 var games : NSSet? = nil
@@ -203,5 +199,81 @@ class PersistedData {
         }
         
         return true
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: CoreData/Model methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private static func findGame(id : Int) -> Game? {
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "id == %@", id)
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
+            return result.first
+        }
+        
+        return nil
+    }
+    
+    private static func createGame(_ game : GameModel) -> Game {
+        let newGame = Game(context: controller.backgroundContext)
+        
+        newGame.id = Int32(game.id)
+        newGame.name = game.name
+        newGame.summary = game.summary
+        newGame.rating = game.rating ?? 0
+        
+        newGame.genres = NSSet(array: getGenres(game))
+        newGame.platforms = NSSet(array: getPlatforms(game))
+
+        return newGame
+    }
+    
+    private static func refreshGame(_ game : GameModel) -> Game {
+        if let existing = findGame(id: game.id) {
+            existing.name = game.name
+            existing.summary = game.summary
+            existing.rating = game.rating ?? 0
+            
+            existing.genres = NSSet(array: getGenres(game))
+            existing.platforms = NSSet(array: getPlatforms(game))
+            
+            return existing
+        } else {
+            return createGame(game)
+        }
+    }
+    
+    private static func getGenres(_ game : GameModel) -> [Genre] {
+        var genreItemList : [Genre] = []
+        
+        if let genreIds = game.genres {
+            for genreId in genreIds {
+                if let genre = genres[Int32(genreId)] {
+                    genreItemList.append(genre)
+                }
+            }
+        }
+        
+        return genreItemList
+    }
+    
+    private static func getPlatforms(_ game : GameModel) -> [Platform] {
+        var platformItemList : [Platform] = []
+        
+        if let platformIds = game.platforms {
+            for platformId in platformIds {
+                if let platform = platforms[Int32(platformId)] {
+                    platformItemList.append(platform)
+                }
+            }
+        }
+        
+        return platformItemList
     }
 }

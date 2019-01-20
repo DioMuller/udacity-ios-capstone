@@ -18,6 +18,7 @@ struct GameModel : Codable {
     var totalRatingCount : Int?
     var category : Int?
     var genres : [Int]?
+    var platforms : [Int]?
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Coding Keys
@@ -32,5 +33,6 @@ struct GameModel : Codable {
         case totalRatingCount = "total_rating_count"
         case category
         case genres
+        case platforms
     }
 }
