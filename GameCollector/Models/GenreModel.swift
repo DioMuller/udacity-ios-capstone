@@ -11,5 +11,4 @@ import Foundation
 struct GenreModel : Codable {
     var id : Int
     var name : String
-    var updatedAt : Int64
 }

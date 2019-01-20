@@ -10,7 +10,7 @@ import UIKit
 
 class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var games : [GameModel] = []
+    var games : [Game] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,7 +24,14 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
                 return
             }
             
-            self.games = result ?? []
+            let games = result ?? []
+            
+            for gameData in games {
+                let game = PersistedData.createOrUpdateGame(gameData)
+                self.games.append(game)
+            }
+            
+            PersistedData.save()
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

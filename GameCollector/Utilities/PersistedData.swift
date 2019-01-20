@@ -112,6 +112,17 @@ class PersistedData {
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: CoreData Methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    static func save() {
+        do {
+            try controller.backgroundContext.save()
+        } catch {
+            print("Error saving context.")
+        }
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Service Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private static func importGenres(limit : Int, offset : Int) {
@@ -208,7 +219,7 @@ class PersistedData {
         let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
-        let predicate = NSPredicate(format: "id == %@", id)
+        let predicate = NSPredicate(format: "id == %d", Int32(id))
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
@@ -234,7 +245,7 @@ class PersistedData {
         return newGame
     }
     
-    private static func refreshGame(_ game : GameModel) -> Game {
+    public static func createOrUpdateGame(_ game : GameModel) -> Game {
         if let existing = findGame(id: game.id) {
             existing.name = game.name
             existing.summary = game.summary
