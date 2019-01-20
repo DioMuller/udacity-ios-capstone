@@ -18,6 +18,8 @@
 		98F8972A21EFDF9A00E4BE23 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F8972921EFDF9A00E4BE23 /* ImageModel.swift */; };
 		98F8972C21EFEFC800E4BE23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F8972B21EFEFC800E4BE23 /* Assets.xcassets */; };
 		98F8973021EFF9D900E4BE23 /* Constants+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F8972F21EFF9D900E4BE23 /* Constants+Keys.swift */; };
+		98FAD7AF21F4E84D00C6DD9B /* GenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FAD7AE21F4E84D00C6DD9B /* GenresViewController.swift */; };
+		98FAD7B321F4EDCE00C6DD9B /* PlatformsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FAD7B221F4EDCE00C6DD9B /* PlatformsViewController.swift */; };
 		98FC8F2B21F1442300E99F23 /* PersistedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC8F2A21F1442300E99F23 /* PersistedData.swift */; };
 		98FD1ABB21EB75A7005F7CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD1ABA21EB75A7005F7CEA /* AppDelegate.swift */; };
 		98FD1ABD21EB75A7005F7CEA /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD1ABC21EB75A7005F7CEA /* GamesViewController.swift */; };
@@ -49,6 +51,8 @@
 		98F8972921EFDF9A00E4BE23 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		98F8972B21EFEFC800E4BE23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F8972F21EFF9D900E4BE23 /* Constants+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Keys.swift"; sourceTree = "<group>"; };
+		98FAD7AE21F4E84D00C6DD9B /* GenresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresViewController.swift; sourceTree = "<group>"; };
+		98FAD7B221F4EDCE00C6DD9B /* PlatformsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformsViewController.swift; sourceTree = "<group>"; };
 		98FC8F2A21F1442300E99F23 /* PersistedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistedData.swift; sourceTree = "<group>"; };
 		98FD1AB721EB75A7005F7CEA /* GameCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98FD1ABA21EB75A7005F7CEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				98FD1ABC21EB75A7005F7CEA /* GamesViewController.swift */,
 				9884772721EBF3C900CC9DE3 /* CollectionViewController.swift */,
 				9884772921EBF3EF00CC9DE3 /* WishlistViewController.swift */,
+				98FAD7AE21F4E84D00C6DD9B /* GenresViewController.swift */,
+				98FAD7B221F4EDCE00C6DD9B /* PlatformsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 				9816612C21EEA07700DD49C4 /* PlatformModel.swift in Sources */,
 				98FD1ADC21EB92FE005F7CEA /* CustomError.swift in Sources */,
 				98FD1AED21EB94E2005F7CEA /* DataController.swift in Sources */,
+				98FAD7B321F4EDCE00C6DD9B /* PlatformsViewController.swift in Sources */,
 				98FEACA821F3BBA7005E0384 /* GameCollector.xcdatamodeld in Sources */,
 				98F8972821EFDF5100E4BE23 /* GenreModel.swift in Sources */,
 				98FD1ADA21EB9177005F7CEA /* BaseViewController.swift in Sources */,
@@ -313,6 +320,7 @@
 				9816612821EE9D3400DD49C4 /* GameModel.swift in Sources */,
 				9884772621EBEDFF00CC9DE3 /* Constants.swift in Sources */,
 				98F8973021EFF9D900E4BE23 /* Constants+Keys.swift in Sources */,
+				98FAD7AF21F4E84D00C6DD9B /* GenresViewController.swift in Sources */,
 				9884772A21EBF3EF00CC9DE3 /* WishlistViewController.swift in Sources */,
 				98F8972A21EFDF9A00E4BE23 /* ImageModel.swift in Sources */,
 				98FD1AEE21EB94E2005F7CEA /* DataController+AutoSave.swift in Sources */,
