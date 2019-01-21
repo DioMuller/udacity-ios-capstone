@@ -35,7 +35,7 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
         }
         
         if let platform = filterPlatform {
-            filters.append("platform = \(platform)")
+            filters.append("platforms = \(platform)")
         }
         
         IGDBClient.instance.getGames(limit: 50, offset: 0, search: search!, filters: filters) { (result, error) in
@@ -64,11 +64,36 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let genresView = segue.destination as? GenresViewController {
             genresView.parentList = self
+        } else if let platformsView = segue.destination as? PlatformsViewController {
+            platformsView.parentList = self
         }
     }
     
     @IBAction func showFilters(_ sender: Any) {
-        performSegue(withIdentifier: "showGenres", sender: self)
+        let optionMenu = UIAlertController(title: nil, message: "Filter Type", preferredStyle: .actionSheet)
+        
+        let genreAction = UIAlertAction(title: "Genre", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+            self.performSegue(withIdentifier: "showGenres", sender: self)
+        })
+        
+        let platformAction = UIAlertAction(title: "Platform", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+            self.performSegue(withIdentifier: "showPlatforms", sender: self)
+        })
+        
+        let noneAction = UIAlertAction(title: "None", style: .default, handler: { (alert: UIAlertAction!) -> Void in
+            self.filterPlatform = nil
+            self.filterGenre = nil
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in
+            // Cancel Action.
+        })
+        
+        optionMenu.addAction(genreAction)
+        optionMenu.addAction(platformAction)
+        optionMenu.addAction(noneAction)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
