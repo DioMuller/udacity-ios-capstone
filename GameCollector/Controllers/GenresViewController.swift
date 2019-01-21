@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 class GenresViewController : BaseViewController, UITableViewDelegate, UITableViewDataSource {
+    
     private var genres : [Genre] = []
+    var parentList : GamesViewController!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,5 +33,13 @@ class GenresViewController : BaseViewController, UITableViewDelegate, UITableVie
         cell?.textLabel!.text = genre.name
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let genre = genres[(indexPath as NSIndexPath).row]
+        
+        parentList.filterGenre = Int(genre.id)
+        
+        dismiss(animated: true, completion: nil)
     }
 }

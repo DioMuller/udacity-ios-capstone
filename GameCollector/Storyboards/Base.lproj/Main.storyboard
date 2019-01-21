@@ -35,7 +35,7 @@
                                         <rect key="frame" x="320" y="0.0" width="35" height="40"/>
                                         <state key="normal" title="Filter"/>
                                         <connections>
-                                            <segue destination="f91-lQ-v92" kind="showDetail" id="yiz-Mr-NlJ"/>
+                                            <action selector="showFilters:" destination="BYZ-38-t0r" eventType="touchUpInside" id="arO-dI-hcR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -77,6 +77,8 @@
                     <tabBarItem key="tabBarItem" title="Games" id="RCy-ao-sPz"/>
                     <connections>
                         <outlet property="tableView" destination="1g7-8v-sBO" id="Evw-qL-7ux"/>
+                        <outlet property="textSearch" destination="opR-AP-Fju" id="CbO-8z-6cL"/>
+                        <segue destination="f91-lQ-v92" kind="showDetail" identifier="showGenres" id="Rhv-1S-kT5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

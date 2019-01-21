@@ -18,11 +18,16 @@ class IGDBClient {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    public func getGames(limit : Int, offset : Int, onResult: @escaping HttpResult<[GameModel]>) {
+    public func getGames(limit : Int, offset : Int, search: String, filters : [String], onResult: @escaping HttpResult<[GameModel]>) {
         var body = IGDBRequest()
         body.limit = limit
         body.offset = offset
         body.fields = Constants.Values.all
+        body.search = search.count > 0 ? search : nil
+        
+        if filters.count > 0 {
+            body.filter = filters.joined(separator: " AND ")
+        }
         
         let headers = [
             Constants.Headers.userKey : Constants.Keys.apiKey,

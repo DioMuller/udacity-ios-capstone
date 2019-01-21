@@ -8,23 +8,45 @@
 
 import UIKit
 
+enum GameFilterType {
+    case none, genre, platform
+}
+
 class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     var games : [Game] = []
     
-    @IBOutlet weak var tableView: UITableView!
+    var filterGenre : Int? = nil
+    var filterPlatform : Int? = nil
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textSearch: UITextField!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        IGDBClient.instance.getGames(limit: 50, offset: 0) { (result, error) in
+        // Do any additional setup after loading the view, typically from a nib.
+        var filters : [String] = []
+        
+        let search = textSearch!.text
+        
+        if let genre = filterGenre {
+            filters.append("genres = \(genre)")
+        }
+        
+        if let platform = filterPlatform {
+            filters.append("platform = \(platform)")
+        }
+        
+        IGDBClient.instance.getGames(limit: 50, offset: 0, search: search!, filters: filters) { (result, error) in
             guard error == nil else {
                 self.showMessage("Error", error!.localizedDescription)
                 return
             }
             
             let games = result ?? []
+            
+            self.games = []
             
             for gameData in games {
                 let game = PersistedData.createOrUpdateGame(gameData)
@@ -37,6 +59,16 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let genresView = segue.destination as? GenresViewController {
+            genresView.parentList = self
+        }
+    }
+    
+    @IBAction func showFilters(_ sender: Any) {
+        performSegue(withIdentifier: "showGenres", sender: self)
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////

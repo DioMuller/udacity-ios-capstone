@@ -14,6 +14,7 @@ struct IGDBRequest {
     var offset : Int? = nil
     var sort : String? = nil
     var filter : String? = nil
+    var search : String? = nil
     
     public func getContent() -> String {
         var result = ""
@@ -36,6 +37,10 @@ struct IGDBRequest {
         
         if let filter = filter {
             result += "where: \(filter);"
+        }
+        
+        if let search = search {
+            result += "search: \"\(search)\";"
         }
         
         return result
