@@ -25,40 +25,7 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Do any additional setup after loading the view, typically from a nib.
-        var filters : [String] = []
-        
-        let search = textSearch!.text
-        
-        if let genre = filterGenre {
-            filters.append("genres = \(genre)")
-        }
-        
-        if let platform = filterPlatform {
-            filters.append("platforms = \(platform)")
-        }
-        
-        IGDBClient.instance.getGames(limit: 50, offset: 0, search: search!, filters: filters) { (result, error) in
-            guard error == nil else {
-                self.showMessage("Error", error!.localizedDescription)
-                return
-            }
-            
-            let games = result ?? []
-            
-            self.games = []
-            
-            for gameData in games {
-                let game = PersistedData.createOrUpdateGame(gameData)
-                self.games.append(game)
-            }
-            
-            PersistedData.save()
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        updateItems()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,6 +61,47 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
         optionMenu.addAction(noneAction)
         optionMenu.addAction(cancelAction)
         self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    @IBAction func search(_ sender: Any) {
+        updateItems()
+    }
+    
+    private func updateItems() {
+        // Do any additional setup after loading the view, typically from a nib.
+        var filters : [String] = []
+        
+        let search = textSearch!.text
+        
+        if let genre = filterGenre {
+            filters.append("genres = \(genre)")
+        }
+        
+        if let platform = filterPlatform {
+            filters.append("platforms = \(platform)")
+        }
+        
+        IGDBClient.instance.getGames(limit: 50, offset: 0, search: search!, filters: filters) { (result, error) in
+            guard error == nil else {
+                self.showMessage("Error", error!.localizedDescription)
+                return
+            }
+            
+            let games = result ?? []
+            
+            self.games = []
+            
+            for gameData in games {
+                let game = PersistedData.createOrUpdateGame(gameData)
+                self.games.append(game)
+            }
+            
+            PersistedData.save()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
