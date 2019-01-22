@@ -18,6 +18,7 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
     
     var filterGenre : Int? = nil
     var filterPlatform : Int? = nil
+    var loadingData : Bool = false
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textSearch: UITextField!
@@ -25,7 +26,7 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        updateItems()
+        updateItems(refresh: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,10 +65,15 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func search(_ sender: Any) {
-        updateItems()
+        updateItems(refresh: true)
     }
     
-    private func updateItems() {
+    private func updateItems(refresh : Bool) {
+        if loadingData {
+            return
+        }
+        
+        loadingData = true
         // Do any additional setup after loading the view, typically from a nib.
         var filters : [String] = []
         
@@ -81,7 +87,9 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
             filters.append("platforms = \(platform)")
         }
         
-        IGDBClient.instance.getGames(limit: 50, offset: 0, search: search!, filters: filters) { (result, error) in
+        IGDBClient.instance.getGames(limit: 50, offset: refresh ? 0 : games.count, search: search!, filters: filters) { (result, error) in
+            self.loadingData = false
+            
             guard error == nil else {
                 self.showMessage("Error", error!.localizedDescription)
                 return
@@ -118,9 +126,31 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
         cell?.textLabel!.text = game.name
         
         return cell!
-
     }
-
-
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = games[indexPath.row]
+        var actions : [UIContextualAction] = []
+        
+        if !item.favorited {
+            let favoriteAction = UIContextualAction(style: .normal, title: "Add to Collection") { (action, view, handler) in
+                item.favorited = true
+                PersistedData.save()
+            }
+            
+            actions.append(favoriteAction)
+        }
+    
+        if !item.wishlisted {
+            let wishlistAction = UIContextualAction(style: .normal, title: "Add to Wishlist") { (action, view, handler) in
+                item.wishlisted = true
+                PersistedData.save()
+            }
+            
+            actions.append(wishlistAction)
+        }
+        
+        return UISwipeActionsConfiguration(actions: actions)
+    }
 }
 

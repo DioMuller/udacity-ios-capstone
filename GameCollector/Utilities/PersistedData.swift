@@ -33,14 +33,6 @@ class PersistedData {
         return platformList
     }
     
-    public static var favorites : [Game] {
-        return []
-    }
-    
-    public static var wishlist : [Game] {
-        return []
-    }
-    
     public static var importDone : Bool {
         return genresImported && platformsImported
     }
@@ -56,20 +48,36 @@ class PersistedData {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    public static func addFavorite(model : GameModel) {
+    public static func getFavorites() -> [Game] {
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
+        let predicate = NSPredicate(format: "favorited == 1")
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
+            return result
+        }
+        
+        return []
     }
     
-    public static func addWishlist(model : GameModel) {
+    public static func getWishlist() -> [Game] {
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
-    }
-    
-    public static func removeFavorite(game : Game) {
+        let predicate = NSPredicate(format: "wishlisted == 1")
         
-    }
-    
-    public static func removeWishlist(game : Game) {
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
         
+        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
+            return result
+        }
+        
+        return []
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////

@@ -9,12 +9,28 @@
 import Foundation
 import UIKit
 
-class CollectionViewController: BaseViewController {
+class CollectionViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    private var collection : [Game] = []
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collection = PersistedData.getFavorites()
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return collection.count
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let genre = collection[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "collectionGameCell")
+        
+        cell?.textLabel!.text = genre.name
+        
+        return cell!
+    }
 }
