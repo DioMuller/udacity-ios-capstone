@@ -121,9 +121,9 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let game = games[(indexPath as NSIndexPath).row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as? GameCell
 
-        cell?.textLabel!.text = game.name
+        cell?.setGame(game)
         
         return cell!
     }
