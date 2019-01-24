@@ -97,4 +97,28 @@ class IGDBClient {
         
         HttpClient.execute(request: request, onResult: onResult)
     }
+    
+    public func getCover(id : Int, onResult: @escaping HttpResult<[ImageModel]>) {
+        var body = IGDBRequest()
+        body.fields = Constants.Values.all
+        body.filter = "id == \(id)"
+        
+        let headers = [
+            Constants.Headers.userKey : Constants.Keys.apiKey,
+            Constants.Headers.accept : Constants.Values.acceptType
+        ]
+        
+        let request = HttpRequest(
+            scheme: Constants.Api.scheme,
+            host : Constants.Api.host,
+            path : Constants.Api.path,
+            withExtension : Constants.Methods.covers,
+            method : .get,
+            parameters : nil,
+            headers : headers,
+            body : body.getContent()
+        )
+        
+        HttpClient.execute(request: request, onResult: onResult)
+    }
 }

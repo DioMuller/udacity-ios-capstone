@@ -32,7 +32,7 @@ class GameCell : UITableViewCell {
         }
         
         if let genreCount = game.genres?.count, genreCount > 1 {
-            labelPlatforms.text = "\(genreCount) Genres"
+            labelGenres.text = "\(genreCount) Genres"
         } else {
             labelGenres.text = (game.genres?.allObjects.first as? Genre)?.name ?? "No Genres"
         }

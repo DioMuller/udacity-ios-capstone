@@ -8,9 +8,21 @@
 
 import Foundation
 
-struct ArtworkModel : Codable {
+struct ImageModel : Codable {
     var id : Int
     var url : String
+    var imageId : String
     var height : Int
     var width : Int
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Coding Keys
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    enum CodingKeys : String, CodingKey {
+        case id
+        case url
+        case imageId = "image_id"
+        case height
+        case width
+    }
 }

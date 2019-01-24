@@ -57,8 +57,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgP-c7-i77" userLabel="Status">
-                                                    <rect key="frame" x="6" y="6" width="36" height="18"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DgP-c7-i77" userLabel="Status">
+                                                    <rect key="frame" x="333" y="6" width="36" height="18"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconCollection" translatesAutoresizingMaskIntoConstraints="NO" id="dhu-Gl-UwE" userLabel="Favorited">
                                                             <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
@@ -67,30 +67,31 @@
                                                             <rect key="frame" x="18" y="0.0" width="18" height="18"/>
                                                         </imageView>
                                                     </subviews>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoCover" translatesAutoresizingMaskIntoConstraints="NO" id="ceq-UO-KgO" userLabel="Cover">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ceq-UO-KgO" userLabel="Cover">
                                                     <rect key="frame" x="6" y="6" width="88" height="87.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="88" id="9Pw-hv-j1D"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NBa-Sj-GRG" userLabel="Content">
-                                                    <rect key="frame" x="106" y="0.0" width="263" height="99.5"/>
+                                                    <rect key="frame" x="106" y="0.0" width="227" height="99.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-4l-S9e" userLabel="Title">
-                                                            <rect key="frame" x="0.0" y="0.0" width="81.5" height="48"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="56.5" height="39"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKq-CH-zrs" userLabel="Platforms">
-                                                            <rect key="frame" x="0.0" y="48" width="42" height="26"/>
+                                                            <rect key="frame" x="0.0" y="39" width="42" height="30.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDx-wy-k7Q" userLabel="Genres">
-                                                            <rect key="frame" x="0.0" y="74" width="42" height="25.5"/>
+                                                            <rect key="frame" x="0.0" y="69.5" width="42" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -102,11 +103,11 @@
                                                 <constraint firstItem="ceq-UO-KgO" firstAttribute="leading" secondItem="oEO-Og-d1W" secondAttribute="leading" constant="6" id="0Dg-lb-sZK"/>
                                                 <constraint firstItem="ceq-UO-KgO" firstAttribute="top" secondItem="oEO-Og-d1W" secondAttribute="top" constant="6" id="53U-7f-BZB"/>
                                                 <constraint firstAttribute="bottom" secondItem="ceq-UO-KgO" secondAttribute="bottom" constant="6" id="BKh-48-txQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="NBa-Sj-GRG" secondAttribute="trailing" constant="6" id="JQv-pu-HzI"/>
+                                                <constraint firstItem="DgP-c7-i77" firstAttribute="leading" secondItem="NBa-Sj-GRG" secondAttribute="trailing" id="JQv-pu-HzI"/>
                                                 <constraint firstItem="NBa-Sj-GRG" firstAttribute="leading" secondItem="ceq-UO-KgO" secondAttribute="trailing" constant="12" id="Vfp-QM-GfB"/>
-                                                <constraint firstItem="DgP-c7-i77" firstAttribute="leading" secondItem="oEO-Og-d1W" secondAttribute="leading" constant="6" id="bXQ-Do-Bcl"/>
                                                 <constraint firstItem="DgP-c7-i77" firstAttribute="top" secondItem="oEO-Og-d1W" secondAttribute="top" constant="6" id="fr3-1v-Nwd"/>
                                                 <constraint firstAttribute="bottom" secondItem="NBa-Sj-GRG" secondAttribute="bottom" id="sbl-gd-5nb"/>
+                                                <constraint firstAttribute="trailing" secondItem="DgP-c7-i77" secondAttribute="trailing" constant="6" id="u6s-g0-IbS"/>
                                                 <constraint firstItem="NBa-Sj-GRG" firstAttribute="top" secondItem="oEO-Og-d1W" secondAttribute="top" id="wIh-M3-QkW"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -138,7 +139,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Games" id="RCy-ao-sPz"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="TabGames" id="RCy-ao-sPz"/>
                     <connections>
                         <outlet property="tableView" destination="1g7-8v-sBO" id="Evw-qL-7ux"/>
                         <outlet property="textSearch" destination="opR-AP-Fju" id="CbO-8z-6cL"/>
@@ -267,7 +268,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3bV-FX-BBh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Wishlist" id="b50-wP-nFh"/>
+                    <tabBarItem key="tabBarItem" title="Wishlist" image="IconFavorite" id="b50-wP-nFh"/>
                     <connections>
                         <outlet property="tableView" destination="WHe-NV-loS" id="XBC-F4-4Fr"/>
                     </connections>
@@ -325,7 +326,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mx7-Yu-PoT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Collection" id="JvT-Bq-TWm"/>
+                    <tabBarItem key="tabBarItem" title="Collection" image="TabCollection" id="JvT-Bq-TWm"/>
                     <connections>
                         <outlet property="tableView" destination="9nx-Uf-8lX" id="5Ie-an-h9w"/>
                     </connections>
@@ -429,6 +430,8 @@
     <resources>
         <image name="IconCollection" width="18" height="18"/>
         <image name="IconFavorite" width="18" height="18"/>
-        <image name="NoCover" width="48" height="48"/>
+        <image name="Placeholder" width="48" height="48"/>
+        <image name="TabCollection" width="24" height="24"/>
+        <image name="TabGames" width="24" height="24"/>
     </resources>
 </document>
