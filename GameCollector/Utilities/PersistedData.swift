@@ -239,6 +239,22 @@ class PersistedData {
         return nil
     }
     
+    private static func findCover(id : Int) -> Cover? {
+        let fetchRequest : NSFetchRequest<Cover> = Cover.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "id == %d", Int32(id))
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
+            return result.first
+        }
+        
+        return nil
+    }
+    
     private static func createGame(_ game : GameModel) -> Game {
         let newGame = Game(context: controller.backgroundContext)
         
@@ -266,6 +282,16 @@ class PersistedData {
         } else {
             return createGame(game)
         }
+    }
+    
+    public static func createOrFindCover(_ id : Int) -> Cover {
+        if let existing = findCover(id: id) {
+            return existing
+        }
+        
+        let newItem = Cover(context: controller.backgroundContext)
+        newItem.id = Int32(id)
+        return newItem
     }
     
     private static func getGenres(_ game : GameModel) -> [Genre] {

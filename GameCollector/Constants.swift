@@ -44,5 +44,7 @@ class Constants {
     class Values {
         static let acceptType = "application/json"
         static let all = "*"
+        static let noImage = "NoImage"
+        static let placeholder = "Placeholder"
     }
 }
