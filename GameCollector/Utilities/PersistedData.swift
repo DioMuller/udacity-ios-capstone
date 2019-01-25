@@ -263,6 +263,8 @@ class PersistedData {
         newGame.summary = game.summary
         newGame.rating = game.rating ?? 0
         
+        newGame.cover = game.cover != nil ? createOrFindCover(game.cover!) : nil
+        
         newGame.genres = NSSet(array: getGenres(game))
         newGame.platforms = NSSet(array: getPlatforms(game))
 
@@ -320,5 +322,25 @@ class PersistedData {
         }
         
         return platformItemList
+    }
+    
+    static func downloadCover(_ cover : Cover,  response: @escaping (_ result : Cover?, _ error : Error?) -> Void) {
+        
+        IGDBClient.instance.getCover(id: Int(cover.id)) { (images, error) in
+            
+            guard error == nil else {
+                response(nil, error)
+                return
+            }
+            
+            if let imageData = try? Data(contentsOf: URL(string: cover.imageUrl!)! ) {
+                cover.data = imageData
+                save()
+                response(cover, nil)
+            } else {
+                response(nil, CustomError("Error downloading image data.") )
+            }
+
+        }
     }
 }

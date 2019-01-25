@@ -36,5 +36,17 @@ class GameCell : UITableViewCell {
         } else {
             labelGenres.text = (game.genres?.allObjects.first as? Genre)?.name ?? "No Genres"
         }
+        
+        if let coverData = game.cover {
+            PersistedData.downloadCover(coverData) { (cover, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let data = cover?.data {
+                    self.imageCover.image = UIImage(data: data)
+                } else {
+                    print("No image data for game \(game.id)")
+                }
+            }
+        }
     }
 }

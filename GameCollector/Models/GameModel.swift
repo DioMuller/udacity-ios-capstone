@@ -19,6 +19,7 @@ struct GameModel : Codable {
     var category : Int?
     var genres : [Int]?
     var platforms : [Int]?
+    var cover : Int?
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Coding Keys
