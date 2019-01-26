@@ -26,10 +26,10 @@ class CollectionViewController: BaseViewController , UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let genre = collection[(indexPath as NSIndexPath).row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "collectionGameCell")
+        let game = collection[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as? GameCell
         
-        cell?.textLabel!.text = genre.name
+        cell?.setGame(game)
         
         return cell!
     }

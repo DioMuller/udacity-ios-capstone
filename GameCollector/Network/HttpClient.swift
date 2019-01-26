@@ -25,7 +25,6 @@ class HttpClient : NSObject {
         }
         
         if let body = request.body {
-            print(body)
             urlRequest.httpBody = body.data(using: .utf8, allowLossyConversion: false)
         }
         

@@ -46,5 +46,6 @@ class Constants {
         static let all = "*"
         static let noImage = "NoImage"
         static let placeholder = "Placeholder"
+        static let sortByDate = "created_at desc"
     }
 }

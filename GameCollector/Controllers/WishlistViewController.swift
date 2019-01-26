@@ -27,10 +27,10 @@ class WishlistViewController: BaseViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let genre = wishlist[(indexPath as NSIndexPath).row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "wishlistGameCell")
+        let game = wishlist[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as? GameCell
         
-        cell?.textLabel!.text = genre.name
+        cell?.setGame(game)
         
         return cell!
     }

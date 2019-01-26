@@ -23,10 +23,16 @@ class IGDBClient {
         body.limit = limit
         body.offset = offset
         body.fields = Constants.Values.all
+        body.sort = Constants.Values.sortByDate
         body.search = search.count > 0 ? search : nil
         
-        if filters.count > 0 {
-            body.filter = filters.joined(separator: " AND ")
+        var newFilters = filters
+        
+        newFilters.append("platforms != null")
+        newFilters.append("genres != null")
+        
+        if newFilters.count > 0 {
+            body.filter = newFilters.joined(separator: " & ")
         }
         
         let headers = [
@@ -78,6 +84,7 @@ class IGDBClient {
         body.limit = limit
         body.offset = offset
         body.fields = Constants.Values.all
+        body.sort = Constants.Values.sortByDate
         
         let headers = [
             Constants.Headers.userKey : Constants.Keys.apiKey,
