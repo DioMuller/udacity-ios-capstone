@@ -12,9 +12,7 @@ enum GameFilterType {
     case none, genre, platform
 }
 
-class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    var games : [Game] = []
+class GamesViewController: GameCollectionViewController {
     
     var filterGenre : Int? = nil
     var filterPlatform : Int? = nil
@@ -113,21 +111,8 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    // MARK: UITableViewDataSource
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let game = games[(indexPath as NSIndexPath).row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as? GameCell
-
-        cell?.setGame(game)
-        
-        return cell!
-    }
-    
+    // MARK: UITableViewDelegate
+    //////////////////////////////////////////////////////////////////////////////////////////////////    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let item = games[indexPath.row]
         var actions : [UIContextualAction] = []
@@ -139,11 +124,25 @@ class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewD
             }
             
             actions.append(favoriteAction)
+        } else {
+            let favoriteAction = UIContextualAction(style: .destructive, title: "Remove from Collection") { (action, view, handler) in
+                item.favorited = false
+                PersistedData.save()
+            }
+            
+            actions.append(favoriteAction)
         }
     
         if !item.wishlisted {
             let wishlistAction = UIContextualAction(style: .normal, title: "Add to Wishlist") { (action, view, handler) in
                 item.wishlisted = true
+                PersistedData.save()
+            }
+            
+            actions.append(wishlistAction)
+        } else {
+            let wishlistAction = UIContextualAction(style: .destructive, title: "Remove from Wishlist") { (action, view, handler) in
+                item.favorited = false
                 PersistedData.save()
             }
             

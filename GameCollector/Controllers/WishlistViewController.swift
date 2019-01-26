@@ -10,29 +10,13 @@ import Foundation
 
 import UIKit
 
-class WishlistViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    private var wishlist : [Game] = []
+class WishlistViewController: GameCollectionViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        wishlist = PersistedData.getWishlist()
+        games = PersistedData.getWishlist()
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return wishlist.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let game = wishlist[(indexPath as NSIndexPath).row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as? GameCell
-        
-        cell?.setGame(game)
-        
-        return cell!
-    }
-    
 }
