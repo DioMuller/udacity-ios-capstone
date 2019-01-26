@@ -35,5 +35,6 @@ struct GameModel : Codable {
         case category
         case genres
         case platforms
+        case cover
     }
 }

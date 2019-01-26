@@ -101,7 +101,7 @@ class IGDBClient {
     public func getCover(id : Int, onResult: @escaping HttpResult<[ImageModel]>) {
         var body = IGDBRequest()
         body.fields = Constants.Values.all
-        body.filter = "id == \(id)"
+        body.filter = "id = \(id)"
         
         let headers = [
             Constants.Headers.userKey : Constants.Keys.apiKey,

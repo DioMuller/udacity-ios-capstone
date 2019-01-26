@@ -69,12 +69,16 @@
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </stackView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ceq-UO-KgO" userLabel="Cover">
-                                                    <rect key="frame" x="6" y="6" width="88" height="87.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ceq-UO-KgO" userLabel="Cover">
+                                                    <rect key="frame" x="6" y="6" width="88" height="88"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="88" id="9Pw-hv-j1D"/>
+                                                        <constraint firstAttribute="height" constant="88" id="oun-7v-w9c"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ykW-ad-bwI">
+                                                    <rect key="frame" x="31.5" y="31.5" width="37" height="37"/>
+                                                </activityIndicatorView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="NBa-Sj-GRG" userLabel="Content">
                                                     <rect key="frame" x="106" y="0.0" width="227" height="99.5"/>
                                                     <subviews>
@@ -102,16 +106,18 @@
                                             <constraints>
                                                 <constraint firstItem="ceq-UO-KgO" firstAttribute="leading" secondItem="oEO-Og-d1W" secondAttribute="leading" constant="6" id="0Dg-lb-sZK"/>
                                                 <constraint firstItem="ceq-UO-KgO" firstAttribute="top" secondItem="oEO-Og-d1W" secondAttribute="top" constant="6" id="53U-7f-BZB"/>
-                                                <constraint firstAttribute="bottom" secondItem="ceq-UO-KgO" secondAttribute="bottom" constant="6" id="BKh-48-txQ"/>
                                                 <constraint firstItem="DgP-c7-i77" firstAttribute="leading" secondItem="NBa-Sj-GRG" secondAttribute="trailing" id="JQv-pu-HzI"/>
                                                 <constraint firstItem="NBa-Sj-GRG" firstAttribute="leading" secondItem="ceq-UO-KgO" secondAttribute="trailing" constant="12" id="Vfp-QM-GfB"/>
+                                                <constraint firstItem="ykW-ad-bwI" firstAttribute="centerX" secondItem="ceq-UO-KgO" secondAttribute="centerX" id="ayi-Hf-QLc"/>
                                                 <constraint firstItem="DgP-c7-i77" firstAttribute="top" secondItem="oEO-Og-d1W" secondAttribute="top" constant="6" id="fr3-1v-Nwd"/>
                                                 <constraint firstAttribute="bottom" secondItem="NBa-Sj-GRG" secondAttribute="bottom" id="sbl-gd-5nb"/>
                                                 <constraint firstAttribute="trailing" secondItem="DgP-c7-i77" secondAttribute="trailing" constant="6" id="u6s-g0-IbS"/>
+                                                <constraint firstItem="ykW-ad-bwI" firstAttribute="centerY" secondItem="ceq-UO-KgO" secondAttribute="centerY" id="vCM-sF-ejB"/>
                                                 <constraint firstItem="NBa-Sj-GRG" firstAttribute="top" secondItem="oEO-Og-d1W" secondAttribute="top" id="wIh-M3-QkW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="ykW-ad-bwI" id="xWw-3S-p8z"/>
                                             <outlet property="imageCover" destination="ceq-UO-KgO" id="gfq-XT-CJd"/>
                                             <outlet property="imageFavorited" destination="dhu-Gl-UwE" id="xri-kO-qvj"/>
                                             <outlet property="imageWishlisted" destination="6ef-En-aiI" id="d9C-6M-NDo"/>

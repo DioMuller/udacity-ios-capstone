@@ -18,6 +18,7 @@ class GameCell : UITableViewCell {
     @IBOutlet weak var labelPlatforms: UILabel!
     @IBOutlet weak var labelGenres: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func setGame(_ game : Game) {
         imageFavorited.isHidden = !game.favorited
@@ -37,16 +38,30 @@ class GameCell : UITableViewCell {
             labelGenres.text = (game.genres?.allObjects.first as? Genre)?.name ?? "No Genres"
         }
         
+        self.imageCover.image = UIImage(named: "Placeholder")
+        
         if let coverData = game.cover {
+            activityIndicator.isHidden = false
+            
             PersistedData.downloadCover(coverData) { (cover, error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                } else if let data = cover?.data {
-                    self.imageCover.image = UIImage(data: data)
-                } else {
-                    print("No image data for game \(game.id)")
+                DispatchQueue.main.async {
+                    self.activityIndicator.isHidden = true
+                    
+                    if let error = error {
+                        print(error.localizedDescription)
+                        self.imageCover.image = UIImage(named: "NoImage")
+                    } else if let data = cover?.data {
+                        DispatchQueue.main.async {
+                            self.imageCover.image = UIImage(data: data)
+                        }
+                    } else {
+                        print("No image data for game \(game.id)")
+                    }
                 }
             }
+        } else {
+            activityIndicator.isHidden = true
+
         }
     }
 }

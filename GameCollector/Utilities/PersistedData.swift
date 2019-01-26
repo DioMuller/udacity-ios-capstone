@@ -227,7 +227,7 @@ class PersistedData {
         let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
-        let predicate = NSPredicate(format: "id == %d", Int32(id))
+        let predicate = NSPredicate(format: "id = %d", Int32(id))
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
@@ -243,7 +243,7 @@ class PersistedData {
         let fetchRequest : NSFetchRequest<Cover> = Cover.fetchRequest()
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
-        let predicate = NSPredicate(format: "id == %d", Int32(id))
+        let predicate = NSPredicate(format: "id = %d", Int32(id))
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
@@ -332,6 +332,13 @@ class PersistedData {
                 response(nil, error)
                 return
             }
+            
+            guard let image = images?.first else {
+                response(nil, CustomError("Image not found on the server"))
+                return
+            }
+            
+            cover.imageId = image.imageId
             
             if let imageData = try? Data(contentsOf: URL(string: cover.imageUrl!)! ) {
                 cover.data = imageData
