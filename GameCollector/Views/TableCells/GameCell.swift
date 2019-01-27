@@ -40,28 +40,11 @@ class GameCell : UITableViewCell {
         
         self.imageCover.image = UIImage(named: "Placeholder")
         
-        if let coverData = game.cover {
-            activityIndicator.isHidden = false
-            
-            PersistedData.downloadCover(coverData) { (cover, error) in
-                DispatchQueue.main.async {
-                    self.activityIndicator.isHidden = true
-                    
-                    if let error = error {
-                        print(error.localizedDescription)
-                        self.imageCover.image = UIImage(named: "NoImage")
-                    } else if let data = cover?.data {
-                        DispatchQueue.main.async {
-                            self.imageCover.image = UIImage(data: data)
-                        }
-                    } else {
-                        print("No image data for game \(game.id)")
-                    }
-                }
-            }
+        if let coverData = game.cover, let data = coverData.data {
+            self.activityIndicator.isHidden = true
+            self.imageCover.image = UIImage(data: data)
         } else {
-            activityIndicator.isHidden = true
-
+            self.activityIndicator.isHidden = (game.cover == nil)
         }
     }
 }

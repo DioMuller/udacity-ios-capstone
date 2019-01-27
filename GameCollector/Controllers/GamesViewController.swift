@@ -129,7 +129,11 @@ class GamesViewController: GameCollectionViewController {
             let games = result ?? []
             
             for gameData in games {
-                let _ = self.createOrUpdateGame(gameData)
+                let game = self.createOrUpdateGame(gameData)
+                
+                if let cover = game.cover, cover.data == nil {
+                    PersistedData.downloadCover(cover)
+                }
             }
             
             PersistedData.save()
