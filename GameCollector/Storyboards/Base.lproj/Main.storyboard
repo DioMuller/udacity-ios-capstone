@@ -151,6 +151,7 @@
                         <outlet property="textSearch" destination="opR-AP-Fju" id="CbO-8z-6cL"/>
                         <segue destination="f91-lQ-v92" kind="showDetail" identifier="showGenres" id="Rhv-1S-kT5"/>
                         <segue destination="Lmt-2v-4YV" kind="showDetail" identifier="showPlatforms" id="a2C-gY-ZlP"/>
+                        <segue destination="ecq-43-7LB" kind="presentation" identifier="showGame" id="AkD-p6-5p2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -317,11 +318,66 @@
                     <tabBarItem key="tabBarItem" title="Wishlist" image="IconFavorite" id="b50-wP-nFh"/>
                     <connections>
                         <outlet property="tableView" destination="WHe-NV-loS" id="XBC-F4-4Fr"/>
+                        <segue destination="ecq-43-7LB" kind="presentation" identifier="showGame" id="y7m-od-Ypn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ez0-id-Okd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1838" y="944"/>
+        </scene>
+        <!--Game Detail View Controller-->
+        <scene sceneID="gLj-In-0rK">
+            <objects>
+                <viewController id="ecq-43-7LB" customClass="GameDetailViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xlv-WT-bN0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIW-FQ-GFb" userLabel="Image Cover">
+                                <rect key="frame" x="0.0" y="20" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Fs1-d1-Oll"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4zV-DL-sCA">
+                                <rect key="frame" x="0.0" y="320" width="375" height="347"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uys-eF-ugO">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Her-Ba-vnU">
+                                        <rect key="frame" x="0.0" y="38.5" width="375" height="308.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tIW-FQ-GFb" firstAttribute="top" secondItem="km0-Pl-3Fx" secondAttribute="top" id="38a-j6-95J"/>
+                            <constraint firstItem="km0-Pl-3Fx" firstAttribute="trailing" secondItem="tIW-FQ-GFb" secondAttribute="trailing" id="6Rg-as-Vcc"/>
+                            <constraint firstItem="4zV-DL-sCA" firstAttribute="leading" secondItem="km0-Pl-3Fx" secondAttribute="leading" id="73e-Ly-bbw"/>
+                            <constraint firstItem="tIW-FQ-GFb" firstAttribute="leading" secondItem="km0-Pl-3Fx" secondAttribute="leading" id="cKB-d2-Iur"/>
+                            <constraint firstItem="km0-Pl-3Fx" firstAttribute="trailing" secondItem="4zV-DL-sCA" secondAttribute="trailing" id="im0-X5-VGZ"/>
+                            <constraint firstItem="4zV-DL-sCA" firstAttribute="top" secondItem="tIW-FQ-GFb" secondAttribute="bottom" id="os8-4R-eUu"/>
+                            <constraint firstItem="km0-Pl-3Fx" firstAttribute="bottom" secondItem="4zV-DL-sCA" secondAttribute="bottom" id="teq-Ix-HRY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="km0-Pl-3Fx"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageCover" destination="tIW-FQ-GFb" id="ZDT-A1-UAh"/>
+                        <outlet property="labelDetail" destination="Her-Ba-vnU" id="53e-zc-XfZ"/>
+                        <outlet property="labelTitle" destination="Uys-eF-ugO" id="27C-Hc-jRq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5I-ha-eCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2894" y="667"/>
         </scene>
         <!--Collection-->
         <scene sceneID="Vt2-vC-83B">
@@ -430,6 +486,7 @@
                     <tabBarItem key="tabBarItem" title="Collection" image="TabCollection" id="JvT-Bq-TWm"/>
                     <connections>
                         <outlet property="tableView" destination="9nx-Uf-8lX" id="5Ie-an-h9w"/>
+                        <segue destination="ecq-43-7LB" kind="presentation" identifier="showGame" id="p4u-tv-5B6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npe-PB-r2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -516,4 +573,7 @@
         <image name="TabCollection" width="24" height="24"/>
         <image name="TabGames" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="y7m-od-Ypn"/>
+    </inferredMetricsTieBreakers>
 </document>

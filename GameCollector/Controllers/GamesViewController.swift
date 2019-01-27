@@ -37,6 +37,8 @@ class GamesViewController: GameCollectionViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
         if let genresView = segue.destination as? GenresViewController {
             genresView.parentList = self
         } else if let platformsView = segue.destination as? PlatformsViewController {

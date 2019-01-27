@@ -47,6 +47,12 @@ class GameCollectionViewController : BaseViewController, UITableViewDelegate, UI
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detail = segue.destination as? GameDetailViewController, let row = tableView.indexPathForSelectedRow {
+            detail.game = fetchedResultController.object(at: row)
+        }
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: NSFetchedResultsControllerDelegate methods
@@ -102,5 +108,12 @@ class GameCollectionViewController : BaseViewController, UITableViewDelegate, UI
         cell?.setGame(game)
         
         return cell!
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: UITableViewDataSource
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showGame", sender: self)
     }
 }
