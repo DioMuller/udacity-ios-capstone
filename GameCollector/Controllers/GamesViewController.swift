@@ -120,11 +120,9 @@ class GamesViewController: GameCollectionViewController {
                 return
             }
             
-            /*
             if refresh {
                 self.clearCache()
             }
-             */
             
             let games = result ?? []
             
@@ -225,7 +223,7 @@ class GamesViewController: GameCollectionViewController {
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        if let result = try? dataController.backgroundContext.fetch(fetchRequest) {
+        if let result = try? dataController.viewContext.fetch(fetchRequest) {
             return result.first
         }
         
@@ -246,7 +244,7 @@ class GamesViewController: GameCollectionViewController {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
-            try dataController.backgroundContext.execute(deleteRequest)
+            try dataController.viewContext.execute(deleteRequest)
         } catch {
             print("Error deleting all unused items.")
         }
@@ -264,7 +262,7 @@ class GamesViewController: GameCollectionViewController {
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        if let result = try? dataController.backgroundContext.fetch(fetchRequest) {
+        if let result = try? dataController.viewContext.fetch(fetchRequest) {
             return result.first
         }
         

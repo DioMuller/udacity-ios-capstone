@@ -77,7 +77,7 @@ class PersistedData {
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         
-        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
+        if let result = try? controller.viewContext.fetch(fetchRequest) {
             return result
         } else {
             return []
@@ -89,7 +89,7 @@ class PersistedData {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     static func save() {
         do {
-            try controller.backgroundContext.save()
+            try controller.viewContext.save()
         } catch {
             print("Error saving context.")
         }
@@ -104,7 +104,7 @@ class PersistedData {
                 if let existing = genreList[Int32(item.id)] {
                     existing.name = item.name
                 } else {
-                    let newItem = Genre(context: controller.backgroundContext)
+                    let newItem = Genre(context: controller.viewContext)
                     newItem.id = Int32(item.id)
                     newItem.name = item.name
                     newItem.games = []
@@ -134,7 +134,7 @@ class PersistedData {
                 if let existing = platformList.removeValue(forKey: Int32(item.id)) {
                     existing.name = item.name
                 } else {
-                    let newItem = Platform(context: controller.backgroundContext)
+                    let newItem = Platform(context: controller.viewContext)
                     newItem.id = Int32(item.id)
                     newItem.name = item.name
                     newItem.games = []
@@ -174,7 +174,7 @@ class PersistedData {
         }
         
         do {
-            try controller.backgroundContext.save()
+            try controller.viewContext.save()
         } catch {
             print("Error saving context: \(error.localizedDescription)")
             return false
