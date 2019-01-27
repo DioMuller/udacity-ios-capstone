@@ -6,6 +6,7 @@
 //  Copyright © 2019 Diogo Muller. All rights reserved.
 //
 
+import CoreData
 import UIKit
 
 enum GameFilterType {
@@ -14,13 +15,21 @@ enum GameFilterType {
 
 class GamesViewController: GameCollectionViewController {
     
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Attributes
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     var filterGenre : Int? = nil
     var filterPlatform : Int? = nil
     var loadingData : Bool = false
     
-    @IBOutlet weak var tableView: UITableView!
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: IBOutlets
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     @IBOutlet weak var textSearch: UITextField!
     
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: UIViewController Methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -35,6 +44,21 @@ class GamesViewController: GameCollectionViewController {
         }
     }
     
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: GameCollectionViewController Methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    override func createFetchedResultsController() -> NSFetchedResultsController<Game> {
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "notebooks")
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: IBActions
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     @IBAction func showFilters(_ sender: Any) {
         let optionMenu = UIAlertController(title: nil, message: "Filter Type", preferredStyle: .actionSheet)
         
@@ -66,6 +90,9 @@ class GamesViewController: GameCollectionViewController {
         updateItems(refresh: true)
     }
     
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Private Methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
     private func updateItems(refresh : Bool) {
         if loadingData {
             return
@@ -85,7 +112,7 @@ class GamesViewController: GameCollectionViewController {
             filters.append("platforms = \(platform)")
         }
         
-        IGDBClient.instance.getGames(limit: 50, offset: refresh ? 0 : games.count, search: search!, filters: filters) { (result, error) in
+        IGDBClient.instance.getGames(limit: 50, offset: refresh ? 0 : itemCount, search: search!, filters: filters) { (result, error) in
             self.loadingData = false
             
             guard error == nil else {
@@ -93,13 +120,16 @@ class GamesViewController: GameCollectionViewController {
                 return
             }
             
+            /*
+            if refresh {
+                self.clearCache()
+            }
+             */
+            
             let games = result ?? []
             
-            self.games = []
-            
             for gameData in games {
-                let game = PersistedData.createOrUpdateGame(gameData)
-                self.games.append(game)
+                let _ = self.createOrUpdateGame(gameData)
             }
             
             PersistedData.save()
@@ -114,7 +144,7 @@ class GamesViewController: GameCollectionViewController {
     // MARK: UITableViewDelegate
     //////////////////////////////////////////////////////////////////////////////////////////////////    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let item = games[indexPath.row]
+        let item = fetchedResultController.object(at: indexPath)
         var actions : [UIContextualAction] = []
         
         if !item.favorited {
@@ -150,6 +180,105 @@ class GamesViewController: GameCollectionViewController {
         }
         
         return UISwipeActionsConfiguration(actions: actions)
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Game Creation/Update Methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private func createGame(_ game : GameModel) -> Game {
+        let newGame = Game(context: dataController.viewContext)
+        
+        newGame.id = Int32(game.id)
+        newGame.name = game.name
+        newGame.summary = game.summary
+        newGame.rating = game.rating ?? 0
+        
+        newGame.cover = game.cover != nil ? createOrFindCover(game.cover!) : nil
+        
+        newGame.genres = NSSet(array: PersistedData.getGenres(game))
+        newGame.platforms = NSSet(array: PersistedData.getPlatforms(game))
+        
+        return newGame
+    }
+    
+    public func createOrUpdateGame(_ game : GameModel) -> Game {
+        if let existing = findGame(id: game.id) {
+            existing.name = game.name
+            existing.summary = game.summary
+            existing.rating = game.rating ?? 0
+            
+            existing.genres = NSSet(array: PersistedData.getGenres(game))
+            existing.platforms = NSSet(array: PersistedData.getPlatforms(game))
+            
+            return existing
+        } else {
+            return createGame(game)
+        }
+    }
+    
+    private func findGame(id : Int) -> Game? {
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "id = %d", Int32(id))
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        if let result = try? dataController.backgroundContext.fetch(fetchRequest) {
+            return result.first
+        }
+        
+        return nil
+    }
+    
+    private func clearCache() {
+        let fetchRequest : NSFetchRequest<NSFetchRequestResult> = Game.fetchRequest()
+        fetchRequest.returnsObjectsAsFaults = false
+
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "wishlisted = 0 && favorited == 0")
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try dataController.backgroundContext.execute(deleteRequest)
+        } catch {
+            print("Error deleting all unused items.")
+        }
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Cover Creation Methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private func findCover(id : Int) -> Cover? {
+        let fetchRequest : NSFetchRequest<Cover> = Cover.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "id = %d", Int32(id))
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        if let result = try? dataController.backgroundContext.fetch(fetchRequest) {
+            return result.first
+        }
+        
+        return nil
+    }
+    
+    public func createOrFindCover(_ id : Int) -> Cover {
+        if let existing = findCover(id: id) {
+            return existing
+        }
+        
+        let newItem = Cover(context: dataController.viewContext)
+        newItem.id = Int32(id)
+        return newItem
     }
 }
 

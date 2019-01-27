@@ -20,7 +20,7 @@ class BaseViewController : UIViewController {
     // MARK: Attributes
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // Core Data Controller.
-    internal var dataController : DataController!
+    internal var dataController : DataController = DataController.getInstanceOf(key: "GameCollector")
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: ViewController Methods

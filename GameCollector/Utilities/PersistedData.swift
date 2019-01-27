@@ -46,41 +46,6 @@ class PersistedData {
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    // MARK: Methods
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    public static func getFavorites() -> [Game] {
-        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "favorited == 1")
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
-            return result
-        }
-        
-        return []
-    }
-    
-    public static func getWishlist() -> [Game] {
-        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "wishlisted == 1")
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
-            return result
-        }
-        
-        return []
-    }
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Private Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private static func fetchGenres() {
@@ -166,18 +131,16 @@ class PersistedData {
     private static func importPlatforms(limit : Int, offset : Int) {
         IGDBClient.instance.getPlatforms(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
-                var games : NSSet? = nil
                 if let existing = platformList.removeValue(forKey: Int32(item.id)) {
-                    games = existing.games
-                    controller.backgroundContext.delete(existing)
+                    existing.name = item.name
+                } else {
+                    let newItem = Platform(context: controller.backgroundContext)
+                    newItem.id = Int32(item.id)
+                    newItem.name = item.name
+                    newItem.games = []
+                    
+                    platformList[newItem.id] = newItem
                 }
-                
-                let newItem = Platform(context: controller.backgroundContext)
-                newItem.id = Int32(item.id)
-                newItem.name = item.name
-                newItem.games = games
-                
-                platformList[newItem.id] = newItem
             })
             
             guard imported else {
@@ -222,81 +185,8 @@ class PersistedData {
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: CoreData/Model methods
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    private static func findGame(id : Int) -> Game? {
-        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "id = %d", Int32(id))
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
-            return result.first
-        }
-        
-        return nil
-    }
-    
-    private static func findCover(id : Int) -> Cover? {
-        let fetchRequest : NSFetchRequest<Cover> = Cover.fetchRequest()
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "id = %d", Int32(id))
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
-            return result.first
-        }
-        
-        return nil
-    }
-    
-    private static func createGame(_ game : GameModel) -> Game {
-        let newGame = Game(context: controller.backgroundContext)
-        
-        newGame.id = Int32(game.id)
-        newGame.name = game.name
-        newGame.summary = game.summary
-        newGame.rating = game.rating ?? 0
-        
-        newGame.cover = game.cover != nil ? createOrFindCover(game.cover!) : nil
-        
-        newGame.genres = NSSet(array: getGenres(game))
-        newGame.platforms = NSSet(array: getPlatforms(game))
-
-        return newGame
-    }
-    
-    public static func createOrUpdateGame(_ game : GameModel) -> Game {
-        if let existing = findGame(id: game.id) {
-            existing.name = game.name
-            existing.summary = game.summary
-            existing.rating = game.rating ?? 0
-            
-            existing.genres = NSSet(array: getGenres(game))
-            existing.platforms = NSSet(array: getPlatforms(game))
-            
-            return existing
-        } else {
-            return createGame(game)
-        }
-    }
-    
-    public static func createOrFindCover(_ id : Int) -> Cover {
-        if let existing = findCover(id: id) {
-            return existing
-        }
-        
-        let newItem = Cover(context: controller.backgroundContext)
-        newItem.id = Int32(id)
-        return newItem
-    }
-    
-    private static func getGenres(_ game : GameModel) -> [Genre] {
+    //////////////////////////////////////////////////////////////////////////////////////////////////    
+    static func getGenres(_ game : GameModel) -> [Genre] {
         var genreItemList : [Genre] = []
         
         if let genreIds = game.genres {
@@ -310,7 +200,7 @@ class PersistedData {
         return genreItemList
     }
     
-    private static func getPlatforms(_ game : GameModel) -> [Platform] {
+    static func getPlatforms(_ game : GameModel) -> [Platform] {
         var platformItemList : [Platform] = []
         
         if let platformIds = game.platforms {
