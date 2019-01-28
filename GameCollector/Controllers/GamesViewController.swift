@@ -53,8 +53,11 @@ class GamesViewController: GameCollectionViewController {
         let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
-        fetchRequest.sortDescriptors = [sortDesctiptor]
+        let predicate = NSPredicate(format: "cached == 1")
         
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+
         return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "notebooks")
     }
     
@@ -130,6 +133,7 @@ class GamesViewController: GameCollectionViewController {
             
             for gameData in games {
                 let game = self.createOrUpdateGame(gameData)
+                game.cached = true
                 
                 if let cover = game.cover, cover.data == nil {
                     PersistedData.downloadCover(cover)
@@ -237,7 +241,7 @@ class GamesViewController: GameCollectionViewController {
     }
     
     private func clearCache() {
-        let fetchRequest : NSFetchRequest<NSFetchRequestResult> = Game.fetchRequest()
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
         fetchRequest.returnsObjectsAsFaults = false
 
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
@@ -247,12 +251,12 @@ class GamesViewController: GameCollectionViewController {
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            try dataController.viewContext.execute(deleteRequest)
-        } catch {
-            print("Error deleting all unused items.")
+        if let result = try? dataController.viewContext.fetch(fetchRequest) {
+            for item in result {
+                item.cached = false
+            }
+            
+            save()
         }
     }
     
