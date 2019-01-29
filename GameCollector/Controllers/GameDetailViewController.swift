@@ -15,6 +15,8 @@ class GameDetailViewController : BaseViewController {
     @IBOutlet weak var imageCover: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDetail: UILabel!
+    @IBOutlet weak var buttonCollection: UIBarButtonItem!
+    @IBOutlet weak var buttonWishlist: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +30,28 @@ class GameDetailViewController : BaseViewController {
         
         labelTitle.text = game.name ?? "No Title"
         labelDetail.text = game.summary ?? "This game has no description."
+        
+        setButtonStatus()
+    }
+    
+    private func setButtonStatus() {
+        buttonCollection.tintColor = game.favorited ? Constants.Colors.activeColor : Constants.Colors.inactiveColor
+        buttonWishlist.tintColor = game.wishlisted ? Constants.Colors.activeColor : Constants.Colors.inactiveColor
     }
     
     @IBAction func closeView(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func toggleCollection(_ sender: Any) {
+        game.favorited = !game.favorited
+        save()
+        setButtonStatus()
+    }
+    
+    @IBAction func toggleWishlist(_ sender: Any) {
+        game.wishlisted = !game.wishlisted
+        save()
+        setButtonStatus()
     }
 }

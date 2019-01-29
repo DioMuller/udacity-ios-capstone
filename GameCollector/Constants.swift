@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Constants {
     class Parameters {
@@ -47,5 +48,10 @@ class Constants {
         static let noImage = "NoImage"
         static let placeholder = "Placeholder"
         static let sortByDate = "created_at desc"
+    }
+    
+    class Colors {
+        static let activeColor = UIColor.init(red: 0.0, green: 0.4784, blue: 1.0, alpha: 1.0)
+        static let inactiveColor = UIColor.darkGray
     }
 }

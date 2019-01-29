@@ -343,56 +343,78 @@
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem image="IconFavorite" id="7ki-4h-UIP"/>
-                                            <barButtonItem image="IconCollection" id="l9l-dC-Pwr"/>
+                                            <barButtonItem image="IconFavorite" id="7ki-4h-UIP">
+                                                <connections>
+                                                    <action selector="toggleWishlist:" destination="ecq-43-7LB" id="Do0-fX-pB6"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem image="IconCollection" id="l9l-dC-Pwr">
+                                                <connections>
+                                                    <action selector="toggleCollection:" destination="ecq-43-7LB" id="dxc-0K-Wo2"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIW-FQ-GFb" userLabel="Image Cover">
-                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Fs1-d1-Oll"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4zV-DL-sCA">
-                                <rect key="frame" x="0.0" y="364" width="375" height="303"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF6-8g-b1b">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgi-Q3-Y89">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game details" lineBreakMode="wordWrap" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Her-Ba-vnU">
-                                        <rect key="frame" x="0.0" y="36" width="375" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvZ-50-ngb">
-                                        <rect key="frame" x="0.0" y="56.5" width="375" height="246.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIW-FQ-GFb" userLabel="Image Cover">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="Fs1-d1-Oll"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4zV-DL-sCA">
+                                        <rect key="frame" x="0.0" y="300" width="375" height="66.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgi-Q3-Y89">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game details" lineBreakMode="wordWrap" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Her-Ba-vnU">
+                                                <rect key="frame" x="0.0" y="46" width="375" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <color key="tintColor" red="0.019607843137254902" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="tIW-FQ-GFb" firstAttribute="leading" secondItem="HF6-8g-b1b" secondAttribute="leading" id="7hK-fE-HcE"/>
+                                    <constraint firstAttribute="trailing" secondItem="tIW-FQ-GFb" secondAttribute="trailing" id="7qT-AH-qBl"/>
+                                    <constraint firstItem="4zV-DL-sCA" firstAttribute="width" secondItem="HF6-8g-b1b" secondAttribute="width" id="BOz-l3-SXb"/>
+                                    <constraint firstItem="4zV-DL-sCA" firstAttribute="leading" secondItem="HF6-8g-b1b" secondAttribute="leading" id="LHO-55-hV0"/>
+                                    <constraint firstAttribute="bottom" secondItem="4zV-DL-sCA" secondAttribute="bottom" id="Qxa-hC-j2J"/>
+                                    <constraint firstItem="tIW-FQ-GFb" firstAttribute="top" secondItem="HF6-8g-b1b" secondAttribute="top" id="Zbl-EZ-Qx8"/>
+                                    <constraint firstItem="tIW-FQ-GFb" firstAttribute="width" secondItem="HF6-8g-b1b" secondAttribute="width" id="ajY-fT-maA"/>
+                                    <constraint firstAttribute="trailing" secondItem="4zV-DL-sCA" secondAttribute="trailing" id="lFp-gP-Kcn"/>
+                                    <constraint firstItem="tIW-FQ-GFb" firstAttribute="bottom" secondItem="4zV-DL-sCA" secondAttribute="top" id="zvM-3s-GXe"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tIW-FQ-GFb" firstAttribute="top" secondItem="N0E-u3-FMe" secondAttribute="bottom" id="38a-j6-95J"/>
-                            <constraint firstItem="km0-Pl-3Fx" firstAttribute="trailing" secondItem="tIW-FQ-GFb" secondAttribute="trailing" id="6Rg-as-Vcc"/>
-                            <constraint firstItem="4zV-DL-sCA" firstAttribute="leading" secondItem="km0-Pl-3Fx" secondAttribute="leading" id="73e-Ly-bbw"/>
+                            <constraint firstItem="km0-Pl-3Fx" firstAttribute="trailing" secondItem="HF6-8g-b1b" secondAttribute="trailing" id="2s3-b5-yRf"/>
+                            <constraint firstItem="N0E-u3-FMe" firstAttribute="bottom" secondItem="HF6-8g-b1b" secondAttribute="top" id="DWV-Mq-YfO"/>
                             <constraint firstItem="km0-Pl-3Fx" firstAttribute="trailing" secondItem="N0E-u3-FMe" secondAttribute="trailing" id="SvS-KY-M0o"/>
+                            <constraint firstItem="HF6-8g-b1b" firstAttribute="leading" secondItem="km0-Pl-3Fx" secondAttribute="leading" id="VDF-V3-GBw"/>
+                            <constraint firstItem="HF6-8g-b1b" firstAttribute="width" secondItem="Xlv-WT-bN0" secondAttribute="width" id="Vbo-C4-dAu"/>
                             <constraint firstItem="N0E-u3-FMe" firstAttribute="top" secondItem="km0-Pl-3Fx" secondAttribute="top" id="ZVl-gj-VvO"/>
-                            <constraint firstItem="tIW-FQ-GFb" firstAttribute="leading" secondItem="km0-Pl-3Fx" secondAttribute="leading" id="cKB-d2-Iur"/>
-                            <constraint firstItem="km0-Pl-3Fx" firstAttribute="trailing" secondItem="4zV-DL-sCA" secondAttribute="trailing" id="im0-X5-VGZ"/>
-                            <constraint firstItem="4zV-DL-sCA" firstAttribute="top" secondItem="tIW-FQ-GFb" secondAttribute="bottom" id="os8-4R-eUu"/>
+                            <constraint firstItem="km0-Pl-3Fx" firstAttribute="bottom" secondItem="HF6-8g-b1b" secondAttribute="bottom" id="kbP-pj-DEe"/>
+                            <constraint firstItem="HF6-8g-b1b" firstAttribute="top" secondItem="N0E-u3-FMe" secondAttribute="bottom" id="lys-70-BvD"/>
                             <constraint firstItem="N0E-u3-FMe" firstAttribute="leading" secondItem="km0-Pl-3Fx" secondAttribute="leading" id="piF-ZK-G7E"/>
-                            <constraint firstItem="km0-Pl-3Fx" firstAttribute="bottom" secondItem="4zV-DL-sCA" secondAttribute="bottom" id="teq-Ix-HRY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="km0-Pl-3Fx"/>
                     </view>
                     <connections>
+                        <outlet property="buttonCollection" destination="l9l-dC-Pwr" id="SIA-Qp-hF5"/>
+                        <outlet property="buttonWishlist" destination="7ki-4h-UIP" id="4Im-YL-iVe"/>
                         <outlet property="imageCover" destination="tIW-FQ-GFb" id="ZDT-A1-UAh"/>
                         <outlet property="labelDetail" destination="Her-Ba-vnU" id="53e-zc-XfZ"/>
                         <outlet property="labelTitle" destination="Fgi-Q3-Y89" id="CxF-N1-1h8"/>
