@@ -26,7 +26,11 @@ class GameDetailViewController : BaseViewController {
             imageCover.isHidden = true
         }
         
-        labelTitle.text = game.name
-        labelDetail.text = game.summary
+        labelTitle.text = game.name ?? "No Title"
+        labelDetail.text = game.summary ?? "This game has no description."
+    }
+    
+    @IBAction func closeView(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }
