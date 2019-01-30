@@ -360,23 +360,23 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF6-8g-b1b">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIW-FQ-GFb" userLabel="Image Cover">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIW-FQ-GFb" userLabel="Image Cover">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="Fs1-d1-Oll"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4zV-DL-sCA">
-                                        <rect key="frame" x="0.0" y="300" width="375" height="66.5"/>
+                                        <rect key="frame" x="20" y="310" width="335" height="66.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgi-Q3-Y89">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game details" lineBreakMode="wordWrap" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Her-Ba-vnU">
-                                                <rect key="frame" x="0.0" y="46" width="375" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="46" width="335" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -386,15 +386,14 @@
                                 </subviews>
                                 <color key="tintColor" red="0.019607843137254902" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="4zV-DL-sCA" firstAttribute="leading" secondItem="HF6-8g-b1b" secondAttribute="leading" constant="20" id="4RQ-mG-JZb"/>
                                     <constraint firstItem="tIW-FQ-GFb" firstAttribute="leading" secondItem="HF6-8g-b1b" secondAttribute="leading" id="7hK-fE-HcE"/>
                                     <constraint firstAttribute="trailing" secondItem="tIW-FQ-GFb" secondAttribute="trailing" id="7qT-AH-qBl"/>
-                                    <constraint firstItem="4zV-DL-sCA" firstAttribute="width" secondItem="HF6-8g-b1b" secondAttribute="width" id="BOz-l3-SXb"/>
-                                    <constraint firstItem="4zV-DL-sCA" firstAttribute="leading" secondItem="HF6-8g-b1b" secondAttribute="leading" id="LHO-55-hV0"/>
                                     <constraint firstAttribute="bottom" secondItem="4zV-DL-sCA" secondAttribute="bottom" id="Qxa-hC-j2J"/>
                                     <constraint firstItem="tIW-FQ-GFb" firstAttribute="top" secondItem="HF6-8g-b1b" secondAttribute="top" id="Zbl-EZ-Qx8"/>
                                     <constraint firstItem="tIW-FQ-GFb" firstAttribute="width" secondItem="HF6-8g-b1b" secondAttribute="width" id="ajY-fT-maA"/>
-                                    <constraint firstAttribute="trailing" secondItem="4zV-DL-sCA" secondAttribute="trailing" id="lFp-gP-Kcn"/>
-                                    <constraint firstItem="tIW-FQ-GFb" firstAttribute="bottom" secondItem="4zV-DL-sCA" secondAttribute="top" id="zvM-3s-GXe"/>
+                                    <constraint firstAttribute="trailing" secondItem="4zV-DL-sCA" secondAttribute="trailing" constant="20" id="y0i-94-HVw"/>
+                                    <constraint firstItem="tIW-FQ-GFb" firstAttribute="bottom" secondItem="4zV-DL-sCA" secondAttribute="top" constant="-10" id="zvM-3s-GXe"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -619,6 +618,6 @@
         <image name="TabGames" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y7m-od-Ypn"/>
+        <segue reference="p4u-tv-5B6"/>
     </inferredMetricsTieBreakers>
 </document>
