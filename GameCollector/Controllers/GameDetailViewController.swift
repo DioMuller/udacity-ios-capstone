@@ -20,7 +20,7 @@ class GameDetailViewController : BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         if let cover = game.cover, let data = cover.data  {
             imageCover.image = UIImage(data: data)
             imageCover.isHidden = false

@@ -40,9 +40,24 @@ class PersistedData {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Initializers
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    public static func initialize() {
+    public static func initialize(finished: (() -> Void) ) {
+        // Fetch from CoreData
         fetchGenres()
         fetchPlatforms()
+        
+        // Update Flags
+        genresImported = genres.count > 0
+        platformsImported = platforms.count > 0
+        
+        if importDone {
+            // Update List
+            importGenres(limit: Constants.Parameters.apiMaxLimit, offset: 0)
+            importPlatforms(limit: Constants.Parameters.apiMaxLimit, offset: 0)
+            
+            finished()
+        } else {
+
+        }
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,8 +71,6 @@ class PersistedData {
             genreList[item.id] = item
         }
         
-        // Update List
-        importGenres(limit: Constants.Parameters.apiMaxLimit, offset: 0)
     }
     
     private static func fetchPlatforms() {
@@ -67,9 +80,6 @@ class PersistedData {
         for item in list {
             platformList[item.id] = item
         }
-        
-        // Update List
-        importPlatforms(limit: Constants.Parameters.apiMaxLimit, offset: 0)
     }
     
     private static func GetList<T>(_ fetchRequest : NSFetchRequest<T>) -> [T] {

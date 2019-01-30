@@ -22,21 +22,21 @@
                                 <rect key="frame" x="10" y="20" width="355" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="opR-AP-Fju">
-                                        <rect key="frame" x="0.0" y="0.0" width="252" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="299" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="to0-vm-GXV">
-                                        <rect key="frame" x="262" y="0.0" width="48" height="40"/>
-                                        <state key="normal" title="Search"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="to0-vm-GXV">
+                                        <rect key="frame" x="309" y="0.0" width="18" height="40"/>
+                                        <state key="normal" image="IconSearch"/>
                                         <connections>
                                             <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HLc-Yh-yha"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOz-8u-akP">
-                                        <rect key="frame" x="320" y="0.0" width="35" height="40"/>
-                                        <state key="normal" title="Filter"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOz-8u-akP">
+                                        <rect key="frame" x="337" y="0.0" width="18" height="40"/>
+                                        <state key="normal" image="IconFilter"/>
                                         <connections>
                                             <action selector="showFilters:" destination="BYZ-38-t0r" eventType="touchUpInside" id="arO-dI-hcR"/>
                                         </connections>
@@ -613,11 +613,13 @@
     <resources>
         <image name="IconCollection" width="18" height="18"/>
         <image name="IconFavorite" width="18" height="18"/>
+        <image name="IconFilter" width="18" height="18"/>
+        <image name="IconSearch" width="18" height="18"/>
         <image name="Placeholder" width="48" height="48"/>
         <image name="TabCollection" width="24" height="24"/>
         <image name="TabGames" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p4u-tv-5B6"/>
+        <segue reference="AkD-p6-5p2"/>
     </inferredMetricsTieBreakers>
 </document>

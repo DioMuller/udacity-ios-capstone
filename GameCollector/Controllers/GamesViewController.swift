@@ -30,12 +30,12 @@ class GamesViewController: GameCollectionViewController {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: UIViewController Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad(){
+        super.viewDidLoad()
         
         updateItems(refresh: true)
     }
-    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
