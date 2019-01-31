@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-class GameDetailViewController : BaseViewController {
+class GameDetailViewController : BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     var game : Game!
     
     @IBOutlet weak var imageCover: UIImageView!
@@ -53,5 +54,45 @@ class GameDetailViewController : BaseViewController {
         game.wishlisted = !game.wishlisted
         save()
         setButtonStatus()
+    }
+    
+    // UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return game.genres?.count ?? 0
+        } else if section == 1{
+            return game.platforms?.count ?? 0
+        } else {
+            return 0
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as! TagCollectionCell
+
+        if indexPath.section == 0 {
+            if let item = game.genres?.allObjects[indexPath.row] as? Genre {
+                cell.labelText.text = item.name
+            }
+        } else if indexPath.section == 1 {
+            if let item = game.platforms?.allObjects[indexPath.row] as? Platform {
+                cell.labelText.text = item.name
+            }
+        } else {
+            cell.labelText.text = "?"
+        }
+        
+        return cell
+    }
+    
+    // UICollectionViewDelegate
+    
+    // UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 25)
     }
 }

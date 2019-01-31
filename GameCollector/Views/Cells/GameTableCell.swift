@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class GameCell : UITableViewCell {
+class GameTableCell : UITableViewCell {
     @IBOutlet weak var imageCover: UIImageView!
     @IBOutlet weak var imageFavorited: UIImageView!
     @IBOutlet weak var imageWishlisted: UIImageView!

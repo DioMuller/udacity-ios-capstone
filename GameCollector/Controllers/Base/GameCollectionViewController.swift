@@ -103,7 +103,7 @@ class GameCollectionViewController : BaseViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let game = fetchedResultController.object(at: indexPath)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as? GameCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as? GameTableCell
         
         cell?.setGame(game)
         
