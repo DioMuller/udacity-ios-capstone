@@ -42,9 +42,11 @@
 		98FD1AEE21EB94E2005F7CEA /* DataController+AutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD1AEB21EB94E2005F7CEA /* DataController+AutoSave.swift */; };
 		98FE78482203A820008EFDFD /* TagCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FE78472203A820008EFDFD /* TagCollectionCell.swift */; };
 		98FEACA821F3BBA7005E0384 /* GameCollector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98FEACA621F3BBA7005E0384 /* GameCollector.xcdatamodeld */; };
+		AF472866F88AC91B42DE7F34 /* Pods_GameCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831491D95E95CD60A90DB887 /* Pods_GameCollector.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		831491D95E95CD60A90DB887 /* Pods_GameCollector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameCollector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9816612221EE89DC00DD49C4 /* IGDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBClient.swift; sourceTree = "<group>"; };
 		9816612521EE9A4200DD49C4 /* IGDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBRequest.swift; sourceTree = "<group>"; };
 		9816612721EE9D3400DD49C4 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
@@ -82,6 +84,8 @@
 		98FD1AEB21EB94E2005F7CEA /* DataController+AutoSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataController+AutoSave.swift"; sourceTree = "<group>"; };
 		98FE78472203A820008EFDFD /* TagCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionCell.swift; sourceTree = "<group>"; };
 		98FEACA721F3BBA7005E0384 /* GameCollector.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameCollector.xcdatamodel; sourceTree = "<group>"; };
+		D7E1072E13B96919210971FF /* Pods-GameCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameCollector/Pods-GameCollector.release.xcconfig"; sourceTree = "<group>"; };
+		E373D9343E0EC92738893C39 /* Pods-GameCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameCollector/Pods-GameCollector.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +93,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF472866F88AC91B42DE7F34 /* Pods_GameCollector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		829AE33E8942F66E2BFFEB9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				831491D95E95CD60A90DB887 /* Pods_GameCollector.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9816612421EE9A2800DD49C4 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +130,8 @@
 			children = (
 				98FD1AB921EB75A7005F7CEA /* GameCollector */,
 				98FD1AB821EB75A7005F7CEA /* Products */,
+				D9A5916CA498CB8E567E536C /* Pods */,
+				829AE33E8942F66E2BFFEB9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,6 +265,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		D9A5916CA498CB8E567E536C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E373D9343E0EC92738893C39 /* Pods-GameCollector.debug.xcconfig */,
+				D7E1072E13B96919210971FF /* Pods-GameCollector.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,9 +281,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 98FD1ACC21EB75AA005F7CEA /* Build configuration list for PBXNativeTarget "GameCollector" */;
 			buildPhases = (
+				D9EC930A0325D963E168E426 /* [CP] Check Pods Manifest.lock */,
 				98FD1AB321EB75A7005F7CEA /* Sources */,
 				98FD1AB421EB75A7005F7CEA /* Frameworks */,
 				98FD1AB521EB75A7005F7CEA /* Resources */,
+				7E271F1242EA739B94A4FE35 /* [CP] Embed Pods Frameworks */,
+				32FBCC93A293BDA06FE7425F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,6 +343,72 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		32FBCC93A293BDA06FE7425F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameCollector/Pods-GameCollector-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E271F1242EA739B94A4FE35 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GameCollector/Pods-GameCollector-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameCollector/Pods-GameCollector-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9EC930A0325D963E168E426 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GameCollector-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		98FD1AB321EB75A7005F7CEA /* Sources */ = {
@@ -496,6 +589,7 @@
 		};
 		98FD1ACD21EB75AA005F7CEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E373D9343E0EC92738893C39 /* Pods-GameCollector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -513,6 +607,7 @@
 		};
 		98FD1ACE21EB75AA005F7CEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7E1072E13B96919210971FF /* Pods-GameCollector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

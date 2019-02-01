@@ -24,6 +24,9 @@ This project may use [CocoaPods](https://cocoapods.org/) for it's dependencies. 
 
 After that, open the project using the Itch.xcworkspace created by CocoaPods.
 
+#### Libraries used by this project:
+* [TagListView](https://github.com/ElaWorkshop/TagListView)
+
 ## Task List
 
 The Tasks, Issues and Enhancements for this app are listed on Github:
