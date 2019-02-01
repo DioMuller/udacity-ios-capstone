@@ -286,7 +286,6 @@
 				98FD1AB421EB75A7005F7CEA /* Frameworks */,
 				98FD1AB521EB75A7005F7CEA /* Resources */,
 				7E271F1242EA739B94A4FE35 /* [CP] Embed Pods Frameworks */,
-				32FBCC93A293BDA06FE7425F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -345,25 +344,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		32FBCC93A293BDA06FE7425F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GameCollector/Pods-GameCollector-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7E271F1242EA739B94A4FE35 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

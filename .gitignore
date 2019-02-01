@@ -67,5 +67,10 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
+# Podfiles
+Pods
+Podfile.lock
+GameCollector.xcworkspace
+
 # Keys File
 Constants+Keys.swift
