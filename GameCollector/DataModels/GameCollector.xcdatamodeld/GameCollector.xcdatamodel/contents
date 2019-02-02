@@ -9,6 +9,7 @@
     <entity name="Game" representedClassName="Game" syncable="YES" codeGenerationType="class">
         <attribute name="cached" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="favorited" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="filtered" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -30,7 +31,7 @@
     </entity>
     <elements>
         <element name="Cover" positionX="-45" positionY="54" width="128" height="105"/>
-        <element name="Game" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Game" positionX="-63" positionY="-18" width="128" height="210"/>
         <element name="Genre" positionX="-36" positionY="27" width="128" height="90"/>
         <element name="Platform" positionX="-54" positionY="9" width="128" height="90"/>
     </elements>

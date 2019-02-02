@@ -13,7 +13,7 @@ enum GameFilterType {
     case none, genre, platform
 }
 
-class GamesViewController: GameCollectionViewController {
+class GamesViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Attributes
@@ -21,25 +21,51 @@ class GamesViewController: GameCollectionViewController {
     var filterGenre : Int? = nil
     var filterPlatform : Int? = nil
     var loadingData : Bool = false
+    var fetchedResultController : NSFetchedResultsController<Game>!
+
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: IBOutlets
     //////////////////////////////////////////////////////////////////////////////////////////////////
     @IBOutlet weak var textSearch: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Properties
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    var itemCount : Int {
+        var count = 0
+        
+        for section in fetchedResultController.sections ?? [] {
+            count += section.numberOfObjects
+        }
+        
+        return count
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: UIViewController Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     override func viewDidLoad(){
         super.viewDidLoad()
         
+        fetchedResultController = createFetchedResultsController()
+        fetchedResultController.delegate = self
+        
+        do {
+            try fetchedResultController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
+        
         updateItems(refresh: true)
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if let genresView = segue.destination as? GenresViewController {
+
+        if let detail = segue.destination as? GameDetailViewController, let row = tableView.indexPathForSelectedRow {
+            detail.game = fetchedResultController.object(at: row)
+        } else if let genresView = segue.destination as? GenresViewController {
             genresView.parentList = self
         } else if let platformsView = segue.destination as? PlatformsViewController {
             platformsView.parentList = self
@@ -49,7 +75,7 @@ class GamesViewController: GameCollectionViewController {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: GameCollectionViewController Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    override func createFetchedResultsController() -> NSFetchedResultsController<Game> {
+    func createFetchedResultsController() -> NSFetchedResultsController<Game> {
         let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
@@ -287,6 +313,62 @@ class GamesViewController: GameCollectionViewController {
         let newItem = Cover(context: dataController.viewContext)
         newItem.id = Int32(id)
         return newItem
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: NSFetchedResultsControllerDelegate methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            break
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+            break
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+            
+        default:
+            break
+        }
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: UITableViewDataSource
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultController.sections?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fetchedResultController.sections?[section].numberOfObjects ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let game = fetchedResultController.object(at: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as? GameCell
+        
+        cell?.setGame(game)
+        
+        return cell!
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: UITableViewDataSource
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showGame", sender: self)
     }
 }
 
