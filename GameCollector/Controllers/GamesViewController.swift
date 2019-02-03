@@ -22,7 +22,7 @@ class GamesViewController: BaseViewController {
     var filterPlatform : Int? = nil
     var loadingData : Bool = false
     var fetchedResultController : NSFetchedResultsController<Game>!
-
+    var currentState : GamesViewState = .listing
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: IBOutlets
@@ -50,15 +50,7 @@ class GamesViewController: BaseViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         
-        fetchedResultController = createFetchedResultsController()
-        fetchedResultController.delegate = self
-        
-        do {
-            try fetchedResultController.performFetch()
-        } catch {
-            fatalError("The fetch could not be performed: \(error.localizedDescription)")
-        }
-        
+        updateData()
         updateItems(refresh: true)
     }
         
@@ -77,15 +69,37 @@ class GamesViewController: BaseViewController {
     // MARK: GameCollectionViewController Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     func createFetchedResultsController() -> NSFetchedResultsController<Game> {
+        let fetchRequest : NSFetchRequest<Game> = createFetchRequest()
+
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "notebooks")
+    }
+    
+    func createFetchRequest() -> NSFetchRequest<Game> {
         let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        var filter : String
         
-        let predicate = NSPredicate(format: "cached == 1")
+        switch currentState {
+        case .listing:
+            filter = "cached == 1"
+            break
+        case .favorites:
+            filter = "favorited == 1"
+            break
+        case .wishlist:
+            filter = "wishlisted == 1"
+            break
+        case .filtering:
+            filter = "filtered == 1"
+            break
+        }
+        
+        let predicate = NSPredicate(format: filter)
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
-
-        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "notebooks")
+        
+        return fetchRequest
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
