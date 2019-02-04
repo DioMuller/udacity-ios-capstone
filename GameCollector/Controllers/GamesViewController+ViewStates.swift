@@ -17,12 +17,30 @@ enum GamesViewState : Int {
 
 extension GamesViewController {
     func changeState(_ state : GamesViewState, showGenres : Bool = false, showPlatforms : Bool = false) {
+        
+        if currentState == state { return }
+        
         currentState = state
         
         refresh()
+        
+        if showGenres {
+            self.showGenres()
+        } else if showPlatforms {
+            self.showPlatforms()
+        }
     }
     
     func refresh() {
+        stackSearch.isHidden = (currentState == .favorites || currentState == .wishlist)
         updateData()
+    }
+    
+    func showGenres() {
+        self.performSegue(withIdentifier: "showGenres", sender: self)
+    }
+    
+    func showPlatforms() {
+        self.performSegue(withIdentifier: "showPlatforms", sender: self)
     }
 }

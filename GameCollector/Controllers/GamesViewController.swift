@@ -109,35 +109,11 @@ class GamesViewController: BaseViewController {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: IBActions
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    @IBAction func showFilters(_ sender: Any) {
-        let optionMenu = UIAlertController(title: nil, message: "Filter Type", preferredStyle: .actionSheet)
-        
-        let genreAction = UIAlertAction(title: "Genre", style: .default, handler: { (alert: UIAlertAction!) -> Void in
-            self.performSegue(withIdentifier: "showGenres", sender: self)
-        })
-        
-        let platformAction = UIAlertAction(title: "Platform", style: .default, handler: { (alert: UIAlertAction!) -> Void in
-            self.performSegue(withIdentifier: "showPlatforms", sender: self)
-        })
-        
-        let noneAction = UIAlertAction(title: "None", style: .default, handler: { (alert: UIAlertAction!) -> Void in
-            self.filterPlatform = nil
-            self.filterGenre = nil
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in
-            // Cancel Action.
-        })
-        
-        optionMenu.addAction(genreAction)
-        optionMenu.addAction(platformAction)
-        optionMenu.addAction(noneAction)
-        optionMenu.addAction(cancelAction)
-        self.present(optionMenu, animated: true, completion: nil)
-    }
-    
     @IBAction func search(_ sender: Any) {
-        updateItems(refresh: true)
+        if (currentState == .filtering || currentState == .listing) {
+            changeState(.filtering)
+            updateItems(refresh: true)
+        }
     }
 }
 
