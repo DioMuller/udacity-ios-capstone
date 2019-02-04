@@ -45,11 +45,16 @@ extension GamesViewController : NSFetchedResultsControllerDelegate {
     // MARK: Helper methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     func updateData() {
-        fetchedResultController = createFetchedResultsController()
-        fetchedResultController.delegate = self
+        if fetchedResultController == nil {
+            fetchedResultController = createFetchedResultsController()
+            fetchedResultController.delegate = self
+        } else {
+            fetchedResultController.fetchRequest.predicate = getPredicate()
+        }
         
         do {
             try fetchedResultController.performFetch()
+            tableView.reloadData()
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }

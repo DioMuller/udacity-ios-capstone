@@ -71,12 +71,20 @@ class GamesViewController: BaseViewController {
     func createFetchedResultsController() -> NSFetchedResultsController<Game> {
         let fetchRequest : NSFetchRequest<Game> = createFetchRequest()
 
-        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "notebooks")
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
     }
     
     func createFetchRequest() -> NSFetchRequest<Game> {
         let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = getPredicate()
+        
+        return fetchRequest
+    }
+    
+    internal func getPredicate() -> NSPredicate {
         var filter : String
         
         switch currentState {
@@ -95,11 +103,7 @@ class GamesViewController: BaseViewController {
         }
         
         let predicate = NSPredicate(format: filter)
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        return fetchRequest
+        return predicate
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////

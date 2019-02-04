@@ -73,7 +73,11 @@ extension GamesViewController {
         
         if let result = try? dataController.viewContext.fetch(fetchRequest) {
             for item in result {
-                item.cached = false
+                if currentState == .listing {
+                    item.cached = false
+                } else if currentState == .filtering {
+                    item.filtered = false
+                }
             }
             
             save()
@@ -115,7 +119,8 @@ extension GamesViewController {
             
             for gameData in games {
                 let game = self.createOrUpdateGame(gameData)
-                game.cached = true
+                game.cached = (self.currentState == .listing)
+                game.filtered = (self.currentState == .filtering)
                 
                 if let cover = game.cover, cover.data == nil {
                     PersistedData.downloadCover(cover)
