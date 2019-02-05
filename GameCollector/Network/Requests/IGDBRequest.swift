@@ -31,7 +31,7 @@ struct IGDBRequest {
             result += "offset: \(offset);"
         }
         
-        if let sort = sort {
+        if let sort = sort, search == nil { // Search cannot be ordered.
             result += "sort: \(sort);"
         }
         
