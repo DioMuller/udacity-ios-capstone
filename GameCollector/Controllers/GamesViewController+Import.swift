@@ -121,10 +121,6 @@ extension GamesViewController {
                 let game = self.createOrUpdateGame(gameData)
                 game.cached = (self.currentState == .listing)
                 game.filtered = (self.currentState == .filtering)
-                
-                if let cover = game.cover, cover.data == nil {
-                    PersistedData.downloadCover(cover)
-                }
             }
             
             PersistedData.save()

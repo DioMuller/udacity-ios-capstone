@@ -20,7 +20,11 @@ class GameCell : UITableViewCell {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    private var currentGame : Game?
+    
     func setGame(_ game : Game) {
+        currentGame = game
+        
         imageFavorited.isHidden = !game.favorited
         imageWishlisted.isHidden = !game.wishlisted
         
@@ -40,9 +44,21 @@ class GameCell : UITableViewCell {
         
         self.imageCover.image = UIImage(named: "Placeholder")
         
-        if let coverData = game.cover, let data = coverData.data {
-            self.activityIndicator.isHidden = true
-            self.imageCover.image = UIImage(data: data)
+        if let coverData = game.cover {
+            if let data = coverData.data {
+                self.activityIndicator.isHidden = true
+                self.imageCover.image = UIImage(data: data)
+            } else {
+                PersistedData.downloadImage(coverData) { (image, error) in
+                    DispatchQueue.main.async {
+                        self.activityIndicator.isHidden = true
+                        if let image = image, image.game == self.currentGame, let data = image.data {
+                            self.imageCover.image = UIImage(data: data)
+                        }
+                    }
+                }
+            }
+            
         } else {
             self.activityIndicator.isHidden = (game.cover == nil)
         }

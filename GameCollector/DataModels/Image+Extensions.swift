@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Cover {
+extension Image {
     public var imageUrl : String? {
         if let imgId = imageId {
             return "https://images.igdb.com/igdb/image/upload/t_cover_big/\(imgId).jpg"

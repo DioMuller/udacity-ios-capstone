@@ -63,8 +63,8 @@ extension GamesViewController : NSFetchedResultsControllerDelegate {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Cover Creation Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    private func findCover(id : Int) -> Cover? {
-        let fetchRequest : NSFetchRequest<Cover> = Cover.fetchRequest()
+    private func findCover(id : Int) -> Image? {
+        let fetchRequest : NSFetchRequest<Image> = Image.fetchRequest()
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
         let predicate = NSPredicate(format: "id = %d", Int32(id))
@@ -79,12 +79,12 @@ extension GamesViewController : NSFetchedResultsControllerDelegate {
         return nil
     }
     
-    public func createOrFindCover(_ id : Int) -> Cover {
+    public func createOrFindCover(_ id : Int) -> Image {
         if let existing = findCover(id: id) {
             return existing
         }
         
-        let newItem = Cover(context: dataController.viewContext)
+        let newItem = Image(context: dataController.viewContext)
         newItem.id = Int32(id)
         return newItem
     }

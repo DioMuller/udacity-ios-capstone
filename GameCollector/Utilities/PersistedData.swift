@@ -224,17 +224,17 @@ class PersistedData {
         return platformItemList
     }
     
-    static func downloadCover(_ cover : Cover) {
+    static func downloadImage(_ cover : Image ,  _ onDownloaded : @escaping (_ image : Image?, _ error : Error?) -> Void ) {
         
         IGDBClient.instance.getCover(id: Int(cover.id)) { (images, error) in
             
             guard error == nil else {
-                print(error?.localizedDescription)
+                onDownloaded(nil, error)
                 return
             }
             
             guard let image = images?.first else {
-                print("Image not found on the server")
+                onDownloaded(nil, CustomError("Image not found on the server"))
                 return
             }
             
@@ -243,8 +243,9 @@ class PersistedData {
             if let imageData = try? Data(contentsOf: URL(string: cover.imageUrl!)! ) {
                 cover.data = imageData
                 save()
+                onDownloaded(cover, nil)
             } else {
-                print("Error downloading image data.")
+                onDownloaded(nil, CustomError("Error downloading image data."))
             }
 
         }
