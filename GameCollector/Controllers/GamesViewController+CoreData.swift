@@ -26,13 +26,13 @@ extension GamesViewController : NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
             break
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
             break
         case .update:
-            tableView.reloadRows(at: [indexPath!], with: .fade)
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
         case .move:
             tableView.moveRow(at: indexPath!, to: newIndexPath!)
             

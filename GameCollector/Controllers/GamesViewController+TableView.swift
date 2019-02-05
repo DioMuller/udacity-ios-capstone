@@ -40,19 +40,25 @@ extension GamesViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let item = fetchedResultController.object(at: indexPath)
         
-        let favoriteAction = UIContextualAction(style: item.favorited ? .destructive : .normal,
+        let favoriteAction = UIContextualAction(style: .normal,
                                             title: item.favorited ? "Remove from Collection" : "Add to Collection",
-                                            handler: { (action, view, handler) in
+                                            handler: { (action, view, success) in
             item.favorited = !item.favorited
             PersistedData.save()
+            success(true)
         })
         
-        let wishlistAction = UIContextualAction(style: item.wishlisted ? .destructive : .normal,
+        favoriteAction.backgroundColor = item.favorited ? UIColor.red : UIColor.darkGray
+        
+        let wishlistAction = UIContextualAction(style: .normal,
                                             title: item.wishlisted ? "Remove from Wishlist" : "Add to Wishlist",
-                                            handler: { (action, view, handler) in
+                                            handler: { (action, view, success) in
             item.wishlisted = !item.wishlisted
             PersistedData.save()
+            success(true)
         })
+        
+        wishlistAction.backgroundColor = item.wishlisted ? UIColor.red : UIColor.darkGray
         
         return UISwipeActionsConfiguration(actions: [favoriteAction, wishlistAction])
     }
