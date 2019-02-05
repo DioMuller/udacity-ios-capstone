@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Games View Controller-->
+        <!--Games-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GamesViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Games" id="BYZ-38-t0r" customClass="GamesViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,15 +55,18 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconCollection" translatesAutoresizingMaskIntoConstraints="NO" id="dhu-Gl-UwE" userLabel="Favorited">
                                                             <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                                            <color key="tintColor" red="0.31372549020000001" green="0.3921568627" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconWishlist" translatesAutoresizingMaskIntoConstraints="NO" id="6ef-En-aiI" userLabel="Wishlisted">
                                                             <rect key="frame" x="24" y="0.0" width="24" height="24"/>
+                                                            <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </stackView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceq-UO-KgO" userLabel="Cover">
                                                     <rect key="frame" x="6" y="6" width="60" height="60"/>
+                                                    <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="9Pw-hv-j1D"/>
                                                         <constraint firstAttribute="height" constant="60" id="oun-7v-w9c"/>
@@ -193,22 +196,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0E-u3-FMe">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0E-u3-FMe">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem id="Uyf-vY-p6Y" userLabel="Title">
                                         <barButtonItem key="leftBarButtonItem" title="Close" id="yAP-OT-aNG">
+                                            <color key="tintColor" red="0.31372549020000001" green="0.3921568627" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="closeView:" destination="ecq-43-7LB" id="deW-15-JHW"/>
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem image="IconWishlist" id="7ki-4h-UIP">
+                                                <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="toggleWishlist:" destination="ecq-43-7LB" id="Do0-fX-pB6"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem image="IconCollection" id="l9l-dC-Pwr">
+                                                <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="toggleCollection:" destination="ecq-43-7LB" id="dxc-0K-Wo2"/>
                                                 </connections>
@@ -259,7 +269,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
-                                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="value" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
@@ -285,6 +295,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                                        <color key="value" red="0.098824046550000003" green="0.16708400849999999" blue="0.34998857979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -363,6 +376,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="IconNewest" translatesAutoresizingMaskIntoConstraints="NO" id="wOy-WP-qyW">
                                                             <rect key="frame" x="0.0" y="6" width="32" height="32"/>
+                                                            <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="FNz-Ix-kJU"/>
                                                                 <constraint firstAttribute="width" constant="32" id="KaL-aZ-FrK"/>
@@ -397,6 +411,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="IconPlatforms" translatesAutoresizingMaskIntoConstraints="NO" id="Ul6-i2-0G9">
                                                             <rect key="frame" x="0.0" y="6" width="32" height="32"/>
+                                                            <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="3KR-2c-fNQ"/>
                                                                 <constraint firstAttribute="width" constant="32" id="gBY-XW-T3m"/>
@@ -431,6 +446,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="IconGenre" translatesAutoresizingMaskIntoConstraints="NO" id="ym7-vU-cXO">
                                                             <rect key="frame" x="0.0" y="6" width="32" height="32"/>
+                                                            <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="AT0-Q1-Hto"/>
                                                                 <constraint firstAttribute="width" constant="32" id="gx9-fv-lhO"/>
@@ -469,6 +485,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="IconCollection" translatesAutoresizingMaskIntoConstraints="NO" id="YeS-xN-bhg">
                                                             <rect key="frame" x="0.0" y="6" width="32" height="32"/>
+                                                            <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="32" id="QMX-hX-7IK"/>
                                                                 <constraint firstAttribute="width" constant="32" id="ulM-Wh-cB7"/>
@@ -503,6 +520,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="IconWishlist" translatesAutoresizingMaskIntoConstraints="NO" id="jaF-mH-uUU">
                                                             <rect key="frame" x="0.0" y="6" width="32" height="32"/>
+                                                            <color key="tintColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="32" id="Pf0-DR-e1z"/>
                                                                 <constraint firstAttribute="height" constant="32" id="VEK-pG-smy"/>
@@ -546,9 +564,18 @@
         <scene sceneID="pls-fh-VTy">
             <objects>
                 <navigationController id="A7U-rE-3MS" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Aqj-Lq-nw9">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Aqj-Lq-nw9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.5490196078431373" green="0.62745098039215685" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.098824046550000003" green="0.16708400849999999" blue="0.34998857979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                            <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="s68-uR-8aD" kind="relationship" relationship="rootViewController" id="biN-Wg-nhL"/>

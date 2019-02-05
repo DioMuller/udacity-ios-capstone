@@ -48,7 +48,7 @@ extension GamesViewController : UITableViewDelegate, UITableViewDataSource {
             success(true)
         })
         
-        favoriteAction.backgroundColor = item.favorited ? UIColor.red : UIColor.darkGray
+        favoriteAction.backgroundColor = item.favorited ? Constants.Colors.removeColor : Constants.Colors.activeColor
         
         let wishlistAction = UIContextualAction(style: .normal,
                                             title: item.wishlisted ? "Remove from Wishlist" : "Add to Wishlist",
@@ -58,7 +58,7 @@ extension GamesViewController : UITableViewDelegate, UITableViewDataSource {
             success(true)
         })
         
-        wishlistAction.backgroundColor = item.wishlisted ? UIColor.red : UIColor.darkGray
+        wishlistAction.backgroundColor = item.wishlisted ? Constants.Colors.removeColor : Constants.Colors.activeColor
         
         return UISwipeActionsConfiguration(actions: [favoriteAction, wishlistAction])
     }

@@ -28,7 +28,26 @@ extension GamesViewController {
     }
     
     func refresh() {
-        stackSearch.isHidden = (currentState == .favorites || currentState == .wishlist)
+        switch currentState {
+            case .listing:
+                title = "Games"
+                stackSearch.isHidden = false
+                break
+            case .filtering:
+                title = "Searching Games"
+                stackSearch.isHidden = false
+                clearCache()
+                break
+            case .favorites:
+                title = "My Collection"
+                stackSearch.isHidden = true
+                break
+            case .wishlist:
+                title = "Wishlist"
+                stackSearch.isHidden = true
+                break
+        }
+        
         updateData()
     }
     

@@ -51,7 +51,8 @@ class Constants {
     }
     
     class Colors {
-        static let activeColor = UIColor.init(red: 0.0, green: 0.4784, blue: 1.0, alpha: 1.0)
+        static let activeColor = UIColor.init(red: 0.15686, green: 0.23529, blue: 0.62745, alpha: 1.0)
         static let inactiveColor = UIColor.darkGray
+        static let removeColor = UIColor.init(red: 0.7, green: 0.0, blue: 0.0, alpha: 1.0)
     }
 }
