@@ -21,14 +21,10 @@ extension GamesViewController {
         if currentState == state { return }
         
         currentState = state
+        shouldShowGenres = showGenres
+        shouldShowPlatforms = showPlatforms
         
         refresh()
-        
-        if showGenres {
-            self.showGenres()
-        } else if showPlatforms {
-            self.showPlatforms()
-        }
     }
     
     func refresh() {

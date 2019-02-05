@@ -23,6 +23,8 @@ class GamesViewController: BaseViewController {
     var loadingData : Bool = false
     var fetchedResultController : NSFetchedResultsController<Game>!
     var currentState : GamesViewState = .listing
+    var shouldShowGenres : Bool = false
+    var shouldShowPlatforms : Bool = false
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: IBOutlets
@@ -52,6 +54,18 @@ class GamesViewController: BaseViewController {
         
         updateData()
         updateItems(refresh: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if shouldShowGenres {
+            shouldShowGenres = false
+            showGenres()
+        } else if shouldShowPlatforms {
+            shouldShowPlatforms = false
+            showPlatforms()
+        }
     }
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

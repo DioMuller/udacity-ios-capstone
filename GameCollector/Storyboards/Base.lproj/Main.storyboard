@@ -151,29 +151,16 @@
             </objects>
             <point key="canvasLocation" x="554" y="-413"/>
         </scene>
-        <!--Genres-->
+        <!--Select a Genre-->
         <scene sceneID="BBR-4I-i2r">
             <objects>
-                <viewController title="Genres" id="f91-lQ-v92" customClass="GenresViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Select a Genre" id="f91-lQ-v92" customClass="GenresViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oJt-VO-3xq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47O-3j-6xv">
-                                <rect key="frame" x="0.0" y="35" width="375" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Tb-aP-Uly">
-                                <rect key="frame" x="317" y="30" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancel:" destination="f91-lQ-v92" eventType="touchUpInside" id="eXm-I9-3Fh"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2gc-as-UUT">
-                                <rect key="frame" x="0.0" y="65.5" width="375" height="601.5"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="f91-lQ-v92" id="KKo-GL-14l"/>
@@ -183,15 +170,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0Tb-aP-Uly" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NAd-VV-zyF" secondAttribute="leading" symbolic="YES" id="OlQ-Jc-b0O"/>
-                            <constraint firstItem="NAd-VV-zyF" firstAttribute="trailing" secondItem="47O-3j-6xv" secondAttribute="trailing" id="RcT-kp-50B"/>
+                            <constraint firstItem="2gc-as-UUT" firstAttribute="top" secondItem="NAd-VV-zyF" secondAttribute="top" id="FQy-2f-cIa"/>
                             <constraint firstItem="NAd-VV-zyF" firstAttribute="trailing" secondItem="2gc-as-UUT" secondAttribute="trailing" id="TA8-h5-mqW"/>
                             <constraint firstItem="2gc-as-UUT" firstAttribute="leading" secondItem="NAd-VV-zyF" secondAttribute="leading" id="XwA-C4-jXc"/>
-                            <constraint firstItem="47O-3j-6xv" firstAttribute="top" secondItem="NAd-VV-zyF" secondAttribute="top" constant="15" id="fYr-aJ-zmP"/>
-                            <constraint firstItem="2gc-as-UUT" firstAttribute="top" secondItem="47O-3j-6xv" secondAttribute="bottom" constant="10" id="fvi-LR-BRo"/>
-                            <constraint firstItem="47O-3j-6xv" firstAttribute="leading" secondItem="NAd-VV-zyF" secondAttribute="leading" id="i0G-Ik-3VA"/>
-                            <constraint firstItem="NAd-VV-zyF" firstAttribute="trailing" secondItem="0Tb-aP-Uly" secondAttribute="trailing" constant="10" id="nqq-SZ-oIA"/>
-                            <constraint firstItem="0Tb-aP-Uly" firstAttribute="top" secondItem="NAd-VV-zyF" secondAttribute="top" constant="10" id="wrt-A3-2s1"/>
                             <constraint firstItem="NAd-VV-zyF" firstAttribute="bottom" secondItem="2gc-as-UUT" secondAttribute="bottom" id="yqk-D7-ojY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NAd-VV-zyF"/>
@@ -593,26 +574,13 @@
         <!--Platforms-->
         <scene sceneID="DqI-Rl-tEq">
             <objects>
-                <viewController title="Genres" id="Lmt-2v-4YV" userLabel="Platforms" customClass="PlatformsViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Select a Platform" id="Lmt-2v-4YV" userLabel="Platforms" customClass="PlatformsViewController" customModule="GameCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LSK-5H-SPX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Platform" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiQ-HD-Nos">
-                                <rect key="frame" x="0.0" y="35" width="375" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq6-Zq-Yuf">
-                                <rect key="frame" x="317" y="30" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancel:" destination="Lmt-2v-4YV" eventType="touchUpInside" id="Y72-nD-Wfg"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AFY-5e-YmS">
-                                <rect key="frame" x="0.0" y="65.5" width="375" height="601.5"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Lmt-2v-4YV" id="PUO-sz-Uoa"/>
@@ -622,16 +590,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Lq6-Zq-Yuf" firstAttribute="top" secondItem="Xwh-e7-laJ" secondAttribute="top" constant="10" id="1TB-U7-5Ac"/>
-                            <constraint firstItem="Xwh-e7-laJ" firstAttribute="trailing" secondItem="Lq6-Zq-Yuf" secondAttribute="trailing" constant="10" id="3iC-Vx-nzs"/>
-                            <constraint firstItem="Xwh-e7-laJ" firstAttribute="trailing" secondItem="CiQ-HD-Nos" secondAttribute="trailing" id="ABy-tU-w7F"/>
+                            <constraint firstItem="AFY-5e-YmS" firstAttribute="top" secondItem="Xwh-e7-laJ" secondAttribute="top" id="Fwc-BH-on1"/>
                             <constraint firstItem="Xwh-e7-laJ" firstAttribute="bottom" secondItem="AFY-5e-YmS" secondAttribute="bottom" id="X89-n3-KT2"/>
                             <constraint firstItem="Xwh-e7-laJ" firstAttribute="trailing" secondItem="AFY-5e-YmS" secondAttribute="trailing" id="Zbh-4H-gul"/>
-                            <constraint firstItem="CiQ-HD-Nos" firstAttribute="leading" secondItem="Xwh-e7-laJ" secondAttribute="leading" id="cng-4k-qri"/>
-                            <constraint firstItem="Lq6-Zq-Yuf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xwh-e7-laJ" secondAttribute="leading" symbolic="YES" id="lbk-Zs-dVN"/>
-                            <constraint firstItem="AFY-5e-YmS" firstAttribute="top" secondItem="CiQ-HD-Nos" secondAttribute="bottom" constant="10" id="nW7-gM-5cE"/>
                             <constraint firstItem="AFY-5e-YmS" firstAttribute="leading" secondItem="Xwh-e7-laJ" secondAttribute="leading" id="yOC-ld-Vvq"/>
-                            <constraint firstItem="CiQ-HD-Nos" firstAttribute="top" secondItem="Xwh-e7-laJ" secondAttribute="top" constant="15" id="zla-lE-j10"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xwh-e7-laJ"/>
                     </view>
