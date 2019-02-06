@@ -137,7 +137,7 @@ class PersistedData {
             
             let newOffset = offset + limit
             
-            if (newOffset < Constants.Parameters.apiMaxOffset && result!.count < limit) {
+            if (newOffset < Constants.Parameters.apiMaxOffset && result!.count == limit) {
                 importGenres(limit: limit, offset: newOffset, finished: finished)
             } else {
                 genresImported = true
@@ -169,7 +169,7 @@ class PersistedData {
             
             let newOffset = offset + limit
             
-            if (newOffset < Constants.Parameters.apiMaxOffset && result!.count < limit) {
+            if (newOffset < Constants.Parameters.apiMaxOffset && result!.count == limit) {
                 importPlatforms(limit: limit, offset: newOffset, finished: finished)
             } else {
                 platformsImported = true

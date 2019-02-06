@@ -10,7 +10,11 @@ import Foundation
 
 class InitializerViewController : BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
+        self.showLoading("Loading data...")
         PersistedData.initialize { (success) in
+            self.save()
+            
+            self.hideLoading()
             self.performSegue(withIdentifier: "goToMain", sender: self)
         }
     }
