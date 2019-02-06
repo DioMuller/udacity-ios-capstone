@@ -51,9 +51,9 @@ class GamesViewController: BaseViewController {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     override func viewDidLoad(){
         super.viewDidLoad()
-        
-        updateData()
-        updateItems(refresh: true)
+
+        self.updateData()
+        self.updateItems(refresh: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -40,7 +40,7 @@ class PersistedData {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Initializers
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    public static func initialize(finished: (() -> Void) ) {
+    public static func initialize(finished: @escaping ((_ success : Bool) -> Void) ) {
         // Fetch from CoreData
         fetchGenres()
         fetchPlatforms()
@@ -54,9 +54,15 @@ class PersistedData {
             importGenres(limit: Constants.Parameters.apiMaxLimit, offset: 0)
             importPlatforms(limit: Constants.Parameters.apiMaxLimit, offset: 0)
             
-            finished()
+            finished(true)
         } else {
-
+            importGenres(limit: Constants.Parameters.apiMaxLimit, offset: 0, finished: { (genreSuccess) in
+                    if genreSuccess {
+                        importPlatforms(limit: Constants.Parameters.apiMaxLimit, offset: 0, finished: finished)
+                    } else {
+                        finished(false)
+                }
+            })
         }
     }
     
@@ -108,7 +114,7 @@ class PersistedData {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Service Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    private static func importGenres(limit : Int, offset : Int) {
+    private static func importGenres(limit : Int, offset : Int, finished: ((_ success : Bool) -> Void)? = nil) {
         IGDBClient.instance.getGenres(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 if let existing = genreList[Int32(item.id)] {
@@ -125,20 +131,22 @@ class PersistedData {
             
             guard imported else {
                 print("Failed to import Genres.")
+                finished?(false)
                 return
             }
             
             let newOffset = offset + limit
             
             if (newOffset < Constants.Parameters.apiMaxOffset && result!.count < limit) {
-                importGenres(limit: limit, offset: newOffset)
+                importGenres(limit: limit, offset: newOffset, finished: finished)
             } else {
                 genresImported = true
+                finished?(true)
             }
         }
     }
     
-    private static func importPlatforms(limit : Int, offset : Int) {
+    private static func importPlatforms(limit : Int, offset : Int, finished: ((_ success : Bool) -> Void)? = nil) {
         IGDBClient.instance.getPlatforms(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 if let existing = platformList.removeValue(forKey: Int32(item.id)) {
@@ -155,15 +163,17 @@ class PersistedData {
             
             guard imported else {
                 print("Failed to import Platforms.")
+                finished?(false)
                 return
             }
             
             let newOffset = offset + limit
             
             if (newOffset < Constants.Parameters.apiMaxOffset && result!.count < limit) {
-                importGenres(limit: limit, offset: newOffset)
+                importPlatforms(limit: limit, offset: newOffset, finished: finished)
             } else {
                 platformsImported = true
+                finished?(true)
             }
         }
     }
