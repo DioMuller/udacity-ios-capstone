@@ -43,6 +43,7 @@ class GameCell : UITableViewCell {
         }
         
         self.imageCover.image = UIImage(named: "Placeholder")
+        self.activityIndicator.isHidden = false
         
         if let coverData = game.cover {
             if let data = coverData.data {
