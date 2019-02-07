@@ -115,6 +115,7 @@ class PersistedData {
     // MARK: Service Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private static func importGenres(limit : Int, offset : Int, finished: ((_ success : Bool) -> Void)? = nil) {
+        print("Importing Genres Offset = \(offset)")
         IGDBClient.instance.getGenres(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 if let existing = genreList[Int32(item.id)] {
@@ -137,7 +138,7 @@ class PersistedData {
             
             let newOffset = offset + limit
             
-            if (newOffset < Constants.Parameters.apiMaxOffset && result!.count == limit) {
+            if (newOffset <= Constants.Parameters.apiMaxOffset && result!.count == limit) {
                 importGenres(limit: limit, offset: newOffset, finished: finished)
             } else {
                 genresImported = true
@@ -147,6 +148,7 @@ class PersistedData {
     }
     
     private static func importPlatforms(limit : Int, offset : Int, finished: ((_ success : Bool) -> Void)? = nil) {
+        print("Importing Platforms Offset = \(offset)")
         IGDBClient.instance.getPlatforms(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 if let existing = platformList.removeValue(forKey: Int32(item.id)) {
@@ -169,7 +171,7 @@ class PersistedData {
             
             let newOffset = offset + limit
             
-            if (newOffset < Constants.Parameters.apiMaxOffset && result!.count == limit) {
+            if (newOffset <= Constants.Parameters.apiMaxOffset && result!.count == limit) {
                 importPlatforms(limit: limit, offset: newOffset, finished: finished)
             } else {
                 platformsImported = true
