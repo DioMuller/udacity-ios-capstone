@@ -49,22 +49,26 @@ class GamesViewController: BaseViewController {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: UIViewController Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    override func viewDidLoad(){
+    override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.updateData()
-        self.updateItems(refresh: true)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if shouldShowGenres {
-            shouldShowGenres = false
-            showGenres()
-        } else if shouldShowPlatforms {
-            shouldShowPlatforms = false
-            showPlatforms()
+
+        if !PersistedData.importDone {
+            self.showLoading("Loading data...")
+            PersistedData.initialize { (success) in
+                self.hideLoading()
+                self.updateItems(refresh: true)
+
+                self.initialize()
+            }
+        } else {
+            self.initialize()
         }
     }
         
@@ -118,6 +122,19 @@ class GamesViewController: BaseViewController {
         
         let predicate = NSPredicate(format: filter)
         return predicate
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Helper Functions
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    func initialize() {
+        if shouldShowGenres {
+            shouldShowGenres = false
+            showGenres()
+        } else if shouldShowPlatforms {
+            shouldShowPlatforms = false
+            showPlatforms()
+        }
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////

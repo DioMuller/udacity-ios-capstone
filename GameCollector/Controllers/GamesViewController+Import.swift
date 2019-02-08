@@ -93,7 +93,9 @@ extension GamesViewController {
         // Do any additional setup after loading the view, typically from a nib.
         var filters : [String] = []
         
-        let search = textSearch!.text
+        var search : String?
+        
+        search = textSearch!.text
         
         if let genre = filterGenre {
             filters.append("genres = \(genre)")

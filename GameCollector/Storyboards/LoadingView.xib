@@ -17,22 +17,24 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="mKw-q2-LBg">
-                    <rect key="frame" x="0.0" y="298" width="375" height="91"/>
+                    <rect key="frame" x="0.0" y="297.5" width="375" height="92"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pKE-hD-Rkv">
                             <rect key="frame" x="169" y="0.0" width="37" height="37"/>
                         </activityIndicatorView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB7-2k-cKX">
-                            <rect key="frame" x="117.5" y="62" width="140" height="29"/>
+                            <rect key="frame" x="117" y="62" width="141" height="30"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                             <color key="textColor" red="0.90970492359999999" green="0.90986090900000005" blue="0.90969508889999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="0.2287669182" green="0.28686964510000001" blue="0.440364331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="1" height="-1"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.62745098040000002" alpha="0.60257919520547942" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.2287669182" green="0.28627450980392155" blue="0.440364331" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="mKw-q2-LBg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="3ak-xD-Mhy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mKw-q2-LBg" secondAttribute="trailing" id="Gcs-vD-DUy"/>

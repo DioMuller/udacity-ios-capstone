@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5348742C220B61E20060C971 /* InitializerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5348742B220B61E20060C971 /* InitializerViewController.swift */; };
 		9816612321EE89DC00DD49C4 /* IGDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816612221EE89DC00DD49C4 /* IGDBClient.swift */; };
 		9816612621EE9A4200DD49C4 /* IGDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816612521EE9A4200DD49C4 /* IGDBRequest.swift */; };
 		9816612821EE9D3400DD49C4 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9816612721EE9D3400DD49C4 /* GameModel.swift */; };
@@ -50,7 +49,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5348742B220B61E20060C971 /* InitializerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializerViewController.swift; sourceTree = "<group>"; };
 		831491D95E95CD60A90DB887 /* Pods_GameCollector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameCollector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9816612221EE89DC00DD49C4 /* IGDBClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBClient.swift; sourceTree = "<group>"; };
 		9816612521EE9A4200DD49C4 /* IGDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBRequest.swift; sourceTree = "<group>"; };
@@ -124,14 +122,6 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
-		98FA5E8D21F92EC100A95695 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				98FA5E8B21F92EBC00A95695 /* GameCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		98FD1AAE21EB75A7005F7CEA = {
 			isa = PBXGroup;
 			children = (
@@ -171,7 +161,7 @@
 		98FD1ACF21EB7836005F7CEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				98FA5E8D21F92EC100A95695 /* Cells */,
+				98FA5E8B21F92EBC00A95695 /* GameCell.swift */,
 				98FD1AE521EB9466005F7CEA /* LoadingView.swift */,
 			);
 			path = Views;
@@ -262,7 +252,6 @@
 				9868106522074F3D00C42BC4 /* GamesViewController+TableView.swift */,
 				98F3591222077F8300C4B5DF /* GamesViewController+ViewStates.swift */,
 				98FAD7AE21F4E84D00C6DD9B /* GenresViewController.swift */,
-				5348742B220B61E20060C971 /* InitializerViewController.swift */,
 				98F3591422079C5400C4B5DF /* MenuViewController.swift */,
 				98FAD7B221F4EDCE00C6DD9B /* PlatformsViewController.swift */,
 			);
@@ -461,7 +450,6 @@
 				98F8972A21EFDF9A00E4BE23 /* ImageModel.swift in Sources */,
 				98FD1AEE21EB94E2005F7CEA /* DataController+AutoSave.swift in Sources */,
 				98FD1ABB21EB75A7005F7CEA /* AppDelegate.swift in Sources */,
-				5348742C220B61E20060C971 /* InitializerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
