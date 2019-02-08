@@ -118,9 +118,8 @@ class PersistedData {
         print("Importing Genres Offset = \(offset)")
         IGDBClient.instance.getGenres(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
-                if let existing = genreList[Int32(item.id)] {
-                    existing.name = item.name
-                } else {
+                // We won't update, since we only use the name, and that hopefully won't change.
+                if !genreList.keys.contains(Int32(item.id)) {
                     let newItem = Genre(context: controller.viewContext)
                     newItem.id = Int32(item.id)
                     newItem.name = item.name
@@ -151,9 +150,8 @@ class PersistedData {
         print("Importing Platforms Offset = \(offset)")
         IGDBClient.instance.getPlatforms(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
-                if let existing = platformList.removeValue(forKey: Int32(item.id)) {
-                    existing.name = item.name
-                } else {
+                // We won`t update the platform data, since that should not change ever.
+                if !platformList.keys.contains(Int32(item.id)) {
                     let newItem = Platform(context: controller.viewContext)
                     newItem.id = Int32(item.id)
                     newItem.name = item.name
