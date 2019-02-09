@@ -20,6 +20,7 @@ class PersistedData {
     private static var platformList : [Int32:Platform] = [:]
     private static var genresImported = false
     private static var platformsImported = false
+    private static var operationSemaphore = DispatchSemaphore(value: 1)
 
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -104,18 +105,19 @@ class PersistedData {
     // MARK: CoreData Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     static func save() {
+        operationSemaphore.wait()
         do {
             try controller.context.save()
         } catch {
-            print("Error saving context.")
+            print("Error saving context: \(error.localizedDescription).")
         }
+        operationSemaphore.signal()
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Service Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private static func importGenres(limit : Int, offset : Int, finished: ((_ success : Bool) -> Void)? = nil) {
-        print("Importing Genres Offset = \(offset)")
         IGDBClient.instance.getGenres(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 // We won't update, since we only use the name, and that hopefully won't change.
@@ -147,7 +149,6 @@ class PersistedData {
     }
     
     private static func importPlatforms(limit : Int, offset : Int, finished: ((_ success : Bool) -> Void)? = nil) {
-        print("Importing Platforms Offset = \(offset)")
         IGDBClient.instance.getPlatforms(limit: limit, offset: offset) { (result, error) in
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 // We won`t update the platform data, since that should not change ever.
@@ -193,6 +194,7 @@ class PersistedData {
             toExecute(item)
         }
         
+        // Only used for Genres and Platforms, no need to Sync for now.
         do {
             try controller.context.save()
         } catch {
@@ -258,6 +260,123 @@ class PersistedData {
                 onDownloaded(nil, CustomError("Error downloading image data."))
             }
 
+        }
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Cover Creation Methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private static func findCover(id : Int) -> Image? {
+        operationSemaphore.wait()
+
+        let fetchRequest : NSFetchRequest<Image> = Image.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "id = %d", Int32(id))
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        if let result = try? controller.context.fetch(fetchRequest) {
+            operationSemaphore.signal()
+            return result.first
+        }
+        
+        operationSemaphore.signal()
+        
+        return nil
+    }
+    
+    static func createOrFindCover(_ id : Int) -> Image {
+        if let existing = findCover(id: id) {
+            return existing
+        }
+        
+        let newItem = Image(context: controller.context)
+        newItem.id = Int32(id)
+        
+        return newItem
+    }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    // MARK: Game Creation/Update Methods
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    private static func createGame(_ game : GameModel) -> Game {
+        let newGame = Game(context: controller.context)
+        
+        newGame.id = Int32(game.id)
+        newGame.name = game.name
+        newGame.summary = game.summary
+        newGame.rating = game.rating ?? 0
+        
+        newGame.cover = game.cover != nil ? PersistedData.createOrFindCover(game.cover!) : nil
+        
+        newGame.genres = NSSet(array: PersistedData.getGenres(game))
+        newGame.platforms = NSSet(array: PersistedData.getPlatforms(game))
+        
+        return newGame
+    }
+    
+    static func createOrUpdateGame(_ game : GameModel) -> Game {
+        if let existing = findGame(id: game.id) {
+            existing.name = game.name
+            existing.summary = game.summary
+            existing.rating = game.rating ?? 0
+            
+            existing.genres = NSSet(array: PersistedData.getGenres(game))
+            existing.platforms = NSSet(array: PersistedData.getPlatforms(game))
+            
+            return existing
+        } else {
+            return createGame(game)
+        }
+    }
+    
+    private static func findGame(id : Int) -> Game? {
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "id = %d", Int32(id))
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        operationSemaphore.wait()
+        if let result = try? controller.context.fetch(fetchRequest) {
+            operationSemaphore.signal()
+            return result.first
+        }
+        
+        operationSemaphore.signal()
+        return nil
+    }
+    
+    static func clearCache(_ clearCached : Bool) {
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "cached == 1 || filtered == 1")
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        operationSemaphore.wait()
+        if let result = try? controller.context.fetch(fetchRequest) {
+            operationSemaphore.signal()
+            for item in result {
+                if clearCached {
+                    item.cached = false
+                    item.filtered = false
+                } else {
+                    item.filtered = false
+                }
+            }
+            
+            save()
+        } else {
+            operationSemaphore.signal()
         }
     }
 }

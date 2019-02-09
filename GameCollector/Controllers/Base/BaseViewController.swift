@@ -84,11 +84,7 @@ class BaseViewController : UIViewController {
     }
     
     func save() {
-        do {
-            try dataController.context.save()
-        } catch {
-            print("Error saving context: \(error)")
-        }
+        PersistedData.save()
     }
     
     func cleanString(_ text : String) -> String {

@@ -59,33 +59,4 @@ extension GamesViewController : NSFetchedResultsControllerDelegate {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
     }
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    // MARK: Cover Creation Methods
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    private func findCover(id : Int) -> Image? {
-        let fetchRequest : NSFetchRequest<Image> = Image.fetchRequest()
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "id = %d", Int32(id))
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? dataController.context.fetch(fetchRequest) {
-            return result.first
-        }
-        
-        return nil
-    }
-    
-    public func createOrFindCover(_ id : Int) -> Image {
-        if let existing = findCover(id: id) {
-            return existing
-        }
-        
-        let newItem = Image(context: dataController.context)
-        newItem.id = Int32(id)
-        return newItem
-    }
 }

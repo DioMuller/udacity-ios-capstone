@@ -9,82 +9,7 @@
 import CoreData
 import Foundation
 
-extension GamesViewController {
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    // MARK: Game Creation/Update Methods
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    private func createGame(_ game : GameModel) -> Game {
-        let newGame = Game(context: dataController.context)
-        
-        newGame.id = Int32(game.id)
-        newGame.name = game.name
-        newGame.summary = game.summary
-        newGame.rating = game.rating ?? 0
-        
-        newGame.cover = game.cover != nil ? createOrFindCover(game.cover!) : nil
-        
-        newGame.genres = NSSet(array: PersistedData.getGenres(game))
-        newGame.platforms = NSSet(array: PersistedData.getPlatforms(game))
-        
-        return newGame
-    }
-    
-    public func createOrUpdateGame(_ game : GameModel) -> Game {
-        if let existing = findGame(id: game.id) {
-            existing.name = game.name
-            existing.summary = game.summary
-            existing.rating = game.rating ?? 0
-            
-            existing.genres = NSSet(array: PersistedData.getGenres(game))
-            existing.platforms = NSSet(array: PersistedData.getPlatforms(game))
-            
-            return existing
-        } else {
-            return createGame(game)
-        }
-    }
-    
-    private func findGame(id : Int) -> Game? {
-        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "id = %d", Int32(id))
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? dataController.context.fetch(fetchRequest) {
-            return result.first
-        }
-        
-        return nil
-    }
-    
-    internal func clearCache() {
-        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "cached == 1 || filtered == 1")
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? dataController.context.fetch(fetchRequest) {
-            for item in result {
-                if currentState == .listing {
-                    item.cached = false
-                    item.filtered = false
-                } else if currentState == .filtering {
-                    item.filtered = false
-                }
-            }
-            
-            save()
-        }
-    }
-    
+extension GamesViewController {    
     internal func updateItems(refresh : Bool) {
         if loadingData {
             return
@@ -125,13 +50,13 @@ extension GamesViewController {
             }
             
             if refresh {
-                self.clearCache()
+                PersistedData.clearCache(self.currentState == .listing)
             }
             
             let games = result ?? []
             
             for gameData in games {
-                let game = self.createOrUpdateGame(gameData)
+                let game = PersistedData.createOrUpdateGame(gameData)
                 game.cached = (self.currentState == .listing)
                 game.filtered = (self.currentState == .filtering)
             }
