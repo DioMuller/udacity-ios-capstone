@@ -20,8 +20,6 @@ class PersistedData {
     private static var platformList : [Int32:Platform] = [:]
     private static var genresImported = false
     private static var platformsImported = false
-    private static var operationSemaphore = DispatchSemaphore(value: 1)
-
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Properties
@@ -105,13 +103,11 @@ class PersistedData {
     // MARK: CoreData Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     static func save() {
-        operationSemaphore.wait()
         do {
             try controller.context.save()
         } catch {
             print("Error saving context: \(error.localizedDescription).")
         }
-        operationSemaphore.signal()
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,41 +260,6 @@ class PersistedData {
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    // MARK: Cover Creation Methods
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-    private static func findCover(id : Int) -> Image? {
-        operationSemaphore.wait()
-
-        let fetchRequest : NSFetchRequest<Image> = Image.fetchRequest()
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "id = %d", Int32(id))
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? controller.context.fetch(fetchRequest) {
-            operationSemaphore.signal()
-            return result.first
-        }
-        
-        operationSemaphore.signal()
-        
-        return nil
-    }
-    
-    static func createOrFindCover(_ id : Int) -> Image {
-        if let existing = findCover(id: id) {
-            return existing
-        }
-        
-        let newItem = Image(context: controller.context)
-        newItem.id = Int32(id)
-        
-        return newItem
-    }
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Game Creation/Update Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private static func createGame(_ game : GameModel) -> Game {
@@ -308,8 +269,12 @@ class PersistedData {
         newGame.name = game.name
         newGame.summary = game.summary
         newGame.rating = game.rating ?? 0
-        
-        newGame.cover = game.cover != nil ? PersistedData.createOrFindCover(game.cover!) : nil
+        newGame.listed = true
+                
+        if let coverId = game.cover {
+            newGame.cover = Image(context: controller.context)
+            newGame.cover!.id = Int32(coverId)
+        }
         
         newGame.genres = NSSet(array: PersistedData.getGenres(game))
         newGame.platforms = NSSet(array: PersistedData.getPlatforms(game))
@@ -326,6 +291,8 @@ class PersistedData {
             existing.genres = NSSet(array: PersistedData.getGenres(game))
             existing.platforms = NSSet(array: PersistedData.getPlatforms(game))
             
+            existing.listed = true
+            
             return existing
         } else {
             return createGame(game)
@@ -341,42 +308,49 @@ class PersistedData {
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        operationSemaphore.wait()
         if let result = try? controller.context.fetch(fetchRequest) {
-            operationSemaphore.signal()
             return result.first
         }
         
-        operationSemaphore.signal()
         return nil
     }
     
-    static func clearCache(_ clearCached : Bool) {
+    static func clearCache() {
         let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
         fetchRequest.returnsObjectsAsFaults = false
         
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
-        let predicate = NSPredicate(format: "cached == 1 || filtered == 1")
+        let predicate = NSPredicate(format: "listed = 1")
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        operationSemaphore.wait()
         if let result = try? controller.context.fetch(fetchRequest) {
-            operationSemaphore.signal()
             for item in result {
-                if clearCached {
-                    item.cached = false
-                    item.filtered = false
-                } else {
-                    item.filtered = false
-                }
+                item.listed = false
             }
-            
-            save()
-        } else {
-            operationSemaphore.signal()
+        }
+        
+        save()
+    }
+    
+    static func clearUnusedData() {
+        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
+        
+        let predicate = NSPredicate(format: "listed == 0 && wishlisted == 0 && favorited == 0")
+        
+        fetchRequest.sortDescriptors = [sortDesctiptor]
+        fetchRequest.predicate = predicate
+        
+        if var result = try? controller.context.fetch(fetchRequest) {
+            while !result.isEmpty {
+                let first = result.remove(at: 0)
+                controller.context.delete(first)
+            }
         }
     }
 }

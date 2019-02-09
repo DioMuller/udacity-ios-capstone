@@ -60,7 +60,7 @@ extension GamesViewController : UITableViewDelegate, UITableViewDataSource {
         
         wishlistAction.backgroundColor = item.wishlisted ? Constants.Colors.removeColor : Constants.Colors.activeColor
         
-        return UISwipeActionsConfiguration(actions: [favoriteAction, wishlistAction])
+        return UISwipeActionsConfiguration(actions: [wishlistAction, favoriteAction])
     }
 
 }

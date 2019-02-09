@@ -21,28 +21,29 @@ class DataController {
     var context : NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-
+    
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Constructor
     //////////////////////////////////////////////////////////////////////////////////////////////////
     internal init(modelName : String) {
         persistentContainer = NSPersistentContainer(name: modelName)
-
+        
         context.automaticallyMergesChangesFromParent = true
+        context.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
+    func configureContexts() {
+    }
+    
     func load(completion : (() -> Void)? = nil) {
         persistentContainer.loadPersistentStores(completionHandler: { storeDescription, error in
             guard error == nil else {
                 fatalError(error!.localizedDescription)
             }
             
-            if Constants.Parameters.autoSaveEnabled {
-                self.autoSaveViewContext(interval: Constants.Parameters.autoSaveTime)
-            }
             completion?()
         })
     }

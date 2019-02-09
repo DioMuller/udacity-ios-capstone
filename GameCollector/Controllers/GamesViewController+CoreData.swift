@@ -54,7 +54,10 @@ extension GamesViewController : NSFetchedResultsControllerDelegate {
         
         do {
             try fetchedResultController.performFetch()
-            tableView.reloadData()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }

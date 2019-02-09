@@ -64,12 +64,11 @@ class GamesViewController: BaseViewController {
             PersistedData.initialize { (success) in
                 self.hideLoading()
                 self.updateItems(refresh: true)
-
-                self.initialize()
             }
         } else {
-            self.initialize()
-            self.updateItems(refresh: true)
+            if !self.checkFilters() {
+                self.updateItems(refresh: true)
+            }
         }
     }
         
@@ -103,21 +102,21 @@ class GamesViewController: BaseViewController {
         return fetchRequest
     }
     
-    internal func getPredicate() -> NSPredicate {
+    internal func getPredicate() -> NSPredicate? {
         var filter : String
         
         switch currentState {
         case .listing:
-            filter = "cached == 1"
+            filter = "listed = 1"
             break
         case .favorites:
-            filter = "favorited == 1"
+            filter = "favorited = 1"
             break
         case .wishlist:
-            filter = "wishlisted == 1"
+            filter = "wishlisted = 1"
             break
         case .filtering:
-            filter = "filtered == 1"
+            filter = "listed = 1"
             break
         }
         
@@ -128,14 +127,18 @@ class GamesViewController: BaseViewController {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Helper Functions
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    func initialize() {
+    func checkFilters() -> Bool {
         if shouldShowGenres {
             shouldShowGenres = false
             showGenres()
+            return true
         } else if shouldShowPlatforms {
             shouldShowPlatforms = false
             showPlatforms()
+            return true
         }
+        
+        return false
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////

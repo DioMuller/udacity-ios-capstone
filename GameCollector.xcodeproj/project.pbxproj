@@ -43,7 +43,6 @@
 		98FD1AE821EB9488005F7CEA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98FD1AE721EB9488005F7CEA /* LoadingView.xib */; };
 		98FD1AEC21EB94E2005F7CEA /* DataController+Instances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD1AE921EB94E1005F7CEA /* DataController+Instances.swift */; };
 		98FD1AED21EB94E2005F7CEA /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD1AEA21EB94E2005F7CEA /* DataController.swift */; };
-		98FD1AEE21EB94E2005F7CEA /* DataController+AutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FD1AEB21EB94E2005F7CEA /* DataController+AutoSave.swift */; };
 		98FEACA821F3BBA7005E0384 /* GameCollector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98FEACA621F3BBA7005E0384 /* GameCollector.xcdatamodeld */; };
 		AF472866F88AC91B42DE7F34 /* Pods_GameCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831491D95E95CD60A90DB887 /* Pods_GameCollector.framework */; };
 /* End PBXBuildFile section */
@@ -88,7 +87,6 @@
 		98FD1AE721EB9488005F7CEA /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		98FD1AE921EB94E1005F7CEA /* DataController+Instances.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataController+Instances.swift"; sourceTree = "<group>"; };
 		98FD1AEA21EB94E2005F7CEA /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		98FD1AEB21EB94E2005F7CEA /* DataController+AutoSave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataController+AutoSave.swift"; sourceTree = "<group>"; };
 		98FEACA721F3BBA7005E0384 /* GameCollector.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameCollector.xcdatamodel; sourceTree = "<group>"; };
 		D7E1072E13B96919210971FF /* Pods-GameCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-GameCollector/Pods-GameCollector.release.xcconfig"; sourceTree = "<group>"; };
 		E373D9343E0EC92738893C39 /* Pods-GameCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GameCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GameCollector/Pods-GameCollector.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				98FD1AEA21EB94E2005F7CEA /* DataController.swift */,
-				98FD1AEB21EB94E2005F7CEA /* DataController+AutoSave.swift */,
 				98FD1AE921EB94E1005F7CEA /* DataController+Instances.swift */,
 				98FC8F2A21F1442300E99F23 /* PersistedData.swift */,
 			);
@@ -448,7 +445,6 @@
 				98F8973021EFF9D900E4BE23 /* Constants+Keys.swift in Sources */,
 				98FAD7AF21F4E84D00C6DD9B /* GenresViewController.swift in Sources */,
 				98F8972A21EFDF9A00E4BE23 /* ImageModel.swift in Sources */,
-				98FD1AEE21EB94E2005F7CEA /* DataController+AutoSave.swift in Sources */,
 				98FD1ABB21EB75A7005F7CEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

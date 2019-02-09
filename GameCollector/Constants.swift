@@ -11,8 +11,6 @@ import UIKit
 
 class Constants {
     class Parameters {
-        // Is Auto-Saving enabled?
-        static let autoSaveEnabled = false
         // Auto-Saving time.
         static let autoSaveTime = 20.0
         // Games to be shown per page.

@@ -43,14 +43,15 @@ extension GamesViewController {
             case .favorites:
                 title = "My Collection"
                 stackSearch.isHidden = true
+                updateData()
                 break
             case .wishlist:
                 title = "Wishlist"
                 stackSearch.isHidden = true
+                updateData()
                 break
         }
         
-        updateData()
     }
     
     func showGenres() {
