@@ -19,7 +19,7 @@ extension GamesViewController {
     func changeState(_ state : GamesViewState, showGenres : Bool = false, showPlatforms : Bool = false, filterGenre : Int? = nil, filterPlatform : Int? = nil) {
         
         if currentState == state && currentState != .filtering { return }
-        
+                
         currentState = state
         shouldShowGenres = showGenres
         shouldShowPlatforms = showPlatforms
@@ -39,7 +39,6 @@ extension GamesViewController {
             case .filtering:
                 title = "Searching Games"
                 stackSearch.isHidden = false
-                clearCache()
                 break
             case .favorites:
                 title = "My Collection"
@@ -60,5 +59,11 @@ extension GamesViewController {
     
     func showPlatforms() {
         self.performSegue(withIdentifier: "showPlatforms", sender: self)
+    }
+    
+    func clearSearch() {
+        DispatchQueue.main.async {
+            self.textSearch.text = ""
+        }
     }
 }

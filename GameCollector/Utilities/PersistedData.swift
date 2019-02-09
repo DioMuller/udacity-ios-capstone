@@ -93,7 +93,7 @@ class PersistedData {
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         
-        if let result = try? controller.viewContext.fetch(fetchRequest) {
+        if let result = try? controller.context.fetch(fetchRequest) {
             return result
         } else {
             return []
@@ -105,7 +105,7 @@ class PersistedData {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     static func save() {
         do {
-            try controller.viewContext.save()
+            try controller.context.save()
         } catch {
             print("Error saving context.")
         }
@@ -120,7 +120,7 @@ class PersistedData {
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 // We won't update, since we only use the name, and that hopefully won't change.
                 if !genreList.keys.contains(Int32(item.id)) {
-                    let newItem = Genre(context: controller.viewContext)
+                    let newItem = Genre(context: controller.context)
                     newItem.id = Int32(item.id)
                     newItem.name = item.name
                     newItem.games = []
@@ -152,7 +152,7 @@ class PersistedData {
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 // We won`t update the platform data, since that should not change ever.
                 if !platformList.keys.contains(Int32(item.id)) {
-                    let newItem = Platform(context: controller.viewContext)
+                    let newItem = Platform(context: controller.context)
                     newItem.id = Int32(item.id)
                     newItem.name = item.name
                     newItem.games = []
@@ -194,7 +194,7 @@ class PersistedData {
         }
         
         do {
-            try controller.viewContext.save()
+            try controller.context.save()
         } catch {
             print("Error saving context: \(error.localizedDescription)")
             return false

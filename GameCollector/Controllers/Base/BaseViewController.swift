@@ -83,11 +83,9 @@ class BaseViewController : UIViewController {
         
     }
     
-    func save(useBackgroundContext : Bool = false) {
-        let context = useBackgroundContext ? dataController.backgroundContext : dataController.viewContext
-        
+    func save() {
         do {
-            try context.save()
+            try dataController.context.save()
         } catch {
             print("Error saving context: \(error)")
         }

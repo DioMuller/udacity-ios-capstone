@@ -90,7 +90,7 @@ class GamesViewController: BaseViewController {
     func createFetchedResultsController() -> NSFetchedResultsController<Game> {
         let fetchRequest : NSFetchRequest<Game> = createFetchRequest()
 
-        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.context, sectionNameKeyPath: nil, cacheName: nil)
     }
     
     func createFetchRequest() -> NSFetchRequest<Game> {

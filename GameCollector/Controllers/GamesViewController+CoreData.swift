@@ -72,7 +72,7 @@ extension GamesViewController : NSFetchedResultsControllerDelegate {
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        if let result = try? dataController.viewContext.fetch(fetchRequest) {
+        if let result = try? dataController.context.fetch(fetchRequest) {
             return result.first
         }
         
@@ -84,7 +84,7 @@ extension GamesViewController : NSFetchedResultsControllerDelegate {
             return existing
         }
         
-        let newItem = Image(context: dataController.viewContext)
+        let newItem = Image(context: dataController.context)
         newItem.id = Int32(id)
         return newItem
     }

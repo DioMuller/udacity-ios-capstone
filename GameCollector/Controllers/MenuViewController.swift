@@ -19,7 +19,8 @@ class MenuViewController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        
+        detailViewController?.clearSearch()
+
         switch cell?.tag {
         case 0: // All Games
             detailViewController?.changeState(.listing)

@@ -14,40 +14,26 @@ class DataController {
     // MARK: Attributes
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private let persistentContainer : NSPersistentContainer
-    private let backgroundContextInternal : NSManagedObjectContext
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Properties
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    var viewContext : NSManagedObjectContext {
+    var context : NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    
-    var backgroundContext : NSManagedObjectContext {
-        return backgroundContextInternal
-    }
-    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Constructor
     //////////////////////////////////////////////////////////////////////////////////////////////////
     internal init(modelName : String) {
         persistentContainer = NSPersistentContainer(name: modelName)
-        backgroundContextInternal = persistentContainer.newBackgroundContext()
 
-        configureContexts()
+        context.automaticallyMergesChangesFromParent = true
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    func configureContexts() {
-        viewContext.automaticallyMergesChangesFromParent = true
-        backgroundContext.automaticallyMergesChangesFromParent = true
-        
-        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
-        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
-    }
-    
     func load(completion : (() -> Void)? = nil) {
         persistentContainer.loadPersistentStores(completionHandler: { storeDescription, error in
             guard error == nil else {

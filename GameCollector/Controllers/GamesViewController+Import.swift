@@ -14,7 +14,7 @@ extension GamesViewController {
     // MARK: Game Creation/Update Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private func createGame(_ game : GameModel) -> Game {
-        let newGame = Game(context: dataController.viewContext)
+        let newGame = Game(context: dataController.context)
         
         newGame.id = Int32(game.id)
         newGame.name = game.name
@@ -53,7 +53,7 @@ extension GamesViewController {
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        if let result = try? dataController.viewContext.fetch(fetchRequest) {
+        if let result = try? dataController.context.fetch(fetchRequest) {
             return result.first
         }
         
@@ -66,12 +66,12 @@ extension GamesViewController {
         
         let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
         
-        let predicate = NSPredicate(format: "wishlisted = 0 && favorited == 0")
+        let predicate = NSPredicate(format: "cached == 1 || filtered == 1")
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        if let result = try? dataController.viewContext.fetch(fetchRequest) {
+        if let result = try? dataController.context.fetch(fetchRequest) {
             for item in result {
                 if currentState == .listing {
                     item.cached = false
@@ -96,6 +96,7 @@ extension GamesViewController {
         }
         
         loadingData = true
+        showLoading("Searching...")
         // Do any additional setup after loading the view, typically from a nib.
         var filters : [String] = []
         
@@ -113,6 +114,10 @@ extension GamesViewController {
         
         IGDBClient.instance.getGames(limit: 50, offset: refresh ? 0 : itemCount, search: search!, filters: filters) { (result, error) in
             self.loadingData = false
+            
+            DispatchQueue.main.async {
+                self.hideLoading()
+            }
             
             guard error == nil else {
                 self.showMessage("Error", error!.localizedDescription)
