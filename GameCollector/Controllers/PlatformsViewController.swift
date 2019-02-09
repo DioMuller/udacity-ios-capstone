@@ -38,8 +38,9 @@ class PlatformsViewController : BaseViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let platform = platforms[(indexPath as NSIndexPath).row]
         
-        parentList.filterPlatform = Int(platform.id)
+        parentList.changeState(.filtering, filterPlatform: Int(platform.id))
         
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+
     }
 }

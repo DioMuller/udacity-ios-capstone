@@ -75,6 +75,7 @@ extension GamesViewController {
             for item in result {
                 if currentState == .listing {
                     item.cached = false
+                    item.filtered = false
                 } else if currentState == .filtering {
                     item.filtered = false
                 }
@@ -86,6 +87,11 @@ extension GamesViewController {
     
     internal func updateItems(refresh : Bool) {
         if loadingData {
+            return
+        }
+        
+        if currentState == .wishlist || currentState == .favorites {
+            loadingData = false
             return
         }
         

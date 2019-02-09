@@ -16,13 +16,16 @@ enum GamesViewState : Int {
 }
 
 extension GamesViewController {
-    func changeState(_ state : GamesViewState, showGenres : Bool = false, showPlatforms : Bool = false) {
+    func changeState(_ state : GamesViewState, showGenres : Bool = false, showPlatforms : Bool = false, filterGenre : Int? = nil, filterPlatform : Int? = nil) {
         
-        if currentState == state { return }
+        if currentState == state && currentState != .filtering { return }
         
         currentState = state
         shouldShowGenres = showGenres
         shouldShowPlatforms = showPlatforms
+        
+        self.filterGenre = filterGenre
+        self.filterPlatform = filterPlatform
         
         refresh()
     }

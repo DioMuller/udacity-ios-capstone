@@ -69,6 +69,7 @@ class GamesViewController: BaseViewController {
             }
         } else {
             self.initialize()
+            self.updateItems(refresh: true)
         }
     }
         
@@ -142,7 +143,7 @@ class GamesViewController: BaseViewController {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     @IBAction func search(_ sender: Any) {
         if (currentState == .filtering || currentState == .listing) {
-            changeState(.filtering)
+            changeState(.filtering, filterGenre: filterGenre, filterPlatform: filterPlatform)
             updateItems(refresh: true)
         }
     }

@@ -38,8 +38,8 @@ class GenresViewController : BaseViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let genre = genres[(indexPath as NSIndexPath).row]
         
-        parentList.filterGenre = Int(genre.id)
+        parentList.changeState(.filtering, filterGenre: Int(genre.id))
         
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }
