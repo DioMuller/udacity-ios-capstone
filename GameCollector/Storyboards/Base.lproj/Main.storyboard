@@ -367,6 +367,7 @@
                     <connections>
                         <outlet property="buttonCollection" destination="l9l-dC-Pwr" id="SIA-Qp-hF5"/>
                         <outlet property="buttonWishlist" destination="7ki-4h-UIP" id="4Im-YL-iVe"/>
+                        <outlet property="constraintImageSize" destination="Fs1-d1-Oll" id="pZb-De-5CG"/>
                         <outlet property="imageCover" destination="tIW-FQ-GFb" id="ZDT-A1-UAh"/>
                         <outlet property="labelDetail" destination="Her-Ba-vnU" id="53e-zc-XfZ"/>
                         <outlet property="labelTitle" destination="Fgi-Q3-Y89" id="CxF-N1-1h8"/>

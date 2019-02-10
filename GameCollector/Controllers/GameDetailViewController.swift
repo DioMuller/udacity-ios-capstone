@@ -30,6 +30,7 @@ class GameDetailViewController : BaseViewController, TagListViewDelegate {
     @IBOutlet weak var buttonWishlist: UIBarButtonItem!
     @IBOutlet weak var listPlatforms: TagListView!
     @IBOutlet weak var listGenres: TagListView!
+    @IBOutlet weak var constraintImageSize: NSLayoutConstraint!
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: UIViewController Methods
@@ -40,8 +41,10 @@ class GameDetailViewController : BaseViewController, TagListViewDelegate {
         if let cover = game.cover, let data = cover.data  {
             imageCover.image = UIImage(data: data)
             imageCover.isHidden = false
+            constraintImageSize.constant = 300
         } else {
             imageCover.isHidden = true
+            constraintImageSize.constant = 0
         }
         
         labelTitle.text = game.name ?? "No Title"
