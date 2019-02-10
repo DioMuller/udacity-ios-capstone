@@ -76,6 +76,7 @@ class GamesViewController: BaseViewController {
 
         if let detail = segue.destination as? GameDetailViewController, let row = tableView.indexPathForSelectedRow {
             detail.game = fetchedResultController.object(at: row)
+            detail.listView = self
         } else if let genresView = segue.destination as? GenresViewController {
             genresView.parentList = self
         } else if let platformsView = segue.destination as? PlatformsViewController {
