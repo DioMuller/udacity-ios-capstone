@@ -18,7 +18,11 @@ extension GamesViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultController.sections?[section].numberOfObjects ?? 0
+        let value = fetchedResultController.sections?[section].numberOfObjects ?? 0
+        
+        tableView.backgroundView = (value == 0) ? placeholderNoGames : nil
+        
+        return value
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

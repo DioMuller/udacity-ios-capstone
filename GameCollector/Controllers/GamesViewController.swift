@@ -32,7 +32,8 @@ class GamesViewController: BaseViewController {
     @IBOutlet weak var textSearch: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stackSearch: UIStackView!
-    
+    @IBOutlet var placeholderNoGames: UILabel!
+
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Properties
     //////////////////////////////////////////////////////////////////////////////////////////////////

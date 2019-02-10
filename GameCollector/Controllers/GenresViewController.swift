@@ -15,6 +15,7 @@ class GenresViewController : BaseViewController, UITableViewDelegate, UITableVie
     var parentList : GamesViewController!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var placeholderNoGenres: UILabel!
     
     override func viewDidLoad() {
         genres = PersistedData.genres.map({ (key, value) -> Genre in
@@ -23,7 +24,11 @@ class GenresViewController : BaseViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genres.count
+        let value = genres.count
+        
+        tableView.backgroundView = (value == 0) ? placeholderNoGenres : nil
+
+        return value
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

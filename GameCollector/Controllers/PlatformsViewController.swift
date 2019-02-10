@@ -15,6 +15,7 @@ class PlatformsViewController : BaseViewController, UITableViewDelegate, UITable
     var parentList : GamesViewController!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var placeholderNoPlatforms: UILabel!
     
     override func viewDidLoad() {
         platforms = PersistedData.platforms.map({ (key, value) -> Platform in
@@ -23,7 +24,11 @@ class PlatformsViewController : BaseViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return platforms.count
+        let value = platforms.count
+        
+        tableView.backgroundView = (value == 0) ? placeholderNoPlatforms : nil
+        
+        return value
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
