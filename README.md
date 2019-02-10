@@ -5,11 +5,13 @@ This is the repository for my final project for [Udacity's iOS Developer Nanodeg
 ## Description
 GameCollector is a game finder app: the app uses the IGDB games database to find games, and the user can add those games in his collection, or on a wishlist. The user can search games by name, genre and platform.
 
-![Games Listing](/Screenshots/Screenshot01.png?raw=true "Games Listing")
-![Menu](/Screenshots/Screenshot02.png?raw=true "Menu")
-![Game Details](/Screenshots/Screenshot03.png?raw=true "Game Details")
-![Collection](/Screenshots/Screenshot04.png?raw=true "Collection")
-![Wishlist](/Screenshots/Screenshot05.png?raw=true "Wishlist")
+<p float="left">
+  <img src="/Screenshots/Screenshot01.png" alt="Games Listing" width="100"/>
+  <img src="/Screenshots/Screenshot02.png" alt="Menu" width="100"/>
+  <img src="/Screenshots/Screenshot03.png" alt="Game Details" width="100"/>
+  <img src="/Screenshots/Screenshot04.png" alt="Collection" width="100"/>
+  <img src="/Screenshots/Screenshot05.png" alt="Wishlist" width="100"/>
+</p>
 
 ## Environment
 
