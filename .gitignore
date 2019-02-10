@@ -71,6 +71,3 @@ fastlane/test_output
 Pods
 Podfile.lock
 GameCollector.xcworkspace
-
-# Keys File
-Constants+Keys.swift
