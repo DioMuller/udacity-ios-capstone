@@ -89,7 +89,7 @@ class GamesViewController: BaseViewController {
     func createFetchedResultsController() -> NSFetchedResultsController<Game> {
         let fetchRequest : NSFetchRequest<Game> = createFetchRequest()
 
-        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.context, sectionNameKeyPath: nil, cacheName: nil)
+        return NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
     }
     
     func createFetchRequest() -> NSFetchRequest<Game> {
@@ -103,11 +103,11 @@ class GamesViewController: BaseViewController {
     }
     
     internal func getPredicate() -> NSPredicate? {
-        var filter : String
+        var filter : String?
         
         switch currentState {
         case .listing:
-            filter = "listed = 1"
+            filter = "cached = 1"
             break
         case .favorites:
             filter = "favorited = 1"
@@ -116,11 +116,11 @@ class GamesViewController: BaseViewController {
             filter = "wishlisted = 1"
             break
         case .filtering:
-            filter = "listed = 1"
+            filter = "filtered = 1"
             break
         }
         
-        let predicate = NSPredicate(format: filter)
+        let predicate = filter != nil ? NSPredicate(format: filter!) : nil
         return predicate
     }
     

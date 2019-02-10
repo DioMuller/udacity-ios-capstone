@@ -92,7 +92,7 @@ class PersistedData {
         
         fetchRequest.sortDescriptors = [sortDesctiptor]
         
-        if let result = try? controller.context.fetch(fetchRequest) {
+        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
             return result
         } else {
             return []
@@ -102,9 +102,10 @@ class PersistedData {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: CoreData Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    static func save() {
+    static func save(useBackgroundContext : Bool) {
+        let context = useBackgroundContext ? controller.backgroundContext : controller.viewContext
         do {
-            try controller.context.save()
+            try context.save()
         } catch {
             print("Error saving context: \(error.localizedDescription).")
         }
@@ -118,7 +119,7 @@ class PersistedData {
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 // We won't update, since we only use the name, and that hopefully won't change.
                 if !genreList.keys.contains(Int32(item.id)) {
-                    let newItem = Genre(context: controller.context)
+                    let newItem = Genre(context: controller.backgroundContext)
                     newItem.id = Int32(item.id)
                     newItem.name = item.name
                     newItem.games = []
@@ -149,7 +150,7 @@ class PersistedData {
             let imported = importData(result: result, error: error, toExecute: { (item) in
                 // We won`t update the platform data, since that should not change ever.
                 if !platformList.keys.contains(Int32(item.id)) {
-                    let newItem = Platform(context: controller.context)
+                    let newItem = Platform(context: controller.backgroundContext)
                     newItem.id = Int32(item.id)
                     newItem.name = item.name
                     newItem.games = []
@@ -192,7 +193,7 @@ class PersistedData {
         
         // Only used for Genres and Platforms, no need to Sync for now.
         do {
-            try controller.context.save()
+            try controller.backgroundContext.save()
         } catch {
             print("Error saving context: \(error.localizedDescription)")
             return false
@@ -250,7 +251,7 @@ class PersistedData {
             
             if let imageData = try? Data(contentsOf: URL(string: cover.imageUrl!)! ) {
                 cover.data = imageData
-                save()
+                save(useBackgroundContext: true)
                 onDownloaded(cover, nil)
             } else {
                 onDownloaded(nil, CustomError("Error downloading image data."))
@@ -263,16 +264,15 @@ class PersistedData {
     // MARK: Game Creation/Update Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private static func createGame(_ game : GameModel) -> Game {
-        let newGame = Game(context: controller.context)
+        let newGame = Game(context: controller.backgroundContext)
         
         newGame.id = Int32(game.id)
         newGame.name = game.name
         newGame.summary = game.summary
         newGame.rating = game.rating ?? 0
-        newGame.listed = true
-                
+        
         if let coverId = game.cover {
-            newGame.cover = Image(context: controller.context)
+            newGame.cover = Image(context: controller.backgroundContext)
             newGame.cover!.id = Int32(coverId)
         }
         
@@ -291,8 +291,6 @@ class PersistedData {
             existing.genres = NSSet(array: PersistedData.getGenres(game))
             existing.platforms = NSSet(array: PersistedData.getPlatforms(game))
             
-            existing.listed = true
-            
             return existing
         } else {
             return createGame(game)
@@ -308,49 +306,10 @@ class PersistedData {
         fetchRequest.sortDescriptors = [sortDesctiptor]
         fetchRequest.predicate = predicate
         
-        if let result = try? controller.context.fetch(fetchRequest) {
+        if let result = try? controller.backgroundContext.fetch(fetchRequest) {
             return result.first
         }
         
         return nil
-    }
-    
-    static func clearCache() {
-        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "listed = 1")
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if let result = try? controller.context.fetch(fetchRequest) {
-            for item in result {
-                item.listed = false
-            }
-        }
-        
-        save()
-    }
-    
-    static func clearUnusedData() {
-        let fetchRequest : NSFetchRequest<Game> = Game.fetchRequest()
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        let sortDesctiptor = NSSortDescriptor(key: "id", ascending: false)
-        
-        let predicate = NSPredicate(format: "listed == 0 && wishlisted == 0 && favorited == 0")
-        
-        fetchRequest.sortDescriptors = [sortDesctiptor]
-        fetchRequest.predicate = predicate
-        
-        if var result = try? controller.context.fetch(fetchRequest) {
-            while !result.isEmpty {
-                let first = result.remove(at: 0)
-                controller.context.delete(first)
-            }
-        }
     }
 }

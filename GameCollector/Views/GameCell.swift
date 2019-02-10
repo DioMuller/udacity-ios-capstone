@@ -44,9 +44,7 @@ class GameCell : UITableViewCell {
         
         self.imageCover.image = UIImage(named: "Placeholder")
         self.activityIndicator.isHidden = false
-        
-        self.backgroundColor = game.listed ? UIColor.white : UIColor.red
-        
+                
         if let coverData = game.cover {
             if let data = coverData.data {
                 self.activityIndicator.isHidden = true

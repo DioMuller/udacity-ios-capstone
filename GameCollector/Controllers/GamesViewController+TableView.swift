@@ -44,7 +44,7 @@ extension GamesViewController : UITableViewDelegate, UITableViewDataSource {
                                             title: item.favorited ? "Remove from Collection" : "Add to Collection",
                                             handler: { (action, view, success) in
             item.favorited = !item.favorited
-            PersistedData.save()
+            PersistedData.save(useBackgroundContext: false)
             success(true)
         })
         
@@ -54,7 +54,7 @@ extension GamesViewController : UITableViewDelegate, UITableViewDataSource {
                                             title: item.wishlisted ? "Remove from Wishlist" : "Add to Wishlist",
                                             handler: { (action, view, success) in
             item.wishlisted = !item.wishlisted
-            PersistedData.save()
+            PersistedData.save(useBackgroundContext: false)
             success(true)
         })
         

@@ -83,8 +83,8 @@ class BaseViewController : UIViewController {
         
     }
     
-    func save() {
-        PersistedData.save()
+    func save(useBackgroundContext : Bool) {
+        PersistedData.save(useBackgroundContext: useBackgroundContext)
     }
     
     func cleanString(_ text : String) -> String {

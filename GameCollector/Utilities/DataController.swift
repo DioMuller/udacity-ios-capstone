@@ -14,12 +14,17 @@ class DataController {
     // MARK: Attributes
     //////////////////////////////////////////////////////////////////////////////////////////////////
     private let persistentContainer : NSPersistentContainer
+    private let backgroundContextInternal : NSManagedObjectContext
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Properties
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    var context : NSManagedObjectContext {
+    var viewContext : NSManagedObjectContext {
         return persistentContainer.viewContext
+    }
+    
+    var backgroundContext : NSManagedObjectContext {
+        return backgroundContextInternal
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,15 +32,20 @@ class DataController {
     //////////////////////////////////////////////////////////////////////////////////////////////////
     internal init(modelName : String) {
         persistentContainer = NSPersistentContainer(name: modelName)
-        
-        context.automaticallyMergesChangesFromParent = true
-        context.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+        backgroundContextInternal = persistentContainer.newBackgroundContext()
+
+        configureContexts()
     }
     
     //////////////////////////////////////////////////////////////////////////////////////////////////
     // MARK: Methods
     //////////////////////////////////////////////////////////////////////////////////////////////////
     func configureContexts() {
+        viewContext.automaticallyMergesChangesFromParent = true
+        backgroundContext.automaticallyMergesChangesFromParent = true
+        
+        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
+        backgroundContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
     }
     
     func load(completion : (() -> Void)? = nil) {

@@ -61,13 +61,13 @@ class GameDetailViewController : BaseViewController {
     
     @IBAction func toggleCollection(_ sender: Any) {
         game.favorited = !game.favorited
-        save()
+        save(useBackgroundContext: false)
         setButtonStatus()
     }
     
     @IBAction func toggleWishlist(_ sender: Any) {
         game.wishlisted = !game.wishlisted
-        save()
+        save(useBackgroundContext: false)
         setButtonStatus()
     }
 }
